@@ -31,16 +31,53 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#sidebar-projects" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebar-projects"><i class="bi bi-briefcase"></i>Kurslar</a>
+                    <a class="nav-link" href="#sidebar-projects" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebar-projects"><i class="bi bi-briefcase"></i>Courses</a>
                     <div class="collapse" id="sidebar-projects">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item"><a href="<?php echo base_url('admin/course_create'); ?>" class="nav-link">Create</a></li>
                             <li class="nav-item"><a href="<?php echo base_url('admin/course_list'); ?>" class="nav-link">List</a></li>
-                           
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#sidebar-projects1" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebar-projects"><i class="bi bi-arrow-left-right"></i>Slider</a>
+                    <div class="collapse" id="sidebar-projects1">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item"><a href="<?php echo base_url('admin/slider_create'); ?>" class="nav-link">Create</a></li>
+                            <li class="nav-item"><a href="<?php echo base_url('admin/slider_list'); ?>" class="nav-link">List</a></li>
                         </ul>
                     </div>
                 </li>
 
+
+
+            </ul>
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#sidebar-projects2" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebar-projects"><i class="bi bi-people"></i></i>Partners</a>
+                    <div class="collapse" id="sidebar-projects2">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item"><a href="<?php echo base_url('admin/partners_create'); ?>" class="nav-link">Create</a></li>
+                            <li class="nav-item"><a href="<?php echo base_url('admin/partners_list'); ?>" class="nav-link">List</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#sidebar-projects3" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebar-projects"><i class="bi bi-people"></i></i>Category</a>
+                    <div class="collapse" id="sidebar-projects3">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item"><a href="<?php echo base_url('admin/category_create'); ?>" class="nav-link">Create</a></li>
+                            <li class="nav-item"><a href="<?php echo base_url('admin/category_list'); ?>" class="nav-link">List</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
             <!-- Divider -->
             <hr class="navbar-divider my-5 opacity-20">

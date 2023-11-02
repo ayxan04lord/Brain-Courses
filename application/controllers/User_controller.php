@@ -22,8 +22,8 @@ class User_controller extends CI_Controller{
         $this->load->view('user/contact');
     }
 
-    public function services(){
-        $this->load->view('user/services');
+    public function courses(){
+        $this->load->view('user/courses');
     }
 
 

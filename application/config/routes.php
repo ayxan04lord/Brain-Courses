@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'User_controller/index';
 $route['index'] = 'User_controller/index';
 $route['about'] = 'User_controller/about';
-$route['services'] = 'User_controller/services';
+$route['courses'] = 'User_controller/courses';
 $route['contact'] = 'User_controller/contact';
 $route['blog'] = 'User_controller/blog';
 
@@ -60,8 +60,21 @@ $route['admin/login'] = 'Admin_controller/index';
 $route['admin/login'] = 'Admin_controller';
 $route['admin/dashboard'] = 'Admin_controller/dashboard';
 
+
+// Course Start
 $route['admin/course_create'] = 'Admin_controller/admin_course_create';
+$route['admin/course_create_act'] = 'Admin_controller/admin_course_create_act';
 $route['admin/course_list'] = 'Admin_controller/admin_course_list';
+// Slider Start
+$route['admin/slider_create'] = 'Admin_controller/admin_slider_create';
+$route['admin/slider_list'] = 'Admin_controller/admin_slider_list';
+// Partners Start
+$route['admin/partners_create'] = 'Admin_controller/admin_partners_create';
+$route['admin/partners_list'] = 'Admin_controller/admin_partners_list';
+// Category Start
+$route['admin/category_create'] = 'Admin_controller/admin_category_create';
+$route['admin/category_list'] = 'Admin_controller/admin_category_list';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['(:num)'] = "page/index/$1";
