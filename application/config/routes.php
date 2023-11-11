@@ -65,6 +65,7 @@ $route['admin/dashboard'] = 'Admin_controller/dashboard';
 $route['admin/course_create'] = 'Admin_controller/admin_course_create';
 $route['admin/course_create_act'] = 'Admin_controller/admin_course_create_act';
 $route['admin/course_list'] = 'Admin_controller/admin_course_list';
+$route['admin/course_edit/(.*)'] = 'Admin_controller/admin_course_edit/$1';
 // Slider Start
 $route['admin/slider_create'] = 'Admin_controller/admin_slider_create';
 $route['admin/slider_list'] = 'Admin_controller/admin_slider_list';

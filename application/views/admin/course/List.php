@@ -57,12 +57,24 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php
+                    $id_courses =1;
+                    foreach($courses_data as $course_item ): ?>
                     <tr>
-                        <td>1</td>
-                        <td>Rus dili</td>
-                        <td>Bu kursun tədrisi həftədə 3 dəfə 2 saat ərzində həyata keçirilir.</td>
-                        <td><img src="<?php echo base_url('public/assets'); ?>" alt=""></td>
+                        <td><?= $id_courses; ?></td>
+                        <td><?= $course_item["c_title"]; ?></td>
+                        <td><?= $course_item["c_desc"]; ?></td>
+                        <td><img src="<?php echo base_url('uploads/courses/'.$course_item['c_img']); ?>" alt="" width="150px"></td>
+                        <td>
+                            <a href="<?php echo base_url('admin/course_edit/').$course_item['c_id']; ?>" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
+                                    <span class=" pe-2">
+                                        <i class="bi bi-pencil"></i>
+                                    </span>
+                                    <span>Edit</span>
+                                </a>
+                            </td>
                     </tr>
+                    <?php endforeach; ?>
                 </tbody>
                         </table>
                     </div>

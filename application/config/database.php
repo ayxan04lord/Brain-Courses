@@ -79,7 +79,7 @@ $db['default'] = array(
 
 	'username' => 'root',
 	'password' => '',
-	'database' => '',
+	'database' => 'brain_courses',
 	
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

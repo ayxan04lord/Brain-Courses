@@ -5,6 +5,7 @@ class Admin_controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Admin_model');
     }
 
     public function index()
@@ -28,38 +29,44 @@ class Admin_controller extends CI_Controller
         $course_select_option = $this->input->post("course_select_option", TRUE);
         $course_description = $this->input->post('course_description', TRUE);
         $course_status = $this->input->post('course_status', TRUE);
-
-        $config['upload_path']          = './upload/courses';
-
+        $config['upload_path'] = './uploads/courses';
+        $config["allowed_types"] = "png|PNG|jpg|JPG|jpeg|JPEG";
         $this->load->library('upload', $config);
-        // $this->upload->initialize($config);
-        $this->upload->do_upload('file_upload');
-
-        if (true) {
+        $this->upload->initialize($config);
+        if ($this->upload->do_upload('file_upload')) {
             $upload_slider_img = $this->upload->data();
-
-            print_r("<pre>");
-            die();
-
             $data = [
                 'c_title' => $course_title,
                 'c_desc' => $course_description,
                 'c_img' => $upload_slider_img['file_name'],
                 'c_category' => $course_select_option,
-                'c_status' => str_contains($course_status,'on') ? TRUE : FALSE,
-                
+                'c_status' => str_contains($course_status,'on') ? TRUE : FALSE
             ];
-
-            
-
             $this->db->insert('courses', $data);
-            redirect(base_url('l_slider'));
+            redirect(base_url('admin/course_list'));
+        }
+        else{
+            $data = [
+                'c_title' => $course_title,
+                'c_desc' => $course_description,
+                'c_category' => $course_select_option,
+                'c_status' => str_contains($course_status,'on') ? TRUE : FALSE
+            ];
+            $this->db->insert('courses', $data);
+            redirect(base_url('admin/course_list'));
         }
     }
 
     public function admin_course_list()
     {
-        $this->load->view('admin/course/List');
+        $data["courses_data"] = $this->Admin_model->courses_get_all();
+        $this->load->view('admin/course/List',$data);
+    }
+
+    public function admin_course_edit($id)
+    {
+        $data["course_data"] = $this->Admin_model->courses_get_id($id);
+        $this->load->view('admin/course/Edit',$data);
     }
 
     public function admin_slider_create()
