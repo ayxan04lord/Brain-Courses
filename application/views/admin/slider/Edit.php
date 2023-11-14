@@ -15,7 +15,7 @@
                     <div class="row align-items-center my-4">
                         <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                             <!-- Title -->
-                            <h1 class="h2 mb-0 ls-tight">Courses</h1>
+                            <h1 class="h2 mb-0 ls-tight">Slider</h1>
                         </div>
                         <!-- Actions -->
 
@@ -32,15 +32,20 @@
 
                 <div class="card shadow border-0 mb-7">
                     <div class="card-header">
-                        <h5 class="mb-0">Create</h5>
+                        <h5 class="mb-0">Edit</h5>
                     </div>
                     <div class="card-body">
-                        <form action="<?= base_url('admin_course_create_act'); ?>" method="POST" enctype="multipart/form-data" id="course_form">
+                        <form action="<?= base_url('admin_slider_edit_act/'.$slider_data['sl_id']); ?>" method="POST" enctype="multipart/form-data" id="course_form">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="col-md-12">
-                                        <label for="course_title">Course Title</label>
-                                        <input type="text" name="course_title" class="form-control" id="course_title" placeholder="Project name">
+                                        <label for="slider_title">Slider Title</label>
+                                        <input value="<?php echo $slider_data['sl_title']; ?>" type="text" name="slider_title" class="form-control" id="slider_title" placeholder="Project name">
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <label for="slider_link">Link</label>
+                                        <input value="<?php echo $slider_data['sl_link']; ?>" type="text" name="slider_link" class="form-control" id="slider_link" placeholder="Link">
                                     </div>
 
                                     <div class="col-md-12">
@@ -58,37 +63,31 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <select name="course_select_option" class="form-select mt-3" aria-label="Default select example">
-                                            <option selected="selected">Category</option>
-                                            <option value="1">Language</option>
-                                            <option value="2">IT</option>
-                                        </select>
                                     </div>
 
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="course_description">Course Description</label>
-                                    <textarea name="course_description" id="course_description" rows="9" class="form-control"></textarea>
+                                    <label for="slider_description">Slider Description</label>
+                                    <textarea name="slider_description" id="slider_description" rows="9" class="form-control"><?php echo $slider_data['sl_description']; ?></textarea>
                                     <div class="row mt-3">
-                                        <div class="form-check form-switch me-n2"><input class="form-check-input" type="checkbox" name="course_status" id="switch-dark-mode"></div>
+                                        <div class="form-check form-switch me-n2"><input  class="form-check-input" type="checkbox" name="slider_status" id="switch-dark-mode" <?= $slider_data['sl_status'] ? 'checked': '' ; ?>></div>
                                     </div>
                                 </div>
                             </div>
                     </div>
-
+                    <button type="submit" class="btn d-inline-flex btn-sm btn-primary mx-1" form="course_form">
+                        <span class=" pe-2">
+                            <i class="bi bi-plus"></i>
+                        </span>
+                        <span>Create</span>
+                    </button>
                     </form>
                     <div class="card-footer border-0 py-5">
 
                         <div class="d-flex flex-row justify-content-end mx-n1">
 
-                            <button type="submit" class="btn d-inline-flex btn-sm btn-primary mx-1" form="course_form">
-                            <span>Create</span>
 
-                            <span class=" pe-2 ml-3">
-                                    <i class="bi bi-plus"></i>
-                                </span>
-                            </button>
                         </div>
 
                     </div>

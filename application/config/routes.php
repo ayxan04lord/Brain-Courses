@@ -51,8 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'User_controller/index';
 $route['index'] = 'User_controller/index';
-$route['about'] = 'User_controller/about';
 $route['courses'] = 'User_controller/courses';
+$route['partners'] = 'User_controller/partners';
 $route['contact'] = 'User_controller/contact';
 $route['blog'] = 'User_controller/blog';
 
@@ -62,20 +62,34 @@ $route['admin/dashboard'] = 'Admin_controller/dashboard';
 
 
 // Course Start
-$route['admin/course_create'] = 'Admin_controller/admin_course_create';
-$route['admin/course_create_act'] = 'Admin_controller/admin_course_create_act';
-$route['admin/course_list'] = 'Admin_controller/admin_course_list';
-$route['admin/course_edit/(.*)'] = 'Admin_controller/admin_course_edit/$1';
+$route['admin_course_create'] = 'Admin_controller/admin_course_create';
+$route['admin_course_create_act'] = 'Admin_controller/admin_course_create_act';
+$route['admin_course_list'] = 'Admin_controller/admin_course_list';
+$route['admin_course_edit/(.*)'] = 'Admin_controller/admin_course_edit/$1';
+$route['admin_course_edit_act/(.*)'] = 'Admin_controller/admin_course_edit_act/$1';
+$route['admin_course_delete/(.*)'] = 'Admin_controller/admin_course_delete/$1';
 // Slider Start
-$route['admin/slider_create'] = 'Admin_controller/admin_slider_create';
-$route['admin/slider_list'] = 'Admin_controller/admin_slider_list';
+$route['admin_slider_create'] = 'Admin_controller/admin_slider_create';
+$route['admin_slider_create_act'] = 'Admin_controller/admin_slider_create_act';
+$route['admin_slider_list'] = 'Admin_controller/admin_slider_list';
+$route['admin_slider_edit/(.*)'] = 'Admin_controller/admin_slider_edit/$1';
+$route['admin_slider_edit_act/(.*)'] = 'Admin_controller/admin_slider_edit_act/$1';
+$route['admin_slider_delete/(.*)'] = 'Admin_controller/admin_slider_delete/$1';
 // Partners Start
-$route['admin/partners_create'] = 'Admin_controller/admin_partners_create';
-$route['admin/partners_list'] = 'Admin_controller/admin_partners_list';
+$route['admin_partners_create'] = 'Admin_controller/admin_partners_create';
+$route['admin_partners_create_act'] = 'Admin_controller/admin_partners_create_act';
+$route['admin_partners_list'] = 'Admin_controller/admin_partners_list';
+$route['admin_partners_edit/(.*)'] = 'Admin_controller/admin_partners_edit/$1';
+$route['admin_partners_edit_act/(.*)'] = 'Admin_controller/admin_partners_edit_act/$1';
+$route['admin_partners_delete/(.*)'] = 'Admin_controller/admin_partners_delete/$1';
 // Category Start
-$route['admin/category_create'] = 'Admin_controller/admin_category_create';
-$route['admin/category_list'] = 'Admin_controller/admin_category_list';
+$route['admin_category_create'] = 'Admin_controller/admin_category_create';
+$route['admin_category_create_act'] = 'Admin_controller/admin_category_create_act';
+$route['admin_category_list'] = 'Admin_controller/admin_category_list';
+$route['admin_category_edit/(.*)'] = 'Admin_controller/admin_category_edit/$1';
+$route['admin_category_edit_act/(.*)'] = 'Admin_controller/admin_category_edit_act/$1';
+$route['admin_category_delete/(.*)'] = 'Admin_controller/admin_category_delete/$1';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['(:num)'] = "page/index/$1";
+

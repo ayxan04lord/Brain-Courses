@@ -15,22 +15,18 @@
                     <div class="row align-items-center my-4">
                         <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                             <!-- Title -->
-                            <h1 class="h2 mb-0 ls-tight">Kurslar</h1>
+                            <h1 class="h2 mb-0 ls-tight">Slider</h1>
                         </div>
                         <!-- Actions -->
                         <div class="col-sm-6 col-12 text-sm-end">
                             <div class="mx-n1">
-                                <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
-                                    <span class=" pe-2">
-                                        <i class="bi bi-pencil"></i>
-                                    </span>
-                                    <span>Edit</span>
-                                </a>
-                                <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1">
-                                    <span class=" pe-2">
+                                
+                                <a href="<?= base_url('admin_slider_create'); ?>" class="btn d-inline-flex btn-sm btn-primary mx-1">
+                                <span>Create</span>
+                                <span class="pe-2 mr-3">
                                         <i class="bi bi-plus"></i>
                                     </span>
-                                    <span>Create</span>
+                                    
                                 </a>
                             </div>
                         </div>
@@ -51,18 +47,40 @@
                         <thead>
                     <tr>
                         <th>#</th>
-                        <th>Course Title</th>
-                        <th>Course Description</th>
+                        <th>Slider Title</th>
+                        <th>Slider Description</th>
+                        <th>Link</th>
                         <th>Img</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?=
+                    $id_slider =1;
+                    foreach($slider_data as $slider_item ): ?>
                     <tr>
-                        <td>1</td>
-                        <td>Rus dili</td>
-                        <td>Bu kursun tədrisi həftədə 3 dəfə 2 saat ərzində həyata keçirilir.</td>
-                        <td><img src="<?php echo base_url('public/assets'); ?>" alt=""></td>
+                        <td><?= $id_slider++; ?></td>
+                        <td><?= $slider_item["sl_title"]; ?></td>
+                        <td><?= $slider_item["sl_description"]; ?></td>
+                        <td><?= $slider_item["sl_link"]; ?></td>
+                        <td><img src="<?php echo base_url('uploads/slider/'.$slider_item['sl_img']); ?>" alt="" width="150px"></td>
+                        <td><?= $slider_item["sl_status"]; ?></td>
+                        <td>
+                            <a  href="<?php echo base_url('admin_slider_edit/').$slider_item['sl_id']; ?>" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
+                                    <button type="submit" class=" pe-2">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <span>Edit</span>
+                            </a>
+                            <a onclick="return confirm('Are you sure want to delete this item?')" href="<?php echo base_url('admin_slider_delete/').$slider_item['sl_id']; ?>" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
+                                    <button type="submit" class=" pe-2">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                    <span>Delete</span>
+                            </a>
+                        </td>
                     </tr>
+                    <?php endforeach; ?>
                 </tbody>
                         </table>
                     </div>

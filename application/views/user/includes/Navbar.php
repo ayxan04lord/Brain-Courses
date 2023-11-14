@@ -15,8 +15,8 @@
          <li class="nav-item <?= $current_segment == 'courses' ? 'active' : ''; ?>">
             <a class="nav-link" href="<?php echo base_url('courses'); ?>">KURSLAR</a>
          </li>
-         <li class="nav-item <?= $current_segment == 'about' ? 'active' : ''; ?>">
-            <a class="nav-link" href="<?php echo base_url('about'); ?>">HAQQIMIZDA</a>
+         <li class="nav-item <?= $current_segment == 'partners' ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?php echo base_url('partners'); ?>">ƏMƏKDAŞLIQ</a>
          </li>
          <li class="nav-item <?= $current_segment == 'contact' ? 'active' : ''; ?>">
             <a class="nav-link" href="<?php echo base_url('contact'); ?>">ƏLAQƏ</a>

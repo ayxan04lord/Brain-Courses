@@ -15,22 +15,18 @@
                     <div class="row align-items-center my-4">
                         <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                             <!-- Title -->
-                            <h1 class="h2 mb-0 ls-tight">Kurslar</h1>
+                            <h1 class="h2 mb-0 ls-tight">Courses</h1>
                         </div>
                         <!-- Actions -->
                         <div class="col-sm-6 col-12 text-sm-end">
                             <div class="mx-n1">
-                                <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
-                                    <span class=" pe-2">
-                                        <i class="bi bi-pencil"></i>
-                                    </span>
-                                    <span>Edit</span>
-                                </a>
-                                <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1">
-                                    <span class=" pe-2">
+                                
+                                <a href="<?= base_url('admin_course_create'); ?>" class="btn d-inline-flex btn-sm btn-primary mx-1">
+                                <span>Create</span>
+                                <span class=" pe-2 mr-3">
                                         <i class="bi bi-plus"></i>
                                     </span>
-                                    <span>Create</span>
+                                    
                                 </a>
                             </div>
                         </div>
@@ -54,6 +50,7 @@
                         <th>Course Title</th>
                         <th>Course Description</th>
                         <th>Img</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,18 +58,25 @@
                     $id_courses =1;
                     foreach($courses_data as $course_item ): ?>
                     <tr>
-                        <td><?= $id_courses; ?></td>
+                        <td><?= $id_courses++; ?></td>
                         <td><?= $course_item["c_title"]; ?></td>
-                        <td><?= $course_item["c_desc"]; ?></td>
-                        <td><img src="<?php echo base_url('uploads/courses/'.$course_item['c_img']); ?>" alt="" width="150px"></td>
+                        <td><p class="text-truncate" style="max-width:256px;"><?= $course_item["c_desc"]; ?></p></td>
+                        <td><a href="<?php echo base_url('uploads/courses/'.$course_item['c_img']); ?>"><img src="<?php echo base_url('uploads/courses/'.$course_item['c_img']); ?>" alt="" style="object-fit: cover; object-position:top; width:150px; height:150px; aspect-ratio:initial;"></a></td>
+                        <td><?= $course_item["c_status"]; ?></td>
                         <td>
-                            <a href="<?php echo base_url('admin/course_edit/').$course_item['c_id']; ?>" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
-                                    <span class=" pe-2">
+                            <a  href="<?php echo base_url('admin_course_edit/').$course_item['c_id']; ?>" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
+                                    <button type="submit" class=" pe-2">
                                         <i class="bi bi-pencil"></i>
-                                    </span>
+                                    </button>
                                     <span>Edit</span>
-                                </a>
-                            </td>
+                            </a>
+                            <a onclick="return confirm('Are you sure want to delete this item?')" href="<?php echo base_url('admin_course_delete/').$course_item['c_id']; ?>" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
+                                    <button type="submit" class=" pe-2">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                    <span>Delete</span>
+                            </a>
+                        </td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

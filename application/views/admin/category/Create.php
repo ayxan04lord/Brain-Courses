@@ -15,7 +15,7 @@
                     <div class="row align-items-center my-4">
                         <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                             <!-- Title -->
-                            <h1 class="h2 mb-0 ls-tight">Kurslar</h1>
+                            <h1 class="h2 mb-0 ls-tight">Category</h1>
                         </div>
                         <!-- Actions -->
 
@@ -29,41 +29,32 @@
         <main class="py-6 bg-surface-secondary">
             <div class="container-fluid">
                 <!-- Card stats -->
-
                 <div class="card shadow border-0 mb-7">
                     <div class="card-header">
                         <h5 class="mb-0">Create</h5>
                     </div>
                     <div class="card-body">
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="col-md-12">
-                                    <label for="course_title">Category</label>
-                                    <input type="text" name="course_title" class="form-control" id="course_title" placeholder="Project name">
+                        <form action="<?= base_url('admin_category_create_act'); ?>" method="POST" enctype="multipart/form-data" id="category_form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="col-md-12">
+                                        <label for="course_category">Category</label>
+                                        <input type="text" name="course_category" class="form-control" id="course_category" placeholder="Category name">
+                                    </div>
                                 </div>
-
-                              
-
                             </div>
- 
-                           
-                            
-
-
-
-                        </div>
+                        </form>
                     </div>
                     <div class="card-footer border-0 py-5">
 
                         <div class="d-flex flex-row justify-content-end mx-n1">
 
-                            <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1">
-                                <span class=" pe-2">
+                            <button type="submit" class="btn d-inline-flex btn-sm btn-primary mx-1" form="category_form">
+                            <span>Create</span>
+                            <span class=" pe-2 ml-3">
                                     <i class="bi bi-plus"></i>
                                 </span>
-                                <span>Create</span>
-                            </a>
+                            </button>
                         </div>
 
                     </div>
