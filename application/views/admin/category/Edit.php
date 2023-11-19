@@ -34,12 +34,12 @@
                         <h5 class="mb-0">Edit</h5>
                     </div>
                     <div class="card-body">
-                        <form action="<?= base_url('admin_category_edit_act'); ?>" method="POST" enctype="multipart/form-data" id="category_form">
+                        <form action="<?= base_url('admin_category_edit_act/'.$category_data['cg_id']); ?>" method="POST" enctype="multipart/form-data" id="category_form">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="col-md-12">
                                         <label for="course_category">Category</label>
-                                        <input type="text" name="course_category" class="form-control" id="course_category" placeholder="Category name">
+                                        <input value="<?php echo $category_data['cg_name']; ?>" type="text" name="course_category" class="form-control" id="course_category" placeholder="Category name">
                                     </div>
                                 </div>
                             </div>
@@ -47,13 +47,13 @@
                     </div>
                     <div class="card-footer border-0 py-5">
                         <div class="d-flex flex-row justify-content-end mx-n1">
-                            <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1">
-                                <span>Edit</span>
-                                <span class=" pe-2 ml-3">
-                                    <i class="bi bi-pencil"></i>
-                                </span>
-
-                            </a>
+                        <button type="submit" class="btn d-inline-flex btn-sm btn-primary mx-1" form="category_form">
+                        <span>Edit</span>
+                        <span class=" pe-2">
+                            <i class="bi bi-pencil"></i>
+                        </span>
+                        
+                    </button>
                         </div>
 
                     </div>

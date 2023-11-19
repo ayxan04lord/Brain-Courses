@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
         <meta name="color-scheme" content="dark light" />
-        <title>Clever Dashboard | Made by Webpixels</title>
+        <title>Brain Dashboard</title>
         <link rel="stylesheet" type="text/css" href="https://clever.webpixels.io/css/main.css" />
         <link rel="stylesheet" type="text/css" href="https://clever.webpixels.io/css/utilities.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

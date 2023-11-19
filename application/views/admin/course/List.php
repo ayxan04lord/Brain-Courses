@@ -61,7 +61,7 @@
                         <td><?= $id_courses++; ?></td>
                         <td><?= $course_item["c_title"]; ?></td>
                         <td><p class="text-truncate" style="max-width:256px;"><?= $course_item["c_desc"]; ?></p></td>
-                        <td><a href="<?php echo base_url('uploads/courses/'.$course_item['c_img']); ?>"><img src="<?php echo base_url('uploads/courses/'.$course_item['c_img']); ?>" alt="" style="object-fit: cover; object-position:top; width:150px; height:150px; aspect-ratio:initial;"></a></td>
+                        <td><a target="_blank" href="<?php echo base_url('uploads/courses/'.$course_item['c_img']); ?>"><img src="<?php echo base_url('uploads/courses/'.$course_item['c_img']); ?>" alt="" style="object-fit: cover; object-position:top; width:150px; height:150px; aspect-ratio:initial;"></a></td>
                         <td><?= $course_item["c_status"]; ?></td>
                         <td>
                             <a  href="<?php echo base_url('admin_course_edit/').$course_item['c_id']; ?>" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">

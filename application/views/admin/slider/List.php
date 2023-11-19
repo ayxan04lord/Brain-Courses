@@ -55,6 +55,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                
                     <?=
                     $id_slider =1;
                     foreach($slider_data as $slider_item ): ?>
@@ -63,7 +64,7 @@
                         <td><?= $slider_item["sl_title"]; ?></td>
                         <td><?= $slider_item["sl_description"]; ?></td>
                         <td><?= $slider_item["sl_link"]; ?></td>
-                        <td><img src="<?php echo base_url('uploads/slider/'.$slider_item['sl_img']); ?>" alt="" width="150px"></td>
+                        <td><a target="_blank" href="<?php echo base_url('uploads/slider/'.$slider_item['sl_img']); ?>"><img src="<?php echo base_url('uploads/slider/'.$slider_item['sl_img']); ?>" alt="" style="object-fit: cover; object-position:top; width:150px; height:150px; aspect-ratio:initial;"></a></td>
                         <td><?= $slider_item["sl_status"]; ?></td>
                         <td>
                             <a  href="<?php echo base_url('admin_slider_edit/').$slider_item['sl_id']; ?>" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">

@@ -5,7 +5,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Brand -->
-        <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="<?php echo base_url('admin/dashboard'); ?>">
+        <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="<?php echo base_url('admin_dashboard'); ?>">
             <img src="https://preview.webpixels.io/web/img/logos/clever-primary.svg" alt="...">
         </a>
         <!-- User menu (mobile) -->
@@ -93,7 +93,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" onclick="return confirm('Are you sure to logOut?')" href="<?php echo base_url('admin_logout') ?>">
                         <i class="bi bi-box-arrow-left"></i> Logout
                     </a>
                 </li>

@@ -56,9 +56,10 @@ $route['partners'] = 'User_controller/partners';
 $route['contact'] = 'User_controller/contact';
 $route['blog'] = 'User_controller/blog';
 
-$route['admin/login'] = 'Admin_controller/index';
-$route['admin/login'] = 'Admin_controller';
-$route['admin/dashboard'] = 'Admin_controller/dashboard';
+$route['admin_login'] = 'Admin_controller/index';
+$route['admin_login_act'] = 'Admin_controller/login_action';
+$route['admin_logout'] = 'Admin_controller/logOut';
+$route['admin_dashboard'] = 'Admin_controller/dashboard';
 
 
 // Course Start
