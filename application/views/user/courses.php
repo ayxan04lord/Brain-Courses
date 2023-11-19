@@ -17,7 +17,7 @@
                   display: none;
                }
             </style>
-            <h1 class="services_taital"><span style="color: #fcce2d">Bizim</span> Kurslarımız</h1>
+            <h1 class="services_taital">Bizim Kurslarımız</h1>
             <div class="services_section_2">
                <div class="row mb-5">
                <?php foreach($courses_data as $courses_item): ?>
@@ -29,7 +29,9 @@
                            <div class="seemore_text"><?php echo $courses_item['c_title']; ?></div>
                            <div class="seemore_text text-truncate" style="word-wrap: break-word;"><?php echo $courses_item['c_desc']; ?></div>
                         </div>
+                       
                      </div>
+                     <div class="seemore_text mt-5" style="color:black"><b><?php echo $courses_item['cg_name']; ?></b></div>
                   </div>
                   <?php endif; ?>
                <?php endforeach; ?>

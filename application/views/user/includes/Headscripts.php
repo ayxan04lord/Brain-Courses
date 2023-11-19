@@ -22,7 +22,7 @@
       <!-- Responsive-->
       <link rel="stylesheet" href="<?php echo base_url('public/assets/css/responsive.css'); ?>">
       <!-- fevicon -->
-      <link rel="icon" href="<?php echo base_url('public/assets/images/fevicon.png'); ?>" type="image/gif" />
+      <link rel="shortcut icon" href="<?php echo base_url('public/assets/images/favicon.ico'); ?>" type="image/x-icon">
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="<?php echo base_url('public/assets/css/jquery.mCustomScrollbar.min.css'); ?>">
       <!-- Tweaks for older IEs-->

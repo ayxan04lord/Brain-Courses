@@ -19,7 +19,8 @@ class Admin_model extends CI_Model
 
     public function courses_get_all()
     {
-        return $this->db->order_by('c_id','DESC')->get("courses")->result_array();
+
+        return $this->db->order_by('c_id','DESC')->join('category','cg_id=c_category', 'left')->get("courses")->result_array();
     }
 
     public function courses_get_id($id){

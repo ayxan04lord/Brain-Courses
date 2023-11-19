@@ -35,7 +35,7 @@
                         <h5 class="mb-0">Edit</h5>
                     </div>
                     <div class="card-body">
-                        <form action="<?= base_url('admin_course_edit_act/'.$course_data['c_id']); ?>" method="POST" enctype="multipart/form-data" id="course_form">
+                        <form action="<?= base_url('admin_course_edit_act/' . $course_data['c_id']); ?>" method="POST" enctype="multipart/form-data" id="course_form">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="col-md-12">
@@ -44,7 +44,7 @@
                                     </div>
 
                                     <div class="col-md-12">
-                                        <div  class="rounded border border-2 border-dashed border-primary-hover position-relative mt-3">
+                                        <div class="rounded border border-2 border-dashed border-primary-hover position-relative mt-3">
                                             <div style="background-size:170px; background-repeat:no-repeat; background-position:0px center; background-image: url('../uploads/courses/<?php echo $course_data['c_img']; ?>');" class="d-flex justify-content-center px-5 py-5">
                                                 <label for="file_upload" class="position-absolute w-full h-full top-0 start-0 cursor-pointer">
                                                     <input id="file_upload" name="file_upload" type="file" class="visually-hidden">
@@ -60,8 +60,9 @@
                                         </div>
                                         <select name="course_select_option" class="form-select mt-3" aria-label="Default select example">
                                             <option>Category</option>
-                                            <option <?= $course_data['c_category']==="1" ? 'selected' : ''; ?> value="1">Language</option>
-                                            <option <?= $course_data['c_category']==="2" ? 'selected' : '' ; ?> value="2">IT</option>
+                                            <?php foreach ($categories_list as $category) : ?>
+                                                <option <?= $course_data['c_category'] == $category['cg_id'] ? 'selected' : ''; ?> value="<?php echo $category['cg_id']; ?>"><?php echo $category['cg_name']; ?></option>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
 
@@ -71,21 +72,25 @@
                                     <label for="course_description">Course Description</label>
                                     <textarea name="course_description" id="course_description" rows="9" class="form-control"><?php echo $course_data['c_desc']; ?></textarea>
                                     <div class="row mt-3">
-                                        <div class="form-check form-switch me-n2"><input  class="form-check-input" type="checkbox" name="course_status" id="switch-dark-mode" <?= $course_data['c_status'] ? 'checked': '' ; ?>></div>
+                                        <div class="form-check form-switch me-n2"><input class="form-check-input" type="checkbox" name="course_status" id="switch-dark-mode" <?= $course_data['c_status'] ? 'checked' : ''; ?>></div>
                                     </div>
                                 </div>
                             </div>
                     </div>
-                    <button type="submit" class="btn d-inline-flex btn-sm btn-primary mx-1" form="course_form">
-                        <span class=" pe-2">
-                            <i class="bi bi-pencil"></i>
-                        </span>
-                        <span>Edit</span>
-                    </button>
                     </form>
                     <div class="card-footer border-0 py-5">
 
                         <div class="d-flex flex-row justify-content-end mx-n1">
+                            <div class="col-md-3">
+                                <button type="submit" class="btn d-inline-flex btn-sm btn-primary mx-1" form="course_form">
+                                    <span>Edit</span>
+                                    <span class=" pe-2">
+                                        <i class="bi bi-pencil"></i>
+                                    </span>
+                                </button>
+                            </div>
+
+
 
 
                         </div>

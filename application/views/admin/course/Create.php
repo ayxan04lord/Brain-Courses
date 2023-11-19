@@ -60,8 +60,10 @@
                                         </div>
                                         <select name="course_select_option" class="form-select mt-3" aria-label="Default select example">
                                             <option selected="selected">Category</option>
-                                            <option value="1">Language</option>
-                                            <option value="2">IT</option>
+                                           <?php foreach($categories_list as $category): ?>
+                                            <option value="<?php echo $category['cg_id']; ?>"><?php echo $category['cg_name']; ?></option>
+                                            <?php endforeach; ?>
+                                            
                                         </select>
                                     </div>
 

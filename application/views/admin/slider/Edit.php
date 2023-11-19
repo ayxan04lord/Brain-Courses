@@ -35,7 +35,7 @@
                         <h5 class="mb-0">Edit</h5>
                     </div>
                     <div class="card-body">
-                        <form action="<?= base_url('admin_slider_edit_act/'.$slider_data['sl_id']); ?>" method="POST" enctype="multipart/form-data" id="course_form">
+                        <form action="<?= base_url('admin_slider_edit_act/' . $slider_data['sl_id']); ?>" method="POST" enctype="multipart/form-data" id="course_form">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="col-md-12">
@@ -71,26 +71,32 @@
                                     <label for="slider_description">Slider Description</label>
                                     <textarea name="slider_description" id="slider_description" rows="9" class="form-control"><?php echo $slider_data['sl_description']; ?></textarea>
                                     <div class="row mt-3">
-                                        <div class="form-check form-switch me-n2"><input  class="form-check-input" type="checkbox" name="slider_status" id="switch-dark-mode" <?= $slider_data['sl_status'] ? 'checked': '' ; ?>></div>
+                                        <div class="form-check form-switch me-n2"><input class="form-check-input" type="checkbox" name="slider_status" id="switch-dark-mode" <?= $slider_data['sl_status'] ? 'checked' : ''; ?>></div>
                                     </div>
                                 </div>
                             </div>
+                        </form>
                     </div>
-                    <button type="submit" class="btn d-inline-flex btn-sm btn-primary mx-1" form="course_form">
-                        <span class=" pe-2">
-                            <i class="bi bi-plus"></i>
-                        </span>
-                        <span>Create</span>
-                    </button>
-                    </form>
                     <div class="card-footer border-0 py-5">
-
                         <div class="d-flex flex-row justify-content-end mx-n1">
+                            <button type="submit" class="btn d-inline-flex btn-sm btn-primary mx-1" form="course_form">
 
+                                <span>Edit</span>
+                                <span class=" pe-2">
+                                    <i class="bi bi-pencil"></i>
+                                </span>
 
+                            </button>
                         </div>
 
                     </div>
+
+
+
+
+
+
+
                 </div>
 
 

@@ -9,55 +9,38 @@
          </div>
       </div>
       <!--banner section start -->
-      <div class="banner_section layout_padding">
-         <div id="my_slider" class="carousel slide" data-ride="carousel">
+      <div class="banner_section layout_padding p-5">
+         <div id="my_slider"  class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-               <div class="carousel-item active">
-                  <div class="container">
-                     <div class="banner_taital_main">
+               <?php $u_id_counter = 1; ?>
+               <?php foreach ($slider_data as $slider_item) : ?>
+                  
+                  <div class="carousel-item <?= $u_id_counter==1?'active':''; ?>">
+                  <?php $u_id_counter++; ?>
+                     <div class="container">
+                        <div class="banner_taital_main">
+                        <?php if($slider_item['sl_status']): ?>
                         <div class="row">
+                 
                            <div class="col-md-6">
-                              <h1 class="banner_taital">Brain Kursları</h1>
-                              <p class="banner_text">Kursumuzda xarici dil kursları keçirilir və hər kursun davam etmə müddəti 6 aydır. Kursda peşəkar müəllimlər və təcrübəli professorlar dərs keçir. Yeni dil öyrənmək istəyən hər tələbə buyura bilər.</p>
-                              <div class="btn_main">
-                                 <div class="about_bt active"><a href="<?php echo base_url('about'); ?>">Haqqımızda</a></div>
-                                 <div class="quote_bt"><a href="#">Qiymətini öyrən</a></div>
-                              </div>
-                           </div>
-                           <div class="col-md-6">
-                              <div class="image_1"><img src="<?php echo base_url('public/assets/images/img-1.png'); ?>"></div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="carousel-item">
-                  <div class="container">
-                     <div class="banner_taital_main">
-                        <div class="row">
-                           <div class="col-md-6">
-                              <h1 class="banner_taital">Kurslarımız</h1>
-                              <p class="banner_text">
-                                 <b>Kursumuzda bir çox dil üzrə tədris var. Bunlar :</b>
-                              <ol style="color:red">
-                                 <li>İngilis dili</li>
-                                 <li>Rus dili</li>
-                                 <li>Türk dili</li>
-                                 <li>Alman dili</li>
-                              </ol>
-                              </p>
+                              <h1 class="banner_taital"><?php echo $slider_item['sl_title']; ?></h1>
+                              <p class="banner_text"><?php echo $slider_item['sl_description']; ?></p>
                               <div class="btn_main">
                                  <div class="about_bt"><a href="<?php echo base_url('about'); ?>">Haqqımızda</a></div>
                                  <div class="quote_bt"><a href="#">Qiymətini öyrən</a></div>
                               </div>
                            </div>
                            <div class="col-md-6">
-                              <div class="image_1"><img src="<?php echo base_url('public/assets/images/img-1.png'); ?>"></div>
+                              <div class="image_1"><img style="width:350px; height:350px !important;" src="<?php echo base_url('uploads/slider/').$slider_item['sl_img']; ?>"></div>
                            </div>
+                
+                        </div>
+                        <?php endif; ?>
                         </div>
                      </div>
                   </div>
-               </div>
+               <?php endforeach; ?>
+               
 
             </div>
             <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
@@ -79,10 +62,11 @@
                   display: none;
                }
             </style>
-            <h1 class="services_taital"><span style="color: #fcce2d">Bizim</span> Kurslarımız</h1>
+            <h1 class="services_taital">Bizim Kurslarımız</h1>
             <div class="services_section_2">
                <div class="row mb-5">
                <?php foreach($courses_data as $courses_item): ?>
+                  <?php if($courses_item['c_status']): ?>
                   <div class="col-md-6">
                      <div class="image_main">
                         <img src="<?php echo base_url('uploads/courses/').$courses_item['c_img']; ?>" class="image_8" style="width:100%;  height:320px; object-fit:cover">
@@ -90,8 +74,11 @@
                            <div class="seemore_text"><?php echo $courses_item['c_title']; ?></div>
                            <div class="seemore_text text-truncate" style="word-wrap: break-word;"><?php echo $courses_item['c_desc']; ?></div>
                         </div>
+                       
                      </div>
+                     <div class="seemore_text mt-5" style="color:black"><b><?php echo $courses_item['cg_name']; ?></b></div>
                   </div>
+                  <?php endif; ?>
                <?php endforeach; ?>
                </div>
             </div>
@@ -99,105 +86,36 @@
       </div>
    <!-- services section end -->
    <!-- about section start -->
+   <style>
+      .image_main:hover::after{
+         display: none;
+      }
+   </style>
    <div class="news_section layout_padding">
       <div class="container">
-         <h1 class="news_taital">Our About</h1>
-         <p class="news_text">Do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+         <h1 class="news_taital">ƏMƏKDAŞLIQ</h1>
          <div class="news_section_2">
-            <div class="row">
-               <div class="col-md-6">
-                  <div class="news_taital_box">
-                     <p class="date_text">01 Jan 2020</p>
-                     <h4 class="make_text">Make it Simple</h4>
-                     <p class="lorem_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-                     <p class="post_text">Post By : Casinal</p>
-                  </div>
-               </div>
-               <div class="col-md-6">
-                  <img src="<?php echo base_url('public/assets'); ?>/images/img-6.png" class="image_6" style="width:100%">
-                  <h6 class="plus_text">+</h6>
-               </div>
+         <div class="row">
+               <?php foreach ($partners_data as $partners_item) : ?>
+                  <?php if ($partners_item['p_status']) : ?>
+                     <div class="col-md-6">
+                        <div class="make_text" style="color: red; font-size:30px;"><?php echo $partners_item['p_title']; ?></div>
+                        <div class="image_main mb-5">
+                           <img src="<?php echo base_url('uploads/partners/') . $partners_item['p_img']; ?>" class="image_8" style="width:100%;  height:320px; object-fit:cover">
+                           <div class="text_main" style="width: 100%;">
+                           </div>
+                           <div class="seemore_text mb-5"><a href="<?php echo $partners_item['p_link']; ?>"><?php echo $partners_item['p_title']; ?></a></div>
+                        </div>
+                     </div>
+                  <?php endif; ?>
+               <?php endforeach; ?>
             </div>
          </div>
       </div>
    </div>
    <!-- about section end -->
-   <!-- blog section start -->
-   <div class="blog_section layout_padding">
-      <div class="container">
-         <h1 class="news_taital">Our Bolg</h1>
-         <p class="news_text">do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-         <div class="blog_section_2">
-            <div class="row">
-               <div class="col-md-6">
-                  <img src="<?php echo base_url('public/assets'); ?>/images/img-7.png" class="image_7" style="width:100%">
-               </div>
-               <div class="col-md-6">
-                  <h4 class="classes_text">Best Classes and study</h4>
-                  <p class="ipsum_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </p>
-               </div>
-            </div>
-         </div>
-         <div class="read_bt"><a href="#">Read More</a></div>
-      </div>
-   </div>
-   <!-- blog section end -->
-   <!-- client section start -->
-   <div class="client_section layout_padding">
-      <div id="main_slider" class="carousel slide" data-ride="carousel">
-         <div class="carousel-inner">
-            <div class="carousel-item active">
-               <div class="container">
-                  <h1 class="client_taital">Testimonial</h1>
-                  <div class="client_section_2">
-                     <div class="client_left">
-                        <div><img src="<?php echo base_url('public/assets'); ?>/images/client-img.png" class="client_img"></div>
-                     </div>
-                     <div class="client_right">
-                        <h3 class="client_name">Jony Deno</h3>
-                        <p class="client_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="carousel-item">
-               <div class="container">
-                  <h1 class="client_taital">Testimonial</h1>
-                  <div class="client_section_2">
-                     <div class="client_left">
-                        <div><img src="<?php echo base_url('public/assets'); ?>/images/client-img.png" class="client_img"></div>
-                     </div>
-                     <div class="client_right">
-                        <h3 class="client_name">Jony Deno</h3>
-                        <p class="client_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="carousel-item">
-               <div class="container">
-                  <h1 class="client_taital">Testimonial</h1>
-                  <div class="client_section_2">
-                     <div class="client_left">
-                        <div><img src="<?php echo base_url('public/assets'); ?>/images/client-img.png" class="client_img"></div>
-                     </div>
-                     <div class="client_right">
-                        <h3 class="client_name">Jony Deno</h3>
-                        <p class="client_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
-            <i class="fa fa-angle-left"></i>
-         </a>
-         <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
-            <i class="fa fa-angle-right" style="font-size:24px"></i>
-         </a>
-      </div>
-   </div>
-   <!-- client section end -->
+   
+  
    <!-- newsletter section start -->
    <div class="newsletter_section layout_padding">
       <div class="container">

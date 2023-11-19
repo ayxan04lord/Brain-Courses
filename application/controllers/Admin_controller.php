@@ -55,7 +55,8 @@ class Admin_controller extends CI_Controller
 
     public function admin_course_create()
     {
-        $this->load->view('admin/course/Create');
+        $data['categories_list'] = $this->Admin_model->category_get_all();
+        $this->load->view('admin/course/Create', $data);
     }
 
     public function admin_course_create_act()
@@ -93,6 +94,7 @@ class Admin_controller extends CI_Controller
 
     public function admin_course_edit($id)
     {
+        $data['categories_list'] = $this->Admin_model->category_get_all();
         $data["course_data"] = $this->Admin_model->courses_get_id($id);
         $this->load->view('admin/course/Edit', $data);
     }
@@ -138,6 +140,7 @@ class Admin_controller extends CI_Controller
 
     public function admin_course_list()
     {
+        
         $data["courses_data"] = $this->Admin_model->courses_get_all();
         $this->load->view('admin/course/List', $data);
     }
