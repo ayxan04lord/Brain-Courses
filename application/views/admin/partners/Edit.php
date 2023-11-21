@@ -36,7 +36,8 @@
                     </div>
                     <div class="card-body">
                         <form action="<?= base_url('admin_partners_edit_act/'.$partners_data['p_id']); ?>" method="POST" name="partners_form" enctype="multipart/form-data" id="partners_form">
-                            <div class="row">
+                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" /> 
+                        <div class="row">
                                 <div class="col-md-6">
                                     <div class="col-md-12">
                                         <label for="partners_title">Partners Title</label>

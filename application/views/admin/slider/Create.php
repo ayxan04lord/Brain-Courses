@@ -36,7 +36,8 @@
                     </div>
                     <div class="card-body">
                         <form action="<?= base_url('admin_slider_create_act'); ?>" method="POST" enctype="multipart/form-data" id="course_form">
-                            <div class="row">
+                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
+                        <div class="row">
                                 <div class="col-md-6">
                                     <div class="col-md-12">
                                         <label for="slider_title">Slider Title</label>

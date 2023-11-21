@@ -41,6 +41,7 @@
                                 </div>
                                 
                                 <div><button type="submit" class="btn btn-primary btn-user w-full">Sign in</button></div>
+                                <input type="text" name="captcha"><?php echo $this->session->userdata('adm_captcha')['image']; ?>
                                 <?php if ($this->session->flashdata('err')) { ?>
                                     <div class="alert alert-danger alert-dismissible mt-2">
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

@@ -35,6 +35,7 @@
                   </div>
                   <?php endif; ?>
                <?php endforeach; ?>
+               <?php echo $links; ?>
                </div>
             </div>
          </div>            

@@ -1,13 +1,18 @@
 <div class="footer_section layout_padding">
+   <style>
+      .email_text{
+         float: left;
+         width: 45%;
+      }
+   </style>
          <div class="container">
-            <div class="subscribe_bt"><a href="#">Yazılın</a></div>
-            <input type="text" class="email_text" placeholder="Emailinizi daxil edin" name="Enter Your Email">
-            <button type="button" style="size:20px" class="btn btn-danger subscribe_bt">Göndər</button>
+         <input type="text" size="30px" class="email_text mr-5" id="mail" placeholder="Emailinizi daxil edin" name="Enter Your Email">
+         <div class="subscribe_bt"><a href="javascript:void(0);" onclick="window.open('mailto:'+document.querySelector('#mail').value);">Yazılın</a></div>
             <div class="footer_section_2">
                <div class="row">
                   <div class="col-lg-3 margin_top">
-                     <div class="call_text"><a href="#"><img src="<?php echo base_url('public/assets/'); ?>images/call-icon1.png"><span class="padding_left_15">İndi zəng et : +994556772714</span></a></div>
-                     <div class="call_text"><a href="#"><img src="<?php echo base_url('public/assets/'); ?>images/mail-icon1.png"><span class="padding_left_15">Mail at : ayxan.mustafayev.2004@mail.ru</span></a></div>
+                     <div class="call_text"><a href="tel:+994556772714"><img src="<?php echo base_url('public/assets/'); ?>images/call-icon1.png"><span class="padding_left_15">İndi zəng et : +994556772714</span></a></div>
+                     <div class="call_text"><a href="mailto:ayxan.mustafayev.2004@mail.ru"><img src="<?php echo base_url('public/assets/'); ?>images/mail-icon1.png"><span class="padding_left_15">Mail at : ayxan.mustafayev.2004@mail.ru</span></a></div>
                   </div>
                   <div class="col-lg-3">
                      <div class="information_main">

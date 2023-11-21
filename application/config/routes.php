@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'User_controller/index';
 $route['index'] = 'User_controller/index';
 $route['courses'] = 'User_controller/courses';
+$route['courses/(.*)'] = 'User_controller/courses/$1';
 $route['partners'] = 'User_controller/partners';
 $route['contact'] = 'User_controller/contact';
 $route['blog'] = 'User_controller/blog';

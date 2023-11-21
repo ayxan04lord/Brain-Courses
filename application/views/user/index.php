@@ -26,8 +26,8 @@
                               <h1 class="banner_taital"><?php echo $slider_item['sl_title']; ?></h1>
                               <p class="banner_text"><?php echo $slider_item['sl_description']; ?></p>
                               <div class="btn_main">
-                                 <div class="about_bt"><a href="<?php echo base_url('about'); ?>">Haqqımızda</a></div>
-                                 <div class="quote_bt"><a href="#">Qiymətini öyrən</a></div>
+                                 <div class="about_bt" style="color: black;"><a href="<?php echo base_url('contact'); ?>">Haqqımızda</a></div>
+                                 <div class="quote_bt"><a href="">Qiymətini öyrən</a></div>
                               </div>
                            </div>
                            <div class="col-md-6">
@@ -86,11 +86,11 @@
       </div>
    <!-- services section end -->
    <!-- about section start -->
-   <style>
+   <!-- <style>
       .image_main:hover::after{
          display: none;
       }
-   </style>
+   </style> -->
    <div class="news_section layout_padding">
       <div class="container">
          <h1 class="news_taital">ƏMƏKDAŞLIQ</h1>
@@ -100,11 +100,11 @@
                   <?php if ($partners_item['p_status']) : ?>
                      <div class="col-md-6">
                         <div class="make_text" style="color: red; font-size:30px;"><?php echo $partners_item['p_title']; ?></div>
-                        <div class="image_main mb-5">
+                        <div class="mb-5">
                            <img src="<?php echo base_url('uploads/partners/') . $partners_item['p_img']; ?>" class="image_8" style="width:100%;  height:320px; object-fit:cover">
                            <div class="text_main" style="width: 100%;">
                            </div>
-                           <div class="seemore_text mb-5"><a href="<?php echo $partners_item['p_link']; ?>"><?php echo $partners_item['p_title']; ?></a></div>
+                           <div class="seemore_text mb-5"><a href="<?php echo $partners_item['p_link']; ?>"><?php echo $partners_item['p_link']; ?></a></div>
                         </div>
                      </div>
                   <?php endif; ?>
@@ -139,9 +139,7 @@
                   </div>
                </div>
             </div>
-            <div class="col-md-6">
-               <div class="map_main"><img src="<?php echo base_url('public/assets/'); ?>images/map-img.png"></div>
-            </div>
+           
          </div>
       </div>
    </div>

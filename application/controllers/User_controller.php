@@ -1,40 +1,53 @@
 <?php
 
-class User_controller extends CI_Controller{
+class User_controller extends CI_Controller
+{
 
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('User_model');
     }
-    
-    public function index(){
+
+    public function index()
+    {
         $data['slider_data'] = $this->User_model->get_slider();
-        $data['courses_data'] = $this->User_model->get_all_courses();
+        $data['courses_data'] = $this->User_model->get_limit_courses();
         $data['partners_data'] = $this->User_model->get_all_partners();
         $this->load->view('user/index', $data);
-        
-
     }
 
-    public function courses(){
-        $data['courses_data'] = $this->User_model->get_all_courses();
+    public function courses()
+    {
+        $this->load->library('pagination');
+
+        $config['base_url'] = base_url('courses');
+        $config['total_rows'] = count($this->User_model->get_all_courses());
+        $config['per_page'] = 6;
+        // $config['use_page_numbers'] = TRUE;
+
+        $this->pagination->initialize($config);
+
+        $page = $this->uri->segment(2)?$this->uri->segment(2):0;
+
+        $data['links'] = $this->pagination->create_links();
+        $data['courses_data'] = $this->User_model->get_pag_courses($config, $page);
         $this->load->view('user/courses', $data);
     }
 
-    public function partners(){
+    public function partners()
+    {
         $data['partners_data'] = $this->User_model->get_all_partners();
-        $this->load->view('user/partners',$data);
+        $this->load->view('user/partners', $data);
     }
 
-    public function contact(){
+    public function contact()
+    {
         $this->load->view('user/contact');
     }
 
-    public function blog(){
+    public function blog()
+    {
         $this->load->view('user/blog');
     }
-
-
-
-
 }
