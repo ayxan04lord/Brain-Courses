@@ -35,7 +35,31 @@
                   </div>
                   <?php endif; ?>
                <?php endforeach; ?>
-               <?php echo $links; ?>
+               <style>
+                  .pagination a, .pagination strong{
+                     padding: 10px 10px ;
+                     border: 1 px solid #1611AA !important;
+                     margin-left: 5px;
+                     text-decoration: none;
+                     box-shadow: 0 0 8px rgba(5, 5, 5, 0.3);
+
+                  }
+
+                  .pagination strong{
+                     background: #1611AA !important;
+                     color: white;
+                     border: 1 px solid #1611AA !important;
+                  }
+
+                  .pagination{
+                     /* text-align: center !important; */
+                     /* display: inline; */
+                     /* float: inline-start; */
+                     justify-content: center;
+                  }
+
+               </style>
+               <p class="pagination"><?php echo $links; ?></p>
                </div>
             </div>
          </div>            

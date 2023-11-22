@@ -46,11 +46,12 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                     <tr>
-                        <th>#</th>
+                        <th>№</th>
                         <th>Partners Title</th>
                         <th>Partners Link</th>
-                        <th>Img</th>
                         <th>Status</th>
+                        <th>Img</th>
+                        <th>Control</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,8 +62,8 @@
                         <td><?= $id_partners++; ?></td>
                         <td><?= $partners_item["p_title"]; ?></td>
                         <td><?= $partners_item["p_link"]; ?></td>
+                        <td><?= $partners_item["p_status"]?"Active":"Deactive"; ?></td>
                         <td><a href="<?php echo base_url('uploads/partners/'.$partners_item['p_img']); ?>"><img src="<?php echo base_url('uploads/partners/'.$partners_item['p_img']); ?>" alt="" style="object-fit: cover; object-position:top; width:150px; height:150px; aspect-ratio:initial;"></a></td>
-                        <td><?= $partners_item["p_status"]; ?></td>
                         <td>
                             <a  href="<?php echo base_url('admin_partners_edit/').$partners_item['p_id']; ?>" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
                                     <button type="submit" class=" pe-2">

@@ -45,8 +45,9 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                     <tr>
-                        <th>#</th>
+                        <th>№</th>
                         <th>Category</th>
+                        <th>Control</th>
                     </tr>
                 </thead>
                 <tbody>

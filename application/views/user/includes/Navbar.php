@@ -25,9 +25,9 @@
       <div class="call_section">
          <ul>
             <li><a href="https://www.facebook.com/"><img src="<?php echo base_url('public/assets/images/fb-icon.png'); ?>"></a></li>
-            <li><a href="#"><img src="<?php echo base_url('public/assets/images/twitter-icon.png'); ?>"></a></li>
+            <li><a href="https://www.twitter.com/"><img src="<?php echo base_url('public/assets/images/twitter-icon.png'); ?>"></a></li>
             <li><a href="#"><img src="<?php echo base_url('public/assets/images/linkedin-icon.png'); ?>"></a></li>
-            <li><a href="#"><img src="<?php echo base_url('public/assets/images/instagram-icon.png'); ?>"></a></li>
+            <li><a href="https://www.instagram.com/"><img src="<?php echo base_url('public/assets/images/instagram-icon.png'); ?>"></a></li>
             <div class="donate_bt"><a href="#"><img src="<?php echo base_url('public/assets/images/search-icon.png'); ?>"></a></div>
          </ul>
       </div>

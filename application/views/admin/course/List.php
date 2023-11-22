@@ -46,12 +46,13 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                     <tr>
-                        <th>#</th>
+                        <th>№</th>
                         <th>Course Title</th>
                         <th>Course Description</th>
-                        <th>Status</th>
                         <th>Category</th>
+                        <th>Status</th>
                         <th>Img</th>
+                        <th>Control</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,8 +63,8 @@
                         <td><?= $id_courses++; ?></td>
                         <td><?= $course_item["c_title"]; ?></td>
                         <td><p class="text-truncate" style="max-width:256px;"><?= $course_item["c_desc"]; ?></p></td>
-                        <td><?= $course_item["c_status"]?"Active":"Deactive"; ?></td>
                         <td><?= $course_item["cg_name"]; ?></td>
+                        <td><?= $course_item["c_status"]?"Active":"Deactive"; ?></td>
                         <td><a target="_blank" href="<?php echo base_url('uploads/courses/'.$course_item['c_img']); ?>"><img src="<?php echo base_url('uploads/courses/'.$course_item['c_img']); ?>" alt="" style="object-fit: cover; object-position:top; width:150px; height:150px; aspect-ratio:initial;"></a></td>
 
 

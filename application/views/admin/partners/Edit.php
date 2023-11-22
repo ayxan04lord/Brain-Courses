@@ -65,6 +65,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row mt-3">
+                                        <div class="form-check form-switch me-n2"><input class="form-check-input" type="checkbox" name="partners_status" id="switch-dark-mode" <?= $partners_data['p_status'] ? 'checked' : ''; ?>></div>
+                                    </div>
                                 </div>
                             </div>
                         </form>

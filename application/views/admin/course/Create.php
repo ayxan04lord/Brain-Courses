@@ -72,7 +72,7 @@
 
                                 <div class="col-md-6">
                                     <label for="course_description">Course Description</label>
-                                    <textarea name="course_description" id="course_description" rows="9" class="form-control"></textarea>
+                                    <textarea name="course_description" id="course_description ckeditor-editor" rows="9" class="form-control"></textarea>
                                     <div class="row mt-3">
                                         <div class="form-check form-switch me-n2"><input class="form-check-input" type="checkbox" name="course_status" id="switch-dark-mode"></div>
                                     </div>
