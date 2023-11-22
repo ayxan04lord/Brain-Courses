@@ -51,7 +51,7 @@
 
                                     <div class="col-md-12">
                                         <div class="rounded border border-2 border-dashed border-primary-hover position-relative mt-3">
-                                            <div class="d-flex justify-content-center px-5 py-5">
+                                            <div style="background-size:170px; background-repeat:no-repeat; background-position:0px center; background-image: url('../uploads/slider/<?php echo $slider_data['sl_img']; ?>');" class="d-flex justify-content-center px-5 py-5">
                                                 <label for="file_upload" class="position-absolute w-full h-full top-0 start-0 cursor-pointer">
                                                     <input id="file_upload" name="file_upload" type="file" class="visually-hidden">
                                                 </label>

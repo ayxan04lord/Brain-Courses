@@ -6,6 +6,7 @@ class User_controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->lang->load('message','english');
         $this->load->model('User_model');
     }
 

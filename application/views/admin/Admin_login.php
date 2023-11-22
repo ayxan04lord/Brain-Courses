@@ -41,7 +41,15 @@
                                     </div>
                                     <input type="password" name="password" class="form-control" id="password" placeholder="Password" autocomplete="false">
                                 </div>
-                                <input type="text" name="captcha"><?php echo $this->session->userdata('adm_captcha')['image']; ?>
+                                <div class="row d-flex flex-row align-items-center">
+                                    <div class="col-md-6">
+                                    <?php echo $this->session->userdata('adm_captcha')['image'];  ?>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <input class="form-control" type="text" name="captcha">
+                                    </div>
+                    
+                                </div>
                                 <?php if ($this->session->flashdata('err')) { ?>
                                     <div class="alert alert-danger alert-dismissible mt-2">
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

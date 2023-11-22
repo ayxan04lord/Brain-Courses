@@ -59,8 +59,9 @@
                   }
 
                </style>
-               <p class="pagination"><?php echo $links; ?></p>
+               
                </div>
+               <p class="pagination"><?php echo $links; ?></p>
             </div>
          </div>            
       </div>

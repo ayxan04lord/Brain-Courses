@@ -49,6 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+$route['switch_lang/(.*)'] = 'Language_Switcher/switchlang/$1';
 $route['default_controller'] = 'User_controller/index';
 $route['index'] = 'User_controller/index';
 $route['courses'] = 'User_controller/courses';

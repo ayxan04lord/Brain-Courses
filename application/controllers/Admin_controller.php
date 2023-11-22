@@ -13,15 +13,15 @@ class Admin_controller extends CI_Controller
         $this->load->helper('captcha');
         $vals = array(
             
-            'img_path'      => './uploads/',
-            'img_url'       => base_url('/uploads/'),
+            'img_path'      => './uploads/captcha/',
+            'img_url'       => base_url('/uploads/captcha/'),
             'font_path'     => 'system/fonts/texb.ttf',
-            'img_width'     => '150',
-            'img_height'    => 30,
+            'img_width'     => 150,
+            'img_height'    => 50,
             'expiration'    => 7200,
-            'word_length'   => 8,
+            'word_length'   => 6,
             'font_size'     => 16,
-            'pool'          => '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            'pool'          => '012346789ABCDEF',
     
             // White background and border, black text and red grid
             'colors'        => array(
@@ -40,29 +40,38 @@ class Admin_controller extends CI_Controller
 
     public function login_action()
     {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $adm_captcha = $this->session->userdata('adm_captcha')['word'];
+        
+        $username = $this->input->post('username', TRUE);
+        $password = $this->input->post('password', TRUE);
         $captcha = $this->input->post('captcha',TRUE);
+        $adm_captcha = $this->session->userdata('adm_captcha')['word'];
+        
 
-        if (!empty($username) && !empty($password)) {
+        if (!empty($username) && !empty($password) && !empty($captcha)) {
 
-
-            $data = [
-                'a_username' => $username,
-                'a_password' => md5($password),
-            ];
-
-            $checkUser = $this->db->select('a_id')->where($data)->get('admin')->row_array();
-
-            if ($checkUser) {
-                $_SESSION['admin_id'] = $checkUser['a_id'];
-
-                redirect(base_url('admin_dashboard'));
-            } else {
-                $this->session->set_flashdata('err', 'Username or password is wrong!');
+            if(strtolower($adm_captcha)==strtolower($captcha)){
+                $data = [
+                    'a_username' => $username,
+                    'a_password' => md5($password),
+                ];
+    
+                $checkUser = $this->db->select('a_id')->where($data)->get('admin')->row_array();
+    
+                if ($checkUser) {
+                    $_SESSION['admin_id'] = $checkUser['a_id'];
+    
+                    redirect(base_url('admin_dashboard'));
+                } else {
+                    $this->session->set_flashdata('err', 'Username or password is wrong!');
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            }else{
+                $this->session->set_flashdata('err', 'Please, enter correct captcha!');
                 redirect($_SERVER['HTTP_REFERER']);
             }
+
+
+           
         } else {
             $this->session->set_flashdata('err', 'Please, fill in all the fields!');
             redirect($_SERVER['HTTP_REFERER']);
