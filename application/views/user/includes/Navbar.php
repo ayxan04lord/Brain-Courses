@@ -13,13 +13,13 @@
             <a class="nav-link" href="<?php echo base_url('index'); ?>"><?php echo $this->lang->line('nav_home'); ?></a>
          </li>
          <li class="nav-item <?= $current_segment == 'courses' ? 'active' : ''; ?>">
-            <a class="nav-link" href="<?php echo base_url('courses'); ?>">KURSLAR</a>
+            <a class="nav-link" href="<?php echo base_url('courses'); ?>"><?php echo $this->lang->line('nav_courses'); ?></a>
          </li>
          <li class="nav-item <?= $current_segment == 'partners' ? 'active' : ''; ?>">
-            <a class="nav-link" href="<?php echo base_url('partners'); ?>">ƏMƏKDAŞLIQ</a>
+            <a class="nav-link" href="<?php echo base_url('partners'); ?>"><?php echo $this->lang->line('nav_partners'); ?></a>
          </li>
          <li class="nav-item <?= $current_segment == 'contact' ? 'active' : ''; ?>">
-            <a class="nav-link" href="<?php echo base_url('contact'); ?>">ƏLAQƏ</a>
+            <a class="nav-link" href="<?php echo base_url('contact'); ?>"><?php echo $this->lang->line('nav_contact'); ?></a>
          </li>
       </ul>
 

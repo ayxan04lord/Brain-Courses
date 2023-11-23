@@ -6,8 +6,6 @@
       }
    </style>
          <div class="container">
-         <input type="text" size="30px" class="email_text mr-5" id="mail" placeholder="Emailinizi daxil edin" name="Enter Your Email">
-         <div class="subscribe_bt"><a href="javascript:void(0);" onclick="window.open('mailto:'+document.querySelector('#mail').value);">Yazılın</a></div>
             <div class="footer_section_2">
                <div class="row">
                   <div class="col-lg-3 margin_top">
@@ -16,19 +14,19 @@
                   </div>
                   <div class="col-lg-3">
                      <div class="information_main">
-                        <h4 class="information_text">Haqqımızda</h4>
-                        <p class="many_text">Kursumuzda sizi görməyə çox şad olarıq. Mərkəzimiz Sumqayıt şəh. Sülh küç. 6/17 yerləşir.</p>
+                        <h4 class="information_text"><?php echo $this->lang->line('slider_about'); ?></h4>
+                        <p class="many_text"><?php echo $this->lang->line('ft_text1'); ?></p>
                      </div>
                   </div>
                   <div class="col-lg-3 col-md-6">
                      <div class="information_main">
-                        <h4 class="information_text">Linklər</h4>
+                        <h4 class="information_text"><?php echo $this->lang->line('ft_links'); ?></h4>
                         <div class="footer_menu">
                            <ul>
-                              <li><a href="<?php echo base_url('index'); ?>">ANA SƏHİFƏ</a></li>
-                              <li><a href="<?php echo base_url('about'); ?>">HAQQIMIZDA</a></li>
-                              <li><a href="<?php echo base_url('courses'); ?>">KURSLAR</a></li>
-                              <li><a href="<?php echo base_url('contact'); ?>">ƏLAQƏ</a></li>
+                              <li><a href="<?php echo base_url('index'); ?>"><?php echo $this->lang->line('nav_home'); ?></a></li>
+                              <li><a href="<?php echo base_url('courses'); ?>"><?php echo $this->lang->line('nav_courses'); ?></a></li>
+                              <li><a href="<?php echo base_url('partners'); ?>"><?php echo $this->lang->line('nav_partners'); ?></a></li>
+                              <li><a href="<?php echo base_url('contact'); ?>"><?php echo $this->lang->line('nav_contact'); ?></a></li>
                            </ul>
                         </div>
                      </div>

@@ -17,7 +17,7 @@
                   display: none;
                }
             </style>
-            <h1 class="services_taital">Bizim Kurslarımız</h1>
+            <h1 class="services_taital"><?php echo $this->lang->line('courses_title'); ?></h1>
             <div class="services_section_2">
                <div class="row mb-5">
                <?php foreach($courses_data as $courses_item): ?>

@@ -14,7 +14,7 @@
    <div class="news_section layout_padding">
       <div class="container">
 
-      <h1 class="news_taital">ƏMƏKDAŞLIQ</h1>
+      <h1 class="news_taital"><?php echo $this->lang->line('nav_partners'); ?></h1>
          <div class="news_section_2">
             <div class="row">
                <?php foreach ($partners_data as $partners_item) : ?>
