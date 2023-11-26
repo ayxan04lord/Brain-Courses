@@ -67,8 +67,8 @@
                                         </div>
                                         <div class="tab-pane container fade" id="menu2">
                                             <div class="col-md-12">
-                                                <label for="partners_title_rus">Partners Title RUS</label>
-                                                <input type="text" name="partners_title_rus" class="form-control" id="partners_title_rus" placeholder="Title name">
+                                                <label for="partners_title_ru">Partners Title RUS</label>
+                                                <input type="text" name="partners_title_ru" class="form-control" id="partners_title_ru" placeholder="Title name">
                                             </div>
                                         </div>
                                     </div>

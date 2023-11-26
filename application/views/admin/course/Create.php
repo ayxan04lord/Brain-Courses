@@ -1,4 +1,5 @@
 <?php $this->load->view('admin/includes/HeadScripts'); ?>
+
 <!-- Banner -->
 
 
@@ -63,12 +64,15 @@
                                         <div id="home" class="container tab-pane active">
                                             <div class="col-md-12">
                                                 <div class="col-md-12">
-                                                    <label for="course_title_aze">Course Title AZE</label>
-                                                    <input type="text" name="course_title_aze" class="form-control" id="course_title_aze" placeholder="Project name">
+                                                    <label for="course_title_az">Course Title AZE</label>
+                                                    <input type="text" name="course_title_az" class="form-control" id="course_title_az" placeholder="Project name">
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <label for="course_description_aze">Course Description AZE</label>
-                                                    <textarea name="course_description_aze" id="course_description_aze" rows="9" class="form-control"></textarea>
+                                                    <label for="course_description_az">Course Description AZE</label>
+                                                    <textarea name="course_description_az" id="course_description_az" rows="9" class="form-control"></textarea>
+                                                    <script>
+                                                        CKEDITOR.replace('course_description_az');
+                                                    </script>
 
                                                 </div>
 
@@ -83,7 +87,9 @@
                                                 <div class="col-md-12">
                                                     <label for="course_description_en">Course Description ENG</label>
                                                     <textarea name="course_description_en" id="course_description_en" rows="9" class="form-control"></textarea>
-
+                                                    <script>
+                                                        CKEDITOR.replace('course_description_en');
+                                                    </script>
                                                 </div>
 
                                             </div>
@@ -91,13 +97,15 @@
                                         <div id="menu2" class="container tab-pane fade">
                                             <div class="col-md-12">
                                                 <div class="col-md-12">
-                                                    <label for="course_title_rus">Course Title RUS</label>
-                                                    <input type="text" name="course_title_rus" class="form-control" id="course_title_rus" placeholder="Project name">
+                                                    <label for="course_title_ru">Course Title RUS</label>
+                                                    <input type="text" name="course_title_ru" class="form-control" id="course_title_ru" placeholder="Project name">
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <label for="course_description_rus">Course Description RUS</label>
-                                                    <textarea name="course_description_rus" id="course_description_rus" rows="9" class="form-control"></textarea>
-
+                                                    <label for="course_description_ru">Course Description RUS</label>
+                                                    <textarea name="course_description_ru" id="course_description_ru" rows="9" class="form-control"></textarea>
+                                                    <script>
+                                                        CKEDITOR.replace('course_description_ru');
+                                                    </script>
                                                 </div>
 
                                             </div>

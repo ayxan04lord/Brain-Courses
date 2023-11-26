@@ -99,13 +99,13 @@ class Admin_controller extends CI_Controller
 
     public function admin_course_create_act()
     {
-        $course_title_en = $this->input->post('course_title', TRUE);
-        $course_title_az = $this->input->post('course_title_aze', TRUE);
-        $course_title_rus = $this->input->post('course_title_rus', TRUE);
+        $course_title_en = $this->input->post('course_title_en', TRUE);
+        $course_title_az = $this->input->post('course_title_az', TRUE);
+        $course_title_ru = $this->input->post('course_title_ru', TRUE);
         $course_select_option = $this->input->post("course_select_option", TRUE);
         $course_description_en = $this->input->post('course_description', TRUE);
-        $course_description_az = $this->input->post('course_description_aze', TRUE);
-        $course_description_rus = $this->input->post('course_description_rus', TRUE);
+        $course_description_az = $this->input->post('course_description_az', TRUE);
+        $course_description_ru = $this->input->post('course_description_ru', TRUE);
         $course_status = $this->input->post('course_status', TRUE);
         $config['upload_path'] = './uploads/courses';
         $config["allowed_types"] = "png|PNG|jpg|JPG|jpeg|JPEG";
@@ -116,10 +116,10 @@ class Admin_controller extends CI_Controller
             $data = [
                 'c_title_en' => $course_title_en,
                 'c_title_az' => $course_title_az,
-                'c_title_rus' => $course_title_rus,
+                'c_title_ru' => $course_title_ru,
                 'c_desc_en' => $course_description_en,
                 'c_desc_az' => $course_description_az,
-                'c_desc_rus' => $course_description_rus,
+                'c_desc_ru' => $course_description_ru,
                 'c_img' => $upload_slider_img['file_name'],
                 'c_category' => $course_select_option,
                 'c_status' => str_contains($course_status, 'on') ? TRUE : FALSE
@@ -130,10 +130,10 @@ class Admin_controller extends CI_Controller
             $data = [
                 'c_title_en' => $course_title_en,
                 'c_title_az' => $course_title_az,
-                'c_title_rus' => $course_title_rus,
+                'c_title_ru' => $course_title_ru,
                 'c_desc_en' => $course_description_en,
                 'c_desc_az' => $course_description_az,
-                'c_desc_rus' => $course_description_rus,
+                'c_desc_ru' => $course_description_ru,
                 'c_category' => $course_select_option,
                 'c_status' => str_contains($course_status, 'on') ? TRUE : FALSE
             ];
@@ -151,13 +151,13 @@ class Admin_controller extends CI_Controller
 
     public function admin_course_edit_act($id)
     {
-        $course_title = $this->input->post('course_title', TRUE);
-        $course_title_az = $this->input->post('course_title_aze', TRUE);
-        $course_title_rus = $this->input->post('course_title_rus', TRUE);
+        $course_title_en = $this->input->post('course_title_en', TRUE);
+        $course_title_az = $this->input->post('course_title_az', TRUE);
+        $course_title_ru = $this->input->post('course_title_ru', TRUE);
         $course_select_option = $this->input->post("course_select_option", TRUE);
-        $course_description = $this->input->post('course_description', TRUE);
-        $course_description_az = $this->input->post('course_description_aze', TRUE);
-        $course_description_rus = $this->input->post('course_description_rus', TRUE);
+        $course_description_en = $this->input->post('course_description_en', TRUE);
+        $course_description_az = $this->input->post('course_description_az', TRUE);
+        $course_description_ru = $this->input->post('course_description_ru', TRUE);
         $course_status = $this->input->post('course_status', TRUE);
         $config['upload_path'] = './uploads/courses';
         $config["allowed_types"] = "png|PNG|jpg|JPG|jpeg|JPEG";
@@ -166,12 +166,12 @@ class Admin_controller extends CI_Controller
         if ($this->upload->do_upload('file_upload')) {
             $upload_slider_img = $this->upload->data();
             $data = [
-                'c_title_en' => $course_title,
+                'c_title_en' => $course_title_en,
                 'c_title_az' => $course_title_az,
-                'c_title_rus' => $course_title_rus,
-                'c_desc_en' => $course_description,
+                'c_title_ru' => $course_title_ru,
+                'c_desc_en' => $course_description_en,
                 'c_desc_az' => $course_description_az,
-                'c_desc_rus' => $course_description_rus,
+                'c_desc_ru' => $course_description_ru,
                 'c_img' => $upload_slider_img['file_name'],
                 'c_category' => $course_select_option,
                 'c_status' => str_contains($course_status, 'on') ? TRUE : FALSE
@@ -179,16 +179,19 @@ class Admin_controller extends CI_Controller
             $this->Admin_model->courses_db_edit($id, $data);
             redirect(base_url('admin_course_list'));
         } else {
+            
             $data = [
-                'c_title_en' => $course_title,
+                'c_title_en' => $course_title_en,
                 'c_title_az' => $course_title_az,
-                'c_title_rus' => $course_title_rus,
-                'c_desc_en' => $course_description,
+                'c_title_ru' => $course_title_ru,
+                'c_desc_en' => $course_description_en,
                 'c_desc_az' => $course_description_az,
-                'c_desc_rus' => $course_description_rus,
+                'c_desc_ru' => $course_description_ru,
                 'c_category' => $course_select_option,
                 'c_status' => str_contains($course_status, 'on') ? TRUE : FALSE
             ];
+          
+
             $this->Admin_model->courses_db_edit($id, $data);
             redirect(base_url('admin_course_list'));
         }
@@ -205,6 +208,13 @@ class Admin_controller extends CI_Controller
         
         $data["courses_data"] = $this->Admin_model->courses_get_all();
         $this->load->view('admin/course/List', $data);
+    }
+
+    public function admin_course_details($id)
+    {
+        $data['course_data']=$this->Admin_model->get_course_details($id);
+        $this->load->view('admin/course/Details', $data);
+
     }
 
     // Course CRUD End
@@ -273,11 +283,11 @@ class Admin_controller extends CI_Controller
     {
        
         $slider_title_en = $this->input->post('slider_title_en', TRUE);
-        $slider_title_rus = $this->input->post('slider_title_rus', TRUE);
+        $slider_title_ru = $this->input->post('slider_title_ru', TRUE);
         $slider_title_az = $this->input->post('slider_title_az', TRUE);
         $slider_description_en = $this->input->post('slider_description_en', TRUE);
         $slider_description_az = $this->input->post('slider_description_az', TRUE);
-        $slider_description_rus = $this->input->post('slider_description_rus', TRUE);
+        $slider_description_ru = $this->input->post('slider_description_rus', TRUE);
         $slider_link = $this->input->post('slider_link', TRUE);
         $slider_status = $this->input->post('slider_status', TRUE);
         $config['upload_path'] = './uploads/slider';
@@ -288,13 +298,12 @@ class Admin_controller extends CI_Controller
             $upload_slider_img = $this->upload->data();
             $data = [
                 'sl_title_en' => $slider_title_en,
-                'sl_title_rus' => $slider_title_rus,
+                'sl_title_rus' => $slider_title_ru,
                 'sl_title_az' => $slider_title_az,
                 'sl_description_en' => $slider_description_en,
                 'sl_description_az' => $slider_description_az,
-                'sl_description_rus' => $slider_description_rus,
+                'sl_description_ru' => $slider_description_ru,
                 'sl_link' => $slider_link,
-                
                 'sl_img' => $upload_slider_img['file_name'],
                 'sl_status' => str_contains($slider_status, 'on') ? TRUE : FALSE
             ];
@@ -305,11 +314,11 @@ class Admin_controller extends CI_Controller
         } else {
             $data = [
                 'sl_title_en' => $slider_title_en,
-                'sl_title_rus' => $slider_title_rus,
+                'sl_title_ru' => $slider_title_ru,
                 'sl_title_az' => $slider_title_az,
                 'sl_description_en' => $slider_description_en,
                 'sl_description_az' => $slider_description_az,
-                'sl_description_rus' => $slider_description_rus,
+                'sl_description_ru' => $slider_description_ru,
                 'sl_link' => $slider_link,
                 'sl_status' => str_contains($slider_status, 'on') ? TRUE : FALSE
             ];
@@ -343,7 +352,7 @@ class Admin_controller extends CI_Controller
     {
         $partners_title_az = $this->input->post('partners_title_az', TRUE);
         $partners_title_en = $this->input->post('partners_title_en', TRUE);
-        $partners_title_rus = $this->input->post('partners_title_rus', TRUE);
+        $partners_title_ru = $this->input->post('partners_title_ru', TRUE);
         $partners_link = $this->input->post('partners_link', TRUE);
         $partners_status = $this->input->post('partners_status', TRUE);
         $config['upload_path'] = './uploads/partners';
@@ -355,7 +364,7 @@ class Admin_controller extends CI_Controller
             $data = [
                 'p_title_az' => $partners_title_az,
                 'p_title_en' => $partners_title_en,
-                'p_title_rus' => $partners_title_rus,
+                'p_title_ru' => $partners_title_ru,
                 'p_link'  => $partners_link,
                 'p_img' => $upload_partners_img['file_name'],
                 'p_status' => str_contains($partners_status, 'on') ? TRUE : FALSE
@@ -366,7 +375,7 @@ class Admin_controller extends CI_Controller
             $data = [
                 'p_title_az' => $partners_title_az,
                 'p_title_en' => $partners_title_en,
-                'p_title_rus' => $partners_title_rus,
+                'p_title_ru' => $partners_title_ru,
                 'p_link'  => $partners_link,
                 'p_status' => str_contains($partners_status, 'on') ? TRUE : FALSE
             ];
@@ -385,7 +394,7 @@ class Admin_controller extends CI_Controller
     {
         $partners_title_az = $this->input->post('partners_title_az', TRUE);
         $partners_title_en = $this->input->post('partners_title_en', TRUE);
-        $partners_title_rus = $this->input->post('partners_title_rus', TRUE);
+        $partners_title_ru = $this->input->post('partners_title_ru', TRUE);
         $partners_link = $this->input->post('partners_link', TRUE);
         $partners_status = $this->input->post('partners_status', TRUE);
         $config['upload_path'] = './uploads/partners';
@@ -397,7 +406,7 @@ class Admin_controller extends CI_Controller
             $data = [
                 'p_title_az' => $partners_title_az,
                 'p_title_en' => $partners_title_en,
-                'p_title_rus' => $partners_title_rus,
+                'p_title_ru' => $partners_title_ru,
                 'p_link'  => $partners_link,
                 'p_img' => $upload_partners_img['file_name'],
                 'p_status' => str_contains($partners_status, 'on') ? TRUE : FALSE
@@ -408,7 +417,7 @@ class Admin_controller extends CI_Controller
             $data = [
                 'p_title_az' => $partners_title_az,
                 'p_title_en' => $partners_title_en,
-                'p_title_rus' => $partners_title_rus,
+                'p_title_ru' => $partners_title_ru,
                 'p_link'  => $partners_link,
                 'p_status' => str_contains($partners_status, 'on') ? TRUE : FALSE
             ];

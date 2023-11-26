@@ -31,10 +31,9 @@
             <li><a target="_blank" href="https://www.linkedin.com/"><img src="<?php echo base_url('public/assets/images/linkedin-icon.png'); ?>"></a></li>
             <li><a target="_blank" href="https://www.instagram.com/"><img src="<?php echo base_url('public/assets/images/instagram-icon.png'); ?>"></a></li>
            <li> <select class="form-control form-control-sm" id="langswitch" onchange="javascript:window.location.href='<?php echo base_url(); ?>switch_lang/'+this.value;">
-               <option value="english" <?php if ($this->session->userdata('site_lang') == 'english') echo 'selected="selected"'; ?>>Eng</option>
-               <option value="rus" <?php if ($this->session->userdata('site_lang') == 'rus') echo 'selected="selected"'; ?>>Rus</option>
-               <option value="aze" <?php if ($this->session->userdata('site_lang') == 'aze') echo 'selected="selected"'; ?>>Aze</option>
-            </select>
+           <option value="en" <?php if ($this->session->userdata('site_lang') == 'en') echo 'selected="selected"'; ?>>En</option>
+               <option value="ru" <?php if ($this->session->userdata('site_lang') == 'ru') echo 'selected="selected"'; ?>>Ru</option>
+               <option value="az" <?php if ($this->session->userdata('site_lang') == 'az') echo 'selected="selected"'; ?>>Az</option></select>
             
          </li>
          </ul>

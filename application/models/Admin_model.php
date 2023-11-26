@@ -31,6 +31,11 @@ class Admin_model extends CI_Model
         $this->db->where('c_id', $id)->delete('courses');
     }
 
+    public function get_course_details($id)
+    {
+        return $this->db->order_by('c_id','DESC')->join('category','cg_id=c_category', 'left')->where('c_id', $id)->get('courses')->row_array();
+       
+    }
     public function slider_insert($data)
     {
         $this->db->insert("slider", $data);

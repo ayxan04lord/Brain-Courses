@@ -6,6 +6,8 @@ class User_controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+     
+    
         $this->lang->load('message','english');
         $this->load->model('User_model');
     }
@@ -51,13 +53,21 @@ class User_controller extends CI_Controller
         $page = $this->uri->segment(2)?$this->uri->segment(2):0;
 
         $data['links'] = $this->pagination->create_links();
-        $data['partners_data'] = $this->User_model->get_pag_courses($config, $page);
+        $data['partners_data'] = $this->User_model->get_pag_partners($config, $page);
+        // print_r('<pre>');
+        // print_r($data['partners_data']);
+        // die();
         $this->load->view('user/partners', $data);
     }
 
     public function contact()
     {
         $this->load->view('user/contact');
+    }
+
+    public function contact1()
+    {
+        $this->load->view('user/contact1');
     }
 
     public function blog()

@@ -68,6 +68,7 @@ $route['admin_dashboard'] = 'Admin_controller/dashboard';
 $route['admin_course_create'] = 'Admin_controller/admin_course_create';
 $route['admin_course_create_act'] = 'Admin_controller/admin_course_create_act';
 $route['admin_course_list'] = 'Admin_controller/admin_course_list';
+$route['admin_course_details/(.*)'] = 'Admin_controller/admin_course_details/$1';
 $route['admin_course_edit/(.*)'] = 'Admin_controller/admin_course_edit/$1';
 $route['admin_course_edit_act/(.*)'] = 'Admin_controller/admin_course_edit_act/$1';
 $route['admin_course_delete/(.*)'] = 'Admin_controller/admin_course_delete/$1';

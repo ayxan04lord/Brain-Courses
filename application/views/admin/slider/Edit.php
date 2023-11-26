@@ -61,8 +61,10 @@
 
                                             <div class="col-md-12">
                                                 <label for="slider_description_az">Slider Description AZE</label>
-                                                <textarea name="slider_description_az" id="slider_description_az" rows="9" class="form-control"></textarea>
-
+                                                <textarea name="slider_description_az" id="slider_description_az" rows="9" class="form-control"><?php echo $slider_data['sl_description_az']; ?></textarea>
+                                                <script>
+                                                        CKEDITOR.replace('slider_description_az');
+                                                    </script>
                                             </div>
                                         </div>
                                         <div class="tab-pane container fade" id="menu1">
@@ -73,20 +75,24 @@
 
                                             <div class="col-md-12">
                                                 <label for="slider_description_en">Slider Description ENG</label>
-                                                <textarea name="slider_description_en" id="slider_description_en" rows="9" class="form-control"></textarea>
-
+                                                <textarea name="slider_description_en" id="slider_description_en" rows="9" class="form-control"><?php echo $slider_data['sl_description_en']; ?></textarea>
+                                                <script>
+                                                        CKEDITOR.replace('slider_description_en');
+                                                    </script>
                                             </div>
                                         </div>
                                         <div class="tab-pane container fade" id="menu2">
                                             <div class="col-md-12">
-                                                <label for="slider_title_rus">Slider Title RUS</label>
-                                                <input value="<?php echo $slider_data['sl_title_rus']; ?>" type="text" name="slider_title_rus" class="form-control" id="slider_title_rus" placeholder="Enter Title name">
+                                                <label for="slider_title_ru">Slider Title RUS</label>
+                                                <input value="<?php echo $slider_data['sl_title_ru']; ?>" type="text" name="slider_title_rus" class="form-control" id="slider_title_rus" placeholder="Enter Title name">
                                             </div>
 
                                             <div class="col-md-12">
-                                                <label for="slider_description_rus">Slider Description RUS</label>
-                                                <textarea name="slider_description_rus" id="slider_description_rus" rows="9" class="form-control"></textarea>
-
+                                                <label for="slider_description_ru">Slider Description RUS</label>
+                                                <textarea name="slider_description_ru" id="slider_description_ru" rows="9" class="form-control"><?php echo $slider_data['sl_description_ru']; ?></textarea>
+                                                <script>
+                                                        CKEDITOR.replace('slider_description_ru');
+                                                    </script>
                                             </div>
                                         </div>
                                     </div>

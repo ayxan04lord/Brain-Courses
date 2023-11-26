@@ -23,6 +23,7 @@ if(!isset($_SESSION['admin_id'])){
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
         <script defer="defer" data-domain="webpixels.works" src="https://plausible.io/js/script.js"></script>
         <link rel="shortcut icon" href="<?php echo base_url('public/admin/assets/img/favicon.ico'); ?>" type="image/x-icon">
+        <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
 
 </head>
 <body>

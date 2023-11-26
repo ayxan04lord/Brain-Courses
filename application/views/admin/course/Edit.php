@@ -56,13 +56,15 @@
                                         <div id="home" class="container tab-pane active">
                                             <div class="col-md-12">
                                                 <div class="col-md-12">
-                                                    <label for="course_title_aze">Course Title AZE</label>
-                                                    <input value="<?php echo $course_data['c_title_az']; ?>" type="text" name="course_title_aze" class="form-control" id="course_title_aze" placeholder="Project name">
+                                                    <label for="course_title_az">Course Title AZE</label>
+                                                    <input value="<?php echo $course_data['c_title_az']; ?>" type="text" name="course_title_az" class="form-control" id="course_title_az" placeholder="Project name">
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <label for="course_description_aze">Course Description AZE</label>
-                                                    <textarea value="<?php echo $course_data['c_desc_az']; ?>" name="course_description_aze" id="course_description_aze" rows="9" class="form-control"></textarea>
-
+                                                    <label for="course_description_az">Course Description AZE</label>
+                                                    <textarea name="course_description_az" id="course_description_az" rows="9" class="form-control"><?php echo $course_data['c_desc_az']; ?></textarea>
+                                                    <script>
+                                                        CKEDITOR.replace('course_description_az');
+                                                    </script>
                                                 </div>
 
                                             </div>
@@ -75,8 +77,10 @@
                                                 </div>
                                                 <div class="col-md-12">
                                                     <label for="course_description_en">Course Description ENG</label>
-                                                    <textarea value="<?php echo $course_data['c_desc_en']; ?>" name="course_description_en" id="course_description_en" rows="9" class="form-control"></textarea>
-
+                                                    <textarea  name="course_description_en" id="course_description_en" rows="9" class="form-control"><?php echo $course_data['c_desc_en']; ?></textarea>
+                                                    <script>
+                                                        CKEDITOR.replace('course_description_en');
+                                                    </script>
                                                 </div>
 
                                             </div>
@@ -84,13 +88,15 @@
                                         <div id="menu2" class="container tab-pane fade">
                                             <div class="col-md-12">
                                                 <div class="col-md-12">
-                                                    <label for="course_title_rus">Course Title RUS</label>
-                                                    <input value="<?php echo $course_data['c_title_rus']; ?>" type="text" name="course_title_rus" class="form-control" id="course_title_rus" placeholder="Project name">
+                                                    <label for="course_title_ru">Course Title RUS</label>
+                                                    <input value="<?php echo $course_data['c_title_ru']; ?>" type="text" name="course_title_ru" class="form-control" id="course_title_ru" placeholder="Project name">
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <label for="course_description_rus">Course Description RUS</label>
-                                                    <textarea value="<?php echo $course_data['c_desc_rus']; ?>" name="course_description_rus" id="course_description_rus" rows="9" class="form-control"></textarea>
-
+                                                    <label for="course_description_ru">Course Description RUS</label>
+                                                    <textarea  name="course_description_ru" id="course_description_ru" rows="9" class="form-control"><?php echo $course_data['c_desc_ru']; ?></textarea>
+                                                    <script>
+                                                        CKEDITOR.replace('course_description_ru');
+                                                    </script>
                                                 </div>
 
                                             </div>
