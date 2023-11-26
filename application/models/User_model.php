@@ -29,4 +29,9 @@ class User_model extends CI_Model{
     public function get_all_partners(){
         return $this->db->get('partners')->result_array();
     }
+
+    public function get_pag_partners($config, $page){
+        // return $this->db->get('courses')->result_array();
+        return $this->db->limit($config['per_page'], $page)->get("partners")->result_array();
+    }
 }

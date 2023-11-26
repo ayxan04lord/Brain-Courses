@@ -26,8 +26,8 @@
                      <div class="image_main">
                         <img src="<?php echo base_url('uploads/courses/').$courses_item['c_img']; ?>" class="image_8" style="width:100%;  height:320px; object-fit:cover">
                         <div class="text_main" style="width: 100%;">
-                           <div class="seemore_text"><?php echo $courses_item['c_title']; ?></div>
-                           <div class="seemore_text text-truncate" style="word-wrap: break-word;"><?php echo $courses_item['c_desc']; ?></div>
+                           <div class="seemore_text"><?php echo $courses_item['c_title_az']; ?></div>
+                           <div class="seemore_text text-truncate" style="word-wrap: break-word;"><?php echo $courses_item['c_desc_az']; ?></div>
                         </div>
                        
                      </div>

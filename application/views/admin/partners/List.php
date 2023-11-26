@@ -15,7 +15,7 @@
                     <div class="row align-items-center my-4">
                         <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                             <!-- Title -->
-                            <h1 class="h2 mb-0 ls-tight">Partners</h1>
+                            <h1 class="h2 mb-0 ls-tight">Partners List</h1>
                         </div>
                         <!-- Actions -->
                         <div class="col-sm-6 col-12 text-sm-end">
@@ -47,8 +47,8 @@
                         <thead>
                     <tr>
                         <th>№</th>
-                        <th>Partners Title</th>
-                        <th>Partners Link</th>
+                        <th>Title</th>
+                        <th>Link</th>
                         <th>Status</th>
                         <th>Img</th>
                         <th>Control</th>
@@ -60,10 +60,10 @@
                     foreach($partners_data as $partners_item ): ?>
                     <tr>
                         <td><?= $id_partners++; ?></td>
-                        <td><?= $partners_item["p_title"]; ?></td>
+                        <td><?= $partners_item["p_title_az"]; ?></td>
                         <td><?= $partners_item["p_link"]; ?></td>
                         <td><?= $partners_item["p_status"]?"Active":"Deactive"; ?></td>
-                        <td><a href="<?php echo base_url('uploads/partners/'.$partners_item['p_img']); ?>"><img src="<?php echo base_url('uploads/partners/'.$partners_item['p_img']); ?>" alt="" style="object-fit: cover; object-position:top; width:150px; height:150px; aspect-ratio:initial;"></a></td>
+                        <td><a target="_blank" href="<?php echo base_url('uploads/partners/'.$partners_item['p_img']); ?>"><img src="<?php echo base_url('uploads/partners/'.$partners_item['p_img']); ?>" alt="" style="object-fit: cover; object-position:top; width:150px; height:150px; aspect-ratio:initial;"></a></td>
                         <td>
                             <a  href="<?php echo base_url('admin_partners_edit/').$partners_item['p_id']; ?>" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
                                     <button type="submit" class=" pe-2">

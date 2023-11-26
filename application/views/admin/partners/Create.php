@@ -35,25 +35,57 @@
                         <h5 class="mb-0">Create</h5>
                     </div>
                     <div class="card-body">
+
+                        <ul class="nav nav-pills" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-bs-toggle="pill" href="#home">AZE</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="pill" href="#menu1">ENG</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="pill" href="#menu2">RUS</a>
+                            </li>
+                        </ul>
+
                         <form action="<?= base_url('admin_partners_create_act'); ?>" method="POST" enctype="multipart/form-data" id="course_form">
-                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
-                        <div class="row">
+                            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
+                            <div class="row">
                                 <div class="col-md-6">
-                                    <div class="col-md-12">
-                                        <label for="partners_title">Partners Title</label>
-                                        <input type="text" name="partners_title" class="form-control" id="partners_title" placeholder="Title name">
+                                    <div class="tab-content">
+                                        <div class="tab-pane container active" id="home">
+                                            <div class="col-md-12">
+                                                <label for="partners_title_az">Partners Title AZE</label>
+                                                <input type="text" name="partners_title_az" class="form-control" id="partners_title_az" placeholder="Title name">
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane container fade" id="menu1">
+                                            <div class="col-md-12">
+                                                <label for="partners_title_en">Partners Title ENG</label>
+                                                <input type="text" name="partners_title_en" class="form-control" id="partners_title_en" placeholder="Title name">
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane container fade" id="menu2">
+                                            <div class="col-md-12">
+                                                <label for="partners_title_rus">Partners Title RUS</label>
+                                                <input type="text" name="partners_title_rus" class="form-control" id="partners_title_rus" placeholder="Title name">
+                                            </div>
+                                        </div>
                                     </div>
+                                </div>
+                                <div class="col-md-6">
+
 
                                     <div class="col-md-12">
                                         <label for="partners_link">Partners Link</label>
                                         <input type="text" name="partners_link" class="form-control" id="partners_link" placeholder="Link">
                                     </div>
+
                                     <div class="col-md-12">
                                         <div class="d-flex flex-row justify-content-center mt-3">
                                             <div class="form-check form-switch me-n2"><input class="form-check-input" type="checkbox" name="partners_status" id="switch-dark-mode"></div>
                                         </div>
                                     </div>
-
 
                                 </div>
 
@@ -75,27 +107,27 @@
                                         </div>
 
                                     </div>
+
                                 </div>
 
 
                             </div>
-                    </div>
                     <div class="card-footer border-0 py-5">
 
                         <div class="d-flex flex-row justify-content-end mx-n1">
 
                             <button type="submit" class="btn d-inline-flex btn-sm btn-primary mx-1" form="course_form">
-                            <span>Create</span>
-                            <span class=" pe-2 ml-3">
+                                <span>Create</span>
+                                <span class=" pe-2 ml-3">
                                     <i class="bi bi-plus"></i>
                                 </span>
-                                
+
                             </button>
                         </div>
 
                     </div>
                     </form>
-                 
+
                 </div>
 
 

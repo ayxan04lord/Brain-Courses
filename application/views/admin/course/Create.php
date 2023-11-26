@@ -55,30 +55,54 @@
                         <form action="<?= base_url('admin_course_create_act'); ?>" method="POST" enctype="multipart/form-data" id="course_form">
                             <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
 
-                            <div class="tab-content">
-                                <div id="home" class="container tab-pane active">
-                                    1
-                                </div>
-                                <div id="menu1" class="container tab-pane fade">
-                                    2
-                                </div>
-                                <div id="menu2" class="container tab-pane fade">
-                                    3
-                                </div>
-                            </div>
+
 
                             <div class="row ">
                                 <div class="col-md-6">
-                                    <div class="col-md-12">
-                                        <label for="course_title">Course Title</label>
-                                        <input type="text" name="course_title" class="form-control" id="course_title" placeholder="Project name">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label for="course_description">Course Description</label>
-                                        <textarea name="course_description" id="course_description" rows="9" class="form-control"></textarea>
-                                       
-                                    </div>
+                                    <div class="tab-content">
+                                        <div id="home" class="container tab-pane active">
+                                            <div class="col-md-12">
+                                                <div class="col-md-12">
+                                                    <label for="course_title_aze">Course Title AZE</label>
+                                                    <input type="text" name="course_title_aze" class="form-control" id="course_title_aze" placeholder="Project name">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="course_description_aze">Course Description AZE</label>
+                                                    <textarea name="course_description_aze" id="course_description_aze" rows="9" class="form-control"></textarea>
 
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div id="menu1" class="container tab-pane fade">
+                                            <div class="col-md-12">
+                                                <div class="col-md-12">
+                                                    <label for="course_title_en">Course Title ENG</label>
+                                                    <input type="text" name="course_title_en" class="form-control" id="course_title_en" placeholder="Project name">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="course_description_en">Course Description ENG</label>
+                                                    <textarea name="course_description_en" id="course_description_en" rows="9" class="form-control"></textarea>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div id="menu2" class="container tab-pane fade">
+                                            <div class="col-md-12">
+                                                <div class="col-md-12">
+                                                    <label for="course_title_rus">Course Title RUS</label>
+                                                    <input type="text" name="course_title_rus" class="form-control" id="course_title_rus" placeholder="Project name">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="course_description_rus">Course Description RUS</label>
+                                                    <textarea name="course_description_rus" id="course_description_rus" rows="9" class="form-control"></textarea>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
 
@@ -104,8 +128,8 @@
 
                                     </select>
                                     <div class="row mt-3">
-                                            <div class="form-check form-switch me-n2"><input class="form-check-input" type="checkbox" name="course_status" id="switch-dark-mode"></div>
-                                        </div>
+                                        <div class="form-check form-switch me-n2"><input class="form-check-input" type="checkbox" name="course_status" id="switch-dark-mode"></div>
+                                    </div>
                                 </div>
 
                             </div>

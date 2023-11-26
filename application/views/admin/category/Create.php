@@ -35,8 +35,8 @@
                     </div>
                     <div class="card-body">
                         <form action="<?= base_url('admin_category_create_act'); ?>" method="POST" enctype="multipart/form-data" id="category_form">
-                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
-                        <div class="row">
+                            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
+                            <div class="row">
                                 <div class="col-md-6">
                                     <div class="col-md-12">
                                         <label for="course_category">Category</label>
@@ -51,8 +51,8 @@
                         <div class="d-flex flex-row justify-content-end mx-n1">
 
                             <button type="submit" class="btn d-inline-flex btn-sm btn-primary mx-1" form="category_form">
-                            <span>Create</span>
-                            <span class=" pe-2 ml-3">
+                                <span>Create</span>
+                                <span class=" pe-2 ml-3">
                                     <i class="bi bi-plus"></i>
                                 </span>
                             </button>
@@ -61,9 +61,8 @@
                     </div>
                 </div>
             </div>
+        </main>
     </div>
-    </main>
-</div>
 </div>
 <script src="https://clever.webpixels.io/js/main.js"></script>
 </body>

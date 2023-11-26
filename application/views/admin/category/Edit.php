@@ -48,7 +48,7 @@
                     </div>
                     <div class="card-footer border-0 py-5">
                         <div class="d-flex flex-row justify-content-end mx-n1">
-                        <button type="submit" class="btn d-inline-flex btn-sm btn-primary mx-1" form="category_form">
+                        <button type="submit" class="btn d-inline-flex btn-sm btn-warning mx-1" form="category_form">
                         <span>Edit</span>
                         <span class=" pe-2">
                             <i class="bi bi-pencil"></i>

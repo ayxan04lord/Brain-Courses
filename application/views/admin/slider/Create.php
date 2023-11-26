@@ -35,15 +35,69 @@
                         <h5 class="mb-0">Create</h5>
                     </div>
                     <div class="card-body">
+                        <!-- Nav pills -->
+                        <ul class="nav nav-pills" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-bs-toggle="pill" href="#home">AZE</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="pill" href="#menu1">ENG</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="pill" href="#menu2">RUS</a>
+                            </li>
+                        </ul>
+
                         <form action="<?= base_url('admin_slider_create_act'); ?>" method="POST" enctype="multipart/form-data" id="course_form">
-                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
-                        <div class="row">
+                            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
+                            <div class="row">
                                 <div class="col-md-6">
-                                    <div class="col-md-12">
-                                        <label for="slider_title">Slider Title</label>
-                                        <input type="text" name="slider_title" class="form-control" id="slider_title" placeholder="Project name">
+                                    <div class="tab-content">
+                                        <div class="tab-pane container active" id="home">
+                                            <div class="col-md-12">
+                                                <label for="slider_title_az">Slider Title AZE</label>
+                                                <input type="text" name="slider_title_az" class="form-control" id="slider_title_az" placeholder="Enter Title name">
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label for="slider_description_az">Slider Description AZE</label>
+                                                <textarea name="slider_description_az" id="slider_description_az" rows="9" class="form-control"></textarea>
+
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane container fade" id="menu1">
+                                            <div class="col-md-12">
+                                                <label for="slider_title_en">Slider Title ENG</label>
+                                                <input type="text" name="slider_title_en" class="form-control" id="slider_title_en" placeholder="Enter Title name">
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label for="slider_description_en">Slider Description ENG</label>
+                                                <textarea name="slider_description_en" id="slider_description_en" rows="9" class="form-control"></textarea>
+
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane container fade" id="menu2">
+                                            <div class="col-md-12">
+                                                <label for="slider_title_rus">Slider Title RUS</label>
+                                                <input type="text" name="slider_title_rus" class="form-control" id="slider_title_rus" placeholder="Enter Title name">
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label for="slider_description_rus">Slider Description RUS</label>
+                                                <textarea name="slider_description_rus" id="slider_description_rus" rows="9" class="form-control"></textarea>
+
+                                            </div>
+                                        </div>
                                     </div>
 
+
+
+
+
+                                </div>
+
+                                <div class="col-md-6">
                                     <div class="col-md-12">
                                         <label for="slider_link">Link</label>
                                         <input type="text" name="slider_link" class="form-control" id="slider_link" placeholder="Link">
@@ -64,41 +118,37 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="slider_description">Slider Description</label>
-                                    <textarea name="slider_description" id="slider_description" rows="9" class="form-control"></textarea>
-                                    <div class="row mt-3">
-                                        <div class="form-check form-switch me-n2"><input class="form-check-input" type="checkbox" name="slider_status" id="switch-dark-mode"></div>
+                                        <div class="row mt-3">
+                                            <div class="form-check form-switch me-n2"><input class="form-check-input" type="checkbox" name="slider_status" id="switch-dark-mode"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                     </div>
-                    <div class="card-footer border-0 py-5">
+                </div>
+                </form>
+                <div class="card-footer border-0 py-5">
 
-                        <div class="d-flex flex-row justify-content-end mx-n1">
+                    <div class="d-flex flex-row justify-content-end mx-n1">
 
-                            <button type="submit" class="btn d-inline-flex btn-sm btn-primary mx-1" form="course_form">
+                        <button type="submit" class="btn d-inline-flex btn-sm btn-primary mx-1" form="course_form">
                             <span>Create</span>
 
                             <span class=" pe-2 ml-3">
-                                    <i class="bi bi-plus"></i>
-                                </span>
-                            </button>
-                        </div>
-
+                                <i class="bi bi-plus"></i>
+                            </span>
+                        </button>
                     </div>
-                    </form>
-                    
+
                 </div>
 
 
             </div>
+
+
     </div>
-    </main>
+</div>
+</main>
 </div>
 </div>
 <script src="https://clever.webpixels.io/js/main.js"></script>

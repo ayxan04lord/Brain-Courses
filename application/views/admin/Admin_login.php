@@ -57,6 +57,14 @@
                                     <?php echo $this->session->flashdata('err'); ?>
                                     </div>
                                 <?php } ?>
+
+                                <?php if ($this->session->flashdata('success')) { ?>
+                                    <div class="alert alert-success alert-dismissible mt-2">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        
+                                    <?php echo $this->session->flashdata('success'); ?>
+                                    </div>
+                                <?php } ?>
                                 <div class="mt-5"><button type="submit" class="btn btn-primary btn-user w-full">Sign in</button></div>
                                 
 

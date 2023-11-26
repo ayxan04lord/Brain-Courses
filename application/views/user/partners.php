@@ -20,7 +20,7 @@
                <?php foreach ($partners_data as $partners_item) : ?>
                   <?php if ($partners_item['p_status']) : ?>
                      <div class="col-md-6">
-                        <div class="make_text" style="color: red; size:18"><?php echo $partners_item['p_title']; ?></div>
+                        <div class="make_text" style="color: red; size:18"><?php echo $partners_item['p_title_az']; ?></div>
                         <div class="mb-5">
                            <img src="<?php echo base_url('uploads/partners/') . $partners_item['p_img']; ?>" class="image_8" style="width:100%;  height:320px; object-fit:cover">
                            <div class="text_main" style="width: 100%;">
@@ -32,7 +32,32 @@
                      </div>
                   <?php endif; ?>
                <?php endforeach; ?>
+               <style>
+                  .pagination a, .pagination strong{
+                     padding: 10px 10px ;
+                     border: 1 px solid #1611AA !important;
+                     margin-left: 5px;
+                     text-decoration: none;
+                     box-shadow: 0 0 8px rgba(5, 5, 5, 0.3);
+
+                  }
+
+                  .pagination strong{
+                     background: #1611AA !important;
+                     color: white;
+                     border: 1 px solid #1611AA !important;
+                  }
+
+                  .pagination{
+                     /* text-align: center !important; */
+                     /* display: inline; */
+                     /* float: inline-start; */
+                     justify-content: center;
+                  }
+
+               </style>
             </div>
+            <p class="pagination"><?php echo $links; ?></p>
          </div>
       </div>
    </div>

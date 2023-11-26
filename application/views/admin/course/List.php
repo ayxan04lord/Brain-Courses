@@ -15,7 +15,7 @@
                     <div class="row align-items-center my-4">
                         <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                             <!-- Title -->
-                            <h1 class="h2 mb-0 ls-tight">Courses</h1>
+                            <h1 class="h2 mb-0 ls-tight">Courses List</h1>
                         </div>
                         <!-- Actions -->
                         <div class="col-sm-6 col-12 text-sm-end">
@@ -47,8 +47,8 @@
                         <thead>
                     <tr>
                         <th>№</th>
-                        <th>Course Title</th>
-                        <th>Course Description</th>
+                        <th>Title</th>
+                        <th>Description</th>
                         <th>Category</th>
                         <th>Status</th>
                         <th>Img</th>
@@ -61,8 +61,8 @@
                     foreach($courses_data as $course_item ): ?>
                     <tr>
                         <td><?= $id_courses++; ?></td>
-                        <td><?= $course_item["c_title"]; ?></td>
-                        <td><p class="text-truncate" style="max-width:256px;"><?= $course_item["c_desc"]; ?></p></td>
+                        <td><?= $course_item["c_title_en"]; ?></td>
+                        <td><p class="text-truncate" style="max-width:256px;"><?= $course_item["c_desc_en"]; ?></p></td>
                         <td><?= $course_item["cg_name"]; ?></td>
                         <td><?= $course_item["c_status"]?"Active":"Deactive"; ?></td>
                         <td><a target="_blank" href="<?php echo base_url('uploads/courses/'.$course_item['c_img']); ?>"><img src="<?php echo base_url('uploads/courses/'.$course_item['c_img']); ?>" alt="" style="object-fit: cover; object-position:top; width:150px; height:150px; aspect-ratio:initial;"></a></td>

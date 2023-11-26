@@ -15,7 +15,7 @@
                     <div class="row align-items-center my-4">
                         <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                             <!-- Title -->
-                            <h1 class="h2 mb-0 ls-tight">Slider</h1>
+                            <h1 class="h2 mb-0 ls-tight">Slider List</h1>
                         </div>
                         <!-- Actions -->
                         <div class="col-sm-6 col-12 text-sm-end">
@@ -62,8 +62,8 @@
                     foreach($slider_data as $slider_item ): ?>
                     <tr>
                         <td><?= $id_slider++; ?></td>
-                        <td><?= $slider_item["sl_title"]; ?></td>
-                        <td style="max-width: 150px;" class="text-truncate"><?= $slider_item["sl_description"]; ?></td>
+                        <td><?= $slider_item["sl_title_az"]; ?></td>
+                        <td style="max-width: 150px;" class="text-truncate"><?= $slider_item["sl_description_az"]; ?></td>
                         <td><?= $slider_item["sl_link"]; ?></td>
                         <td><?= $slider_item["sl_status"]?"Active":"Deactive"; ?></td>
                         <td><a target="_blank" href="<?php echo base_url('uploads/slider/'.$slider_item['sl_img']); ?>"><img src="<?php echo base_url('uploads/slider/'.$slider_item['sl_img']); ?>" alt="" style="object-fit: cover; object-position:top; width:150px; height:150px; aspect-ratio:initial;"></a></td>

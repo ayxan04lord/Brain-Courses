@@ -38,7 +38,20 @@ class User_controller extends CI_Controller
 
     public function partners()
     {
-        $data['partners_data'] = $this->User_model->get_all_partners();
+
+        $this->load->library('pagination');
+
+        $config['base_url'] = base_url('partners');
+        $config['total_rows'] = count($this->User_model->get_all_partners());
+        $config['per_page'] = 6;
+        // $config['use_page_numbers'] = TRUE;
+
+        $this->pagination->initialize($config);
+
+        $page = $this->uri->segment(2)?$this->uri->segment(2):0;
+
+        $data['links'] = $this->pagination->create_links();
+        $data['partners_data'] = $this->User_model->get_pag_courses($config, $page);
         $this->load->view('user/partners', $data);
     }
 
