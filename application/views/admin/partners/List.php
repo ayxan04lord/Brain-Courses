@@ -69,13 +69,19 @@
                                     <button type="submit" class=" pe-2">
                                         <i class="bi bi-pencil"></i>
                                     </button>
-                                    <span>Edit</span>
+                                    
+                            </a>
+                            <a  href="<?php echo base_url('admin_partners_details/').$partners_item['p_id']; ?>" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
+                                    <button type="submit" class=" pe-2">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    
                             </a>
                             <a onclick="return confirm('Are you sure want to delete this item?')" href="<?php echo base_url('admin_partners_delete/').$partners_item['p_id']; ?>" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
                                     <button type="submit" class=" pe-2">
                                         <i class="bi bi-trash"></i>
                                     </button>
-                                    <span>Delete</span>
+                                    
                             </a>
                         </td>
                     </tr>

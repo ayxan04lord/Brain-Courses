@@ -36,6 +36,8 @@ class Admin_model extends CI_Model
         return $this->db->order_by('c_id','DESC')->join('category','cg_id=c_category', 'left')->where('c_id', $id)->get('courses')->row_array();
        
     }
+
+
     public function slider_insert($data)
     {
         $this->db->insert("slider", $data);
@@ -57,6 +59,13 @@ class Admin_model extends CI_Model
         $this->db->where('sl_id', $id)->delete('slider');
     }
 
+    public function get_slider_details($id)
+    {
+        return $this->db->where('sl_id', $id)->get('slider')->row_array();
+       
+    }
+
+
     public function partners_insert($data)
     {
         $this->db->insert("partners", $data);
@@ -76,6 +85,12 @@ class Admin_model extends CI_Model
 
     public function partners_db_edit($id, $data){
         $this->db->where('p_id',$id)->update('partners', $data);
+    }
+
+    public function get_partners_details($id)
+    {
+        return $this->db->where('p_id', $id)->get('partners')->row_array();
+
     }
 
     public function category_insert($data){

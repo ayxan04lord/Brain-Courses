@@ -77,12 +77,14 @@ $route['admin_slider_create'] = 'Admin_controller/admin_slider_create';
 $route['admin_slider_create_act'] = 'Admin_controller/admin_slider_create_act';
 $route['admin_slider_list'] = 'Admin_controller/admin_slider_list';
 $route['admin_slider_edit/(.*)'] = 'Admin_controller/admin_slider_edit/$1';
+$route['admin_slider_details/(.*)'] = 'Admin_controller/admin_slider_details/$1';
 $route['admin_slider_edit_act/(.*)'] = 'Admin_controller/admin_slider_edit_act/$1';
 $route['admin_slider_delete/(.*)'] = 'Admin_controller/admin_slider_delete/$1';
 // Partners Start
 $route['admin_partners_create'] = 'Admin_controller/admin_partners_create';
 $route['admin_partners_create_act'] = 'Admin_controller/admin_partners_create_act';
 $route['admin_partners_list'] = 'Admin_controller/admin_partners_list';
+$route['admin_partners_details/(.*)'] = 'Admin_controller/admin_partners_details/$1';
 $route['admin_partners_edit/(.*)'] = 'Admin_controller/admin_partners_edit/$1';
 $route['admin_partners_edit_act/(.*)'] = 'Admin_controller/admin_partners_edit_act/$1';
 $route['admin_partners_delete/(.*)'] = 'Admin_controller/admin_partners_delete/$1';

@@ -47,8 +47,8 @@
                         <thead>
                     <tr>
                         <th>№</th>
-                        <th>Slider Title</th>
-                        <th>Slider Description</th>
+                        <th>Title</th>
+                        <th>Description</th>
                         <th>Link</th>
                         <th>Status</th>
                         <th>Img</th>
@@ -72,13 +72,19 @@
                                     <button type="submit" class=" pe-2">
                                         <i class="bi bi-pencil"></i>
                                     </button>
-                                    <span>Edit</span>
+                                    
+                            </a>
+                            <a  href="<?php echo base_url('admin_slider_details/').$slider_item['sl_id']; ?>" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
+                                    <button type="submit" class=" pe-2">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    
                             </a>
                             <a onclick="return confirm('Are you sure want to delete this item?')" href="<?php echo base_url('admin_slider_delete/').$slider_item['sl_id']; ?>" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
                                     <button type="submit" class=" pe-2">
                                         <i class="bi bi-trash"></i>
                                     </button>
-                                    <span>Delete</span>
+                                    
                             </a>
                         </td>
                     </tr>

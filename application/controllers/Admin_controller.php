@@ -339,6 +339,13 @@ class Admin_controller extends CI_Controller
         $this->load->view('admin/slider/List', $data);
     }
 
+    public function admin_slider_details($id)
+    {
+        $data['slider_data']=$this->Admin_model->get_slider_details($id);
+        $this->load->view('admin/slider/Details', $data);
+
+    }
+
     // Slider CRUD End
 
     // Partners CRUD Start
@@ -437,6 +444,13 @@ class Admin_controller extends CI_Controller
     {
         $data["partners_data"] = $this->Admin_model->partners_get_all();
         $this->load->view('admin/partners/List', $data);
+    }
+
+    public function admin_partners_details($id)
+    {
+        $data['partners_data']=$this->Admin_model->get_partners_details($id);
+        $this->load->view('admin/partners/Details', $data);
+
     }
 
     // Partners CRUD End
