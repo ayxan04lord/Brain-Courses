@@ -46,7 +46,9 @@
                         <thead>
                     <tr>
                         <th>№</th>
-                        <th>Category</th>
+                        <th>Category EN</th>
+                        <th>Category AZ</th>
+                        <th>Category RU</th>
                         <th>Control</th>
                     </tr>
                 </thead>
@@ -56,7 +58,9 @@
                     foreach($category_data as $category_item ): ?>
                     <tr>
                         <td><?= $id_category++; ?></td>
-                        <td><?= $category_item["cg_name"]; ?></td>
+                        <td><?= $category_item["cg_name_en"]; ?></td>
+                        <td><?= $category_item["cg_name_az"]; ?></td>
+                        <td><?= $category_item["cg_name_ru"]; ?></td>
                         <td>
                             <a  href="<?php echo base_url('admin_category_edit/').$category_item['cg_id']; ?>" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
                                     <button type="submit" class=" pe-2">

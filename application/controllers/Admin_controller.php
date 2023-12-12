@@ -229,11 +229,11 @@ class Admin_controller extends CI_Controller
     public function admin_slider_create_act()
     {
         $slider_title_en = $this->input->post('slider_title_en', TRUE);
-        $slider_title_rus = $this->input->post('slider_title_rus', TRUE);
+        $slider_title_ru = $this->input->post('slider_title_ru', TRUE);
         $slider_title_az = $this->input->post('slider_title_az', TRUE);
         $slider_description_en = $this->input->post('slider_description_en', TRUE);
         $slider_description_az = $this->input->post('slider_description_az', TRUE);
-        $slider_description_rus = $this->input->post('slider_description_rus', TRUE);
+        $slider_description_ru = $this->input->post('slider_description_ru', TRUE);
         $slider_link = $this->input->post("slider_link", TRUE);
         $slider_status = $this->input->post('slider_status', TRUE);
 
@@ -246,11 +246,11 @@ class Admin_controller extends CI_Controller
             $upload_slider_img = $this->upload->data();
             $data = [
                 'sl_title_en' => $slider_title_en,
-                'sl_title_rus' => $slider_title_rus,
+                'sl_title_rus' => $slider_title_ru,
                 'sl_title_az' => $slider_title_az,
                 'sl_description_en' => $slider_description_en,
                 'sl_description_az' => $slider_description_az,
-                'sl_description_rus' => $slider_description_rus,
+                'sl_description_ru' => $slider_description_ru,
                 'sl_img' => $upload_slider_img['file_name'],
                 'sl_link' => $slider_link,
                 'sl_status' => str_contains($slider_status, 'on') ? TRUE : FALSE
@@ -260,11 +260,11 @@ class Admin_controller extends CI_Controller
         } else {
             $data = [
                 'sl_title_en' => $slider_title_en,
-                'sl_title_rus' => $slider_title_rus,
+                'sl_title_ru' => $slider_title_ru,
                 'sl_title_az' => $slider_title_az,
                 'sl_description_en' => $slider_description_en,
                 'sl_description_az' => $slider_description_az,
-                'sl_description_rus' => $slider_description_rus,
+                'sl_description_ru' => $slider_description_ru,
                 'sl_link' => $slider_link,
                 'sl_status' => str_contains($slider_status, 'on') ? TRUE : FALSE
             ];
@@ -285,9 +285,9 @@ class Admin_controller extends CI_Controller
         $slider_title_en = $this->input->post('slider_title_en', TRUE);
         $slider_title_ru = $this->input->post('slider_title_ru', TRUE);
         $slider_title_az = $this->input->post('slider_title_az', TRUE);
-        $slider_description_en = $this->input->post('slider_description_en', TRUE);
-        $slider_description_az = $this->input->post('slider_description_az', TRUE);
-        $slider_description_ru = $this->input->post('slider_description_rus', TRUE);
+        $slider_description_en = $this->input->post('slider_description_en');
+        $slider_description_az = $this->input->post('slider_description_az');
+        $slider_description_ru = $this->input->post('slider_description_ru');
         $slider_link = $this->input->post('slider_link', TRUE);
         $slider_status = $this->input->post('slider_status', TRUE);
         $config['upload_path'] = './uploads/slider';
@@ -298,7 +298,7 @@ class Admin_controller extends CI_Controller
             $upload_slider_img = $this->upload->data();
             $data = [
                 'sl_title_en' => $slider_title_en,
-                'sl_title_rus' => $slider_title_ru,
+                'sl_title_ru' => $slider_title_ru,
                 'sl_title_az' => $slider_title_az,
                 'sl_description_en' => $slider_description_en,
                 'sl_description_az' => $slider_description_az,
@@ -464,10 +464,14 @@ class Admin_controller extends CI_Controller
 
     public function admin_category_create_act()
     {
-        $category_name = $this->input->post('course_category', TRUE);
+        $category_name_en = $this->input->post('course_category_en', TRUE);
+        $category_name_az = $this->input->post('course_category_az', TRUE);
+        $category_name_ru = $this->input->post('course_category_ru', TRUE);
 
         $data = [
-            'cg_name' => $category_name,
+            'cg_name_en' => $category_name_en,
+            'cg_name_az' => $category_name_az,
+            'cg_name_ru' => $category_name_ru
 
         ];
 
@@ -484,10 +488,14 @@ class Admin_controller extends CI_Controller
 
     public function admin_category_edit_act($id)
     {
-        $category_name = $this->input->post('course_category', TRUE);
+        $category_name_en = $this->input->post('course_category_en', TRUE);
+        $category_name_az = $this->input->post('course_category_az', TRUE);
+        $category_name_ru = $this->input->post('course_category_ru', TRUE);
 
         $data = [
-            'cg_name' => $category_name,
+            'cg_name_en' => $category_name_en,
+            'cg_name_az' => $category_name_az,
+            'cg_name_ru' => $category_name_ru
 
         ];
         $this->Admin_model->category_db_edit($id, $data);

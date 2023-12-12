@@ -84,7 +84,7 @@
                                         <div class="tab-pane container fade" id="menu2">
                                             <div class="col-md-12">
                                                 <label for="slider_title_ru">Slider Title RUS</label>
-                                                <input value="<?php echo $slider_data['sl_title_ru']; ?>" type="text" name="slider_title_rus" class="form-control" id="slider_title_rus" placeholder="Enter Title name">
+                                                <input value="<?php echo $slider_data['sl_title_ru']; ?>" type="text" name="slider_title_ru" class="form-control" id="slider_title_ru" placeholder="Enter Title name">
                                             </div>
 
                                             <div class="col-md-12">

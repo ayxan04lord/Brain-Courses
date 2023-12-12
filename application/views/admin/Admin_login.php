@@ -1,3 +1,10 @@
+<?php
+
+
+if($this->session->has_userdata('admin_id')){
+    redirect(base_url('admin_dashboard'));
+}
+?>
 <!doctype html>
 <html lang="en">
 

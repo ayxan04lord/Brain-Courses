@@ -1,12 +1,10 @@
 <?php
 
-if(!isset($_SESSION['admin_id'])){
-    $this->session->set_flashdata('err', 'Enter the password and login!');
+
+if(!$this->session->has_userdata('admin_id')){
     redirect(base_url('admin_login'));
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

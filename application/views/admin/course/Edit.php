@@ -122,7 +122,7 @@
                                         <select name="course_select_option" class="form-select mt-3" aria-label="Default select example">
                                             <option>Category</option>
                                             <?php foreach ($categories_list as $category) : ?>
-                                                <option <?= $course_data['c_category'] == $category['cg_id'] ? 'selected' : ''; ?> value="<?php echo $category['cg_id']; ?>"><?php echo $category['cg_name']; ?></option>
+                                                <option <?= $course_data['c_category'] == $category['cg_id'] ? 'selected' : ''; ?> value="<?php echo $category['cg_id']; ?>"><?php echo $category['cg_name_en']; ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                         <div class="row mt-3">

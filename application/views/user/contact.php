@@ -2,7 +2,7 @@
 
 <body>
    <!--header section start -->
-   <div class="header_section">
+   <div class="header_section" style="padding-top: 0px;">
       <div class="header_bg">
          <div class="container">
             <?php $this->load->view('user/includes/Navbar'); ?>
@@ -11,9 +11,7 @@
    </div>
    <!--header section end -->
    <!-- newsletter section start -->
-   <style>
-      
-   </style>
+  
    <div class="newsletter_section layout_padding">
       <div class="container">
          <div class="newsletter_main">
@@ -27,8 +25,8 @@
                            <div class="card-body">
                               <h5 class="card-title customStyle-card-title-form"><i class="bi bi-person"></i> Contact</h5>
 
-                              <form class="row g-3 needs-validation" onsubmit="validateForm()" name="contactForm">
-
+                              <form class="row g-3 needs-validation" onsubmit="validateForm()" name="contactForm" method="POST" action="<?php echo base_url('contact_act') ?>">
+                              <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
                                  <div class="col-md-3">
                                     <label for="validationCustom01" class="form-label">Full Name</label>
                                     <input name="fullName" type="text" id="fullNameForm" class="form-control" value="" required autocomplete="off">

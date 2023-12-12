@@ -2,7 +2,7 @@
 
 <body>
    <!--header section start -->
-   <div class="header_section">
+   <div class="header_section" style="padding-top: 0px;">
       <div class="header_bg">
          <div class="container">
             <?php $this->load->view('user/includes/Navbar'); ?>
@@ -20,14 +20,13 @@
                <?php foreach ($partners_data as $partners_item) : ?>
                   <?php if ($partners_item['p_status']) : ?>
                      <div class="col-md-6">
-                        <div class="make_text" style="color: red; size:18"><?php echo $partners_item['p_title_az']; ?></div>
+                     <a href="<?php echo $partners_item['p_link']; ?>"><div class="make_text" style="color: red; font-size:30px;"><?php echo $partners_item['p_title_' . $this->session->userdata("site_lang")]; ?></div></a>
                         <div class="mb-5">
                            <img src="<?php echo base_url('uploads/partners/') . $partners_item['p_img']; ?>" class="image_8" style="width:100%;  height:320px; object-fit:cover">
                            <div class="text_main" style="width: 100%;">
 
                            </div>
 
-                           <div class="seemore_text mb-5"><a href="<?php echo $partners_item['p_link']; ?>"><?php echo $partners_item['p_link']; ?></a></div>
                         </div>
                      </div>
                   <?php endif; ?>

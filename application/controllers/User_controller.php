@@ -65,10 +65,13 @@ class User_controller extends CI_Controller
         $this->load->view('user/contact');
     }
 
-    public function contact1()
+    public function contact_act()
     {
-        $this->load->view('user/contact1');
+       
+        redirect($_SERVER['HTTP_REFERER']);
     }
+
+  
 
     public function blog()
     {

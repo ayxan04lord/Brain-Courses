@@ -39,8 +39,24 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="col-md-12">
-                                        <label for="course_category">Category</label>
-                                        <input type="text" name="course_category" class="form-control" id="course_category" placeholder="Category name">
+                                        <label for="course_category_en">Category EN</label>
+                                        <input type="text" name="course_category_en" class="form-control" id="course_category_en" placeholder="Category name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="col-md-12">
+                                        <label for="course_category_az">Category AZ</label>
+                                        <input type="text" name="course_category_az" class="form-control" id="course_category_az" placeholder="Category name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="col-md-12">
+                                        <label for="course_category_ru">Category RU</label>
+                                        <input type="text" name="course_category_ru" class="form-control" id="course_category_ru" placeholder="Category name">
                                     </div>
                                 </div>
                             </div>

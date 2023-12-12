@@ -56,6 +56,7 @@ $route['courses'] = 'User_controller/courses';
 $route['courses/(.*)'] = 'User_controller/courses/$1';
 $route['partners'] = 'User_controller/partners';
 $route['contact'] = 'User_controller/contact';
+$route['contact_act'] = 'User_controller/contact_act';
 $route['blog'] = 'User_controller/blog';
 
 $route['admin_login'] = 'Admin_controller/index';

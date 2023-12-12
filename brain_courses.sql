@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Hazırlanma Vaxtı: 26 Noy, 2023 saat 16:58
--- Server versiyası: 8.0.30
--- PHP Versiyası: 8.0.22
+-- Generation Time: Dec 12, 2023 at 08:10 PM
+-- Server version: 8.0.30
+-- PHP Version: 8.0.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Verilənlər Bazası: `brain_courses`
+-- Database: `brain_courses`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cədvəl üçün cədvəl strukturu `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -34,7 +34,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Sxemi çıxarılan cedvel `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`a_id`, `a_username`, `a_password`) VALUES
@@ -43,37 +43,39 @@ INSERT INTO `admin` (`a_id`, `a_username`, `a_password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cədvəl üçün cədvəl strukturu `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
   `cg_id` int NOT NULL,
-  `cg_name` varchar(255) NOT NULL
+  `cg_name_en` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `cg_name_az` varchar(255) NOT NULL,
+  `cg_name_ru` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Sxemi çıxarılan cedvel `category`
+-- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`cg_id`, `cg_name`) VALUES
-(2, 'Language'),
-(3, 'IT'),
-(5, 'Texniki fənnlər'),
-(6, 'Humanitar fənnlər');
+INSERT INTO `category` (`cg_id`, `cg_name_en`, `cg_name_az`, `cg_name_ru`) VALUES
+(2, 'Language', 'Dil', 'Языки'),
+(3, 'IT', 'IT IT', 'Информац.'),
+(5, 'Texniki fənnlər', '', ''),
+(6, 'Humanitar fənnlər', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Cədvəl üçün cədvəl strukturu `courses`
+-- Table structure for table `courses`
 --
 
 CREATE TABLE `courses` (
   `c_id` int NOT NULL,
   `c_title_en` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `c_title_rus` varchar(255) NOT NULL,
+  `c_title_ru` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `c_title_az` varchar(255) NOT NULL,
   `c_desc_en` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `c_desc_rus` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `c_desc_ru` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `c_desc_az` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `c_img` varchar(255) NOT NULL,
   `c_category` varchar(255) NOT NULL,
@@ -81,28 +83,28 @@ CREATE TABLE `courses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Sxemi çıxarılan cedvel `courses`
+-- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`c_id`, `c_title_en`, `c_title_rus`, `c_title_az`, `c_desc_en`, `c_desc_rus`, `c_desc_az`, `c_img`, `c_category`, `c_status`) VALUES
-(5, 'History', 'Всеобщая история', '', 'Learn history', 'Учите историю', 'Kursumuz həftə içi 3 gün davam edir və günaşırı 2 saat intervalı ilə tədris olunur. Bu kurs sayəsində abituriyentlər ümumi tarix fənni üzrə yüksək biliyə yiyələnə bilərlər. Müraciət etməyə tələsin! Qiymət : 80 AZN/ay.', 'UI_History-1-2048x1423.png', '6', '1'),
-(6, 'Physics', 'Физика', 'Fizika', 'Learn physics', '0', 'Kursumuz həftə içi 3 gün davam edir və günaşırı 2 saat intervalı ilə tədris olunur. Bu kurs sayəsində abituriyentlər ümumi tarix fənni üzrə yüksək biliyə yiyələnə bilərlər. Müraciət etməyə tələsin! Qiymət : 80 AZN/ay.', 'physics.png', '5', '1'),
+INSERT INTO `courses` (`c_id`, `c_title_en`, `c_title_ru`, `c_title_az`, `c_desc_en`, `c_desc_ru`, `c_desc_az`, `c_img`, `c_category`, `c_status`) VALUES
+(5, 'History', 'Всеобщая история', 'Tarix', '<p>Learn history</p>\r\n', '<p>Учите историю</p>\r\n', '<p>Kursumuz həftə içi 3 gün davam edir və günaşırı 2 saat intervalı ilə tədris olunur. </p>\r\n', 'UI_History-1-2048x1423.png', '6', '1'),
+(6, 'Physics', 'Физика', 'Fizika', '<p>Learn physics</p>\r\n', '<p>0</p>\r\n', '<p>Kursumuz həftə içi 3 gün davam edir və günaşırı 2 saat intervalı ilə tədris olunur.</p>\r\n', 'physics.png', '5', '1'),
 (7, 'English', 'Английский язык', 'İngilis dili', 'Dünyanın hər yerində keçirilən bu dili dərindən öyrənin! Yazılın, 50 AZN/ay.', '0', 'Kursumuz həftə içi 3 gün davam edir və günaşırı 2 saat intervalı ilə tədris olunur. Bu kurs sayəsində abituriyentlər ümumi tarix fənni üzrə yüksək biliyə yiyələnə bilərlər. Müraciət etməyə tələsin! Qiymət : 80 AZN/ay.', 'events_kurs_20211.jpg', '2', '1'),
 (8, 'Javascript', 'JavaScript', 'JavaScript', 'Kursumuz həftə içi 3 gün davam edir və günaşırı 1.5 saat intervalı ilə tədris olunur. Bu kurs sayəsində proqramlaşdırmanın Front-end sahəsi üzrə yüksək biliyə yiyələnə bilərlər. Müraciət etməyə tələsin! Qiymət : 170 AZN/ay.', '0', 'Kursumuz həftə içi 3 gün davam edir və günaşırı 1 saat intervalı ilə tədris olunur. Bu kurs sayəsində abituriyentlər ümumi tarix fənni üzrə yüksək biliyə yiyələnə bilərlər. Müraciət etməyə tələsin! Qiymət : 80 AZN/ay.', 'main-image.png', '3', '1'),
 (9, 'Math', 'Математика', 'Riyaziyyat', 'Kursumuz həftə içi 3 gün davam edir və günaşırı 1.5 saat intervalı ilə tədris olunur. Bu kurs sayəsində abituriyentlər riyaziyyat fənni üzrə yüksək biliyə yiyələnə bilərlər. Müraciət etməyə tələsin! Qiymət : 70 AZN/ay.', '0', 'Kursumuz həftə içi 3 gün davam edir və günaşırı 1 saat intervalı ilə tədris olunur. Bu kurs sayəsində abituriyentlər riyaziyyat fənni üzrə yüksək biliyə yiyələnə bilərlər. Müraciət etməyə tələsin! Qiymət : 80 AZN/ay.', 'riyaziyyat-hazirligi.jpg', '5', '1'),
-(10, 'Chemistry', 'Химия', 'Kimya', 'Kursumuz həftə içi 3 gün davam edir və günaşırı 1.5 saat intervalı ilə tədris olunur. Bu kurs sayəsində abituriyentlər kimya fənni üzrə yüksək biliyə yiyələnə bilərlər. Müraciət etməyə tələsin! Qiymət : 70 AZN/ay.', '0', 'Kursumuz həftə içi 3 gün davam edir və günaşırı 1 saat intervalı ilə tədris olunur. Bu kurs sayəsində abituriyentlər kimya fənni üzrə yüksək biliyə yiyələnə bilərlər. Müraciət etməyə tələsin! Qiymət : 80 AZN/ay.', 'kimya_kurslar.jpg', '5', '1'),
-(11, 'Russian language', 'Русский язык', 'Rus dili', '', '', '', 'rus_dili.jpg', '2', '1');
+(10, 'Chemistry', 'Химия', 'Kimya', '<p>Kursumuz həftə içi 3 gün davam edir və günaşırı 1.5 saat intervalı ilə tədris olunur. Bu kurs sayəsində abituriyentlər kimya fənni üzrə yüksək biliyə yiyələnə bilərlər. Müraciət etməyə tələsin! Qiymət : 70 AZN/ay.</p>\r\n', '<p>Kursumuz həftə içi 3 gün davam edir və günaşırı 1.5 saat intervalı ilə tədris olunur. Bu kurs sayəsində abituriyentlər kimya fənni üzrə yüksək biliyə yiyələnə bilərlər. Müraciət etməyə tələsin! Qiymət : 70 AZN/ay. RUS</p>\r\n', '<p>Kursumuz həftə içi 3 gün davam edir və günaşırı 1 saat intervalı ilə tədris olunur. Bu kurs sayəsində abituriyentlər kimya fənni üzrə yüksək biliyə yiyələnə bilərlər. Müraciət etməyə tələsin! Qiymət : 80 AZN/ay.</p>\r\n', 'kimya_kurslar.jpg', '5', '1'),
+(11, 'Russian language', 'Русский язык', 'Rus dili', '<p>Eng</p>\r\n', '<p>Rus</p>\r\n', '<p>Aze</p>\r\n', 'rus_dili.jpg', '2', '1');
 
 -- --------------------------------------------------------
 
 --
--- Cədvəl üçün cədvəl strukturu `partners`
+-- Table structure for table `partners`
 --
 
 CREATE TABLE `partners` (
   `p_id` int NOT NULL,
   `p_title_en` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `p_title_rus` varchar(255) NOT NULL,
+  `p_title_ru` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `p_title_az` varchar(255) NOT NULL,
   `p_link` varchar(255) NOT NULL,
   `p_img` varchar(255) NOT NULL,
@@ -110,17 +112,17 @@ CREATE TABLE `partners` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Sxemi çıxarılan cedvel `partners`
+-- Dumping data for table `partners`
 --
 
-INSERT INTO `partners` (`p_id`, `p_title_en`, `p_title_rus`, `p_title_az`, `p_link`, `p_img`, `p_status`) VALUES
+INSERT INTO `partners` (`p_id`, `p_title_en`, `p_title_ru`, `p_title_az`, `p_link`, `p_img`, `p_status`) VALUES
 (1, 'Courses \"Zafar\"', 'Курсы \"Зафар\"', 'Zəfər Kursları', 'https://www.zefer.edu.az/', '277580918_286642190301377_913944197239725282_n.jpg', '1'),
 (2, 'English', 'Английский язык', 'İngilis dili', 'https://www.edx.org/learn/english', 'events_kurs_2021.jpg', '1');
 
 -- --------------------------------------------------------
 
 --
--- Cədvəl üçün cədvəl strukturu `slider`
+-- Table structure for table `slider`
 --
 
 CREATE TABLE `slider` (
@@ -137,44 +139,44 @@ CREATE TABLE `slider` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Sxemi çıxarılan cedvel `slider`
+-- Dumping data for table `slider`
 --
 
 INSERT INTO `slider` (`sl_id`, `sl_title_en`, `sl_title_ru`, `sl_title_az`, `sl_description_en`, `sl_description_ru`, `sl_description_az`, `sl_link`, `sl_img`, `sl_status`) VALUES
-(1, 'English', 'Английский язык', 'İngilis dili', 'Know english', 'Учите англ', 'İngilis dili dünyada beynəlxalq dil kimi tanınır. Bu dili bilənlər həm yaxşı sənətə yiyələnə bilərlər, həm də yiyələndiyi sənət üzrə peşəkarlaşıb yüksək maaşa işləyə bilərlər.', 'www.english.com', 'events_kurs_2021.jpg', '1'),
-(2, 'Russian language', 'Русский язык', 'Rus dili', 'Know russian language', 'Учите Русский', 'Rus dili oyrenmekle bir cox xarici olkelerde islemek imkani elde edin.', 'www.rus.com', 'rus_dili.jpg', '1'),
-(3, 'JavaScript', 'JavaScript Ru', 'JavaScript Az', 'Learn JS', 'Учите JS', 'Js öyrənin', 'www.javascript.com', 'main-image.png', '1');
+(1, 'English', 'Английский', 'İngilis dili', '<p>English is recognized as an international language in the world. Those who know this language can master a good art, and can become a professional in the art they have mastered and work for a high salary. C2 level is considered the highest level of English.</p>\r\n', '<p>İngilis dili d&uuml;nyada beynəlxalq dil kimi tanınır. Bu dili bilənlər həm yaxşı sənətə yiyələnə bilərlər, həm də yiyələndiyi sənət &uuml;zrə peşəkarlaşıb y&uuml;ksək maaşa işləyə bilərlər. C2 səviyyə ingilis dili ən y&uuml;ksək səviyyə hesab olunur. Рус</p>\r\n', '<p><span style=\"color:#ffffff\"><strong>İngilis dili d&uuml;nyada beynəlxalq dil kimi tanınır. Bu dili bilənlər həm yaxşı sənətə yiyələnə bilərlər, həm də yiyələndiyi sənət &uuml;zrə peşəkarlaşıb y&uuml;ksək maaşa işləyə bilərlər. C2 səviyyə ingilis dili ən y&uuml;ksək səviyyə hesab olunur.5</strong></span></p>\r\n', 'www.english.com', 'events_kurs_2021.jpg', '1'),
+(2, 'Russian language', 'JS RU', 'Rus dili', '<p>Get the opportunity to work in many foreign countries by learning Russian.</p>\r\n', '<p>Rus dili oyrenmekle bir cox xarici olkelerde islemek imkani elde edin. RUS</p>\r\n', '<p><span style=\"color:#ffffff\">Rus dili oyrenmekle bir cox xarici olkelerde islemek imkani elde edin.</span></p>\r\n', 'www.rus.com', 'rus_dili.jpg', '1'),
+(3, 'JavaScript ENG', 'JS RU', 'JavaScript Az', '<p>Learn JS</p>\r\n', '<p>JS RU</p>\r\n', '<p><span style=\"color:#ffffff\">Js &ouml;yrənin</span></p>\r\n', 'www.javascript.com', 'main-image.png', '1');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Cədvəl üçün indekslər `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`a_id`);
 
 --
--- Cədvəl üçün indekslər `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`cg_id`);
 
 --
--- Cədvəl üçün indekslər `courses`
+-- Indexes for table `courses`
 --
 ALTER TABLE `courses`
   ADD PRIMARY KEY (`c_id`);
 
 --
--- Cədvəl üçün indekslər `partners`
+-- Indexes for table `partners`
 --
 ALTER TABLE `partners`
   ADD PRIMARY KEY (`p_id`);
 
 --
--- Cədvəl üçün indekslər `slider`
+-- Indexes for table `slider`
 --
 ALTER TABLE `slider`
   ADD PRIMARY KEY (`sl_id`);
@@ -184,31 +186,31 @@ ALTER TABLE `slider`
 --
 
 --
--- Cədvəl üçün AUTO_INCREMENT `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `a_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Cədvəl üçün AUTO_INCREMENT `category`
+-- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `cg_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `cg_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- Cədvəl üçün AUTO_INCREMENT `courses`
+-- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
   MODIFY `c_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- Cədvəl üçün AUTO_INCREMENT `partners`
+-- AUTO_INCREMENT for table `partners`
 --
 ALTER TABLE `partners`
   MODIFY `p_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Cədvəl üçün AUTO_INCREMENT `slider`
+-- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
   MODIFY `sl_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
