@@ -81,7 +81,7 @@
 
                                 <tr>
                                     <th>Category</th>
-                                    <td><?php echo $course_data['cg_name']; ?></td>
+                                    <td><?php echo $course_data['cg_name_en']; ?></td>
                                 </tr>
 
                                 <tr>

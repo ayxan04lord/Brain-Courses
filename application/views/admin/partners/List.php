@@ -60,7 +60,7 @@
                     foreach($partners_data as $partners_item ): ?>
                     <tr>
                         <td><?= $id_partners++; ?></td>
-                        <td><?= $partners_item["p_title_az"]; ?></td>
+                        <td><?= $partners_item["p_title_en"]; ?></td>
                         <td><?= $partners_item["p_link"]; ?></td>
                         <td><?= $partners_item["p_status"]?"Active":"Deactive"; ?></td>
                         <td><a target="_blank" href="<?php echo base_url('uploads/partners/'.$partners_item['p_img']); ?>"><img src="<?php echo base_url('uploads/partners/'.$partners_item['p_img']); ?>" alt="" style="object-fit: cover; object-position:top; width:150px; height:150px; aspect-ratio:initial;"></a></td>

@@ -28,8 +28,8 @@
                                     <h1 class="banner_taital text-white"><?php echo $slider_item['sl_title_' . $this->session->userdata("site_lang")]; ?></h1>
                                     <p class="banner_text text-white"><?php echo $slider_item['sl_description_' . $this->session->userdata("site_lang")]; ?></p>
                                     <div class="btn_main">
-                                       <div class="about_bt" style="color: black;"><a href="<?php echo base_url('contact'); ?>"><?php echo $this->lang->line('slider_about'); ?></a></div>
-                                       <div class="quote_bt"><a href="<?php base_url('courses'); ?>"><?php echo $this->lang->line('slider_price'); ?></a></div>
+                                       <div class="about_bt" style="color: black;"><a target="_blank" href="<?php echo $slider_item['sl_link']; ?>"><?php echo $this->lang->line('slider_about'); ?></a></div>
+                                       
                                     </div>
                                  </div>
                                  <div class="col-md-6">
@@ -106,7 +106,7 @@
                <?php foreach ($partners_data as $partners_item) : ?>
                   <?php if ($partners_item['p_status']) : ?>
                      <div class="col-md-6">
-                        <a href="<?php echo $partners_item['p_link']; ?>"><div class="make_text" style="color: red; font-size:30px;"><?php echo $partners_item['p_title_' . $this->session->userdata("site_lang")]; ?></div></a>
+                        <a  href="<?php echo $partners_item['p_link']; ?>"><div class="make_text" style="color: red; font-size:30px;"><?php echo $partners_item['p_title_' . $this->session->userdata("site_lang")]; ?></div></a>
                         <div class="mb-5">
                            <img src="<?php echo base_url('uploads/partners/') . $partners_item['p_img']; ?>" class="image_8" style="width:100%;  height:320px; object-fit:cover">
                            <div class="text_main" style="width: 100%;">
@@ -125,6 +125,7 @@
 
    <div class="newsletter_section layout_padding">
       <div class="container">
+      <a href="<?php echo base_url('contact'); ?>">
          <h1 class="news_taital"><?php echo $this->lang->line('nav_contact'); ?></h1>
 
          <div class="newsletter_main">

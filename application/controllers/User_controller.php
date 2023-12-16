@@ -16,7 +16,7 @@ class User_controller extends CI_Controller
     {
         $data['slider_data'] = $this->User_model->get_slider();
         $data['courses_data'] = $this->User_model->get_limit_courses();
-        $data['partners_data'] = $this->User_model->get_all_partners();
+        $data['partners_data'] = $this->User_model->get_limit_partners();
         $this->load->view('user/index', $data);
     }
 
