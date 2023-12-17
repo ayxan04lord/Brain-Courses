@@ -44,5 +44,6 @@
     </div>
 </div>
 <script src="https://clever.webpixels.io/js/main.js"></script>
+<script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 </body>
 </html>

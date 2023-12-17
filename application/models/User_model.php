@@ -21,6 +21,9 @@ class User_model extends CI_Model{
         return $this->db->limit($config['per_page'], $page)->order_by('c_id','DESC')->join('category','cg_id=c_category', 'left')->get("courses")->result_array();
     }
 
+    public function get_target_courses($id){
+        return $this->db->where('c_id', $id)->join('category','cg_id=c_category', 'left')->get('courses')->row_array();
+    }
 
     public function get_slider(){
         return $this->db->get('slider')->result_array();

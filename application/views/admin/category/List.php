@@ -42,7 +42,7 @@
               
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="categoryDataTable" width="100%" cellspacing="0">
                         <thead>
                     <tr>
                         <th>№</th>
@@ -79,6 +79,14 @@
                     <?php endforeach; ?>
                 </tbody>
                         </table>
+                        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+                        <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+                        <script>
+                            $(document).ready(function() {
+                                $('#categoryDataTable').DataTable();
+                            });
+                        </script>
                     </div>
                 </div>
                 

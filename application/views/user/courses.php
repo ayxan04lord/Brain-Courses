@@ -1,43 +1,47 @@
 <?php $this->load->view('user/includes/Headscripts'); ?>
-   <body>
-      <!--header section start -->
-      <div class="header_section" style="padding-top: 0px;">
-         <div class="header_bg">
-            <div class="container">
+
+<body>
+   <!--header section start -->
+   <div class="header_section" style="padding-top: 0px;">
+      <div class="header_bg">
+         <div class="container">
             <?php $this->load->view('user/includes/Navbar'); ?>
-            </div>
          </div>
       </div>
-      <!--header section end -->
-      <!-- services section start -->
-      <div class="services_section layout_padding">
-         <div class="container">
-            <style>
-               .services_taital::after{
-                  display: none;
-               }
-            </style>
-            <h1 class="services_taital"><?php echo $this->lang->line('courses_title'); ?></h1>
-            <div class="services_section_2">
-               <div class="row mb-5">
-               <?php foreach($courses_data as $courses_item): ?>
-                  <?php if($courses_item['c_status']): ?>
-                  <div class="col-md-6">
-                     <div class="image_main">
-                        <img src="<?php echo base_url('uploads/courses/').$courses_item['c_img']; ?>" class="image_8" style="width:100%;  height:320px; object-fit:cover">
-                        <div class="text_main" style="width: 100%;">
-                           <div class="seemore_text"><?php echo $courses_item['c_title_'.$this->session->userdata("site_lang")]; ?></div>
-                           <div class="seemore_text text-truncate" style="word-wrap: break-word;"><?php echo $courses_item['c_desc_'.$this->session->userdata("site_lang")]; ?></div>
+   </div>
+   <!--header section end -->
+   <!-- services section start -->
+   <div class="services_section layout_padding">
+      <div class="container">
+         <style>
+            .services_taital::after {
+               display: none;
+            }
+         </style>
+         <h1 class="services_taital"><?php echo $this->lang->line('courses_title'); ?></h1>
+         <div class="services_section_2">
+            <div class="row mb-5">
+               <?php foreach ($courses_data as $courses_item) : ?>
+                  <?php if ($courses_item['c_status']) : ?>
+                     <div class="col-md-6">
+                        <div class="image_main">
+                           <img src="<?php echo base_url('uploads/courses/') . $courses_item['c_img']; ?>" class="image_8" style="width:100%;  height:320px; object-fit:cover">
+                           <div class="text_main" style="width: 100%;">
+                              <a href="<?php echo base_url('single_course/' . $courses_item['c_id']); ?>">
+                                 <div class="seemore_text"><?php echo $courses_item['c_title_' . $this->session->userdata("site_lang")]; ?></div>
+                              </a>
+                              <div class="seemore_text"><?php echo $courses_item['c_desc_' . $this->session->userdata("site_lang")]; ?></div>
+                           </div>
+
                         </div>
-                       
+                        <div class="seemore_text mt-5" style="color:black"><b><?php echo $courses_item['cg_name_' . $this->session->userdata("site_lang")]; ?></b></div>
                      </div>
-                     <div class="seemore_text mt-5" style="color:black"><b><?php echo $courses_item['cg_name_'.$this->session->userdata("site_lang")]; ?></b></div>
-                  </div>
                   <?php endif; ?>
                <?php endforeach; ?>
                <style>
-                  .pagination a, .pagination strong{
-                     padding: 10px 10px ;
+                  .pagination a,
+                  .pagination strong {
+                     padding: 10px 10px;
                      border: 1 px solid #1611AA !important;
                      margin-left: 5px;
                      text-decoration: none;
@@ -45,30 +49,28 @@
 
                   }
 
-                  .pagination strong{
+                  .pagination strong {
                      background: #1611AA !important;
                      color: white;
                      border: 1 px solid #1611AA !important;
                   }
 
-                  .pagination{
+                  .pagination {
                      /* text-align: center !important; */
                      /* display: inline; */
                      /* float: inline-start; */
                      justify-content: center;
                   }
-
                </style>
-               
-               </div>
-               <p class="pagination"><?php echo $links; ?></p>
-            </div>
-         </div>            
-      </div>
-      <!-- services section end -->
-      <!-- footer section start -->
-      <?php $this->load->view('user/includes/Footer'); ?>
-      <!-- footer section end -->
-      <!-- Javascript files-->
-      <?php $this->load->view('user/includes/FooterScripts'); ?>
 
+            </div>
+            <p class="pagination"><?php echo $links; ?></p>
+         </div>
+      </div>
+   </div>
+   <!-- services section end -->
+   <!-- footer section start -->
+   <?php $this->load->view('user/includes/Footer'); ?>
+   <!-- footer section end -->
+   <!-- Javascript files-->
+   <?php $this->load->view('user/includes/FooterScripts'); ?>

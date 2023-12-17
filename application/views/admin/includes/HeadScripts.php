@@ -22,6 +22,7 @@ if(!$this->session->has_userdata('admin_id')){
         <script defer="defer" data-domain="webpixels.works" src="https://plausible.io/js/script.js"></script>
         <link rel="shortcut icon" href="<?php echo base_url('public/admin/assets/img/favicon.ico'); ?>" type="image/x-icon">
         <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
-
+<link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 </head>
 <body>
+    

@@ -38,6 +38,12 @@ class User_controller extends CI_Controller
         $this->load->view('user/courses', $data);
     }
 
+    public function single_course($id){
+        $data['courses_target'] = $this->User_model->get_target_courses($id);
+        $this->load->view('user/Single_course', $data);
+
+    }
+
     public function partners()
     {
 

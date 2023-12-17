@@ -492,9 +492,7 @@ button {
     z-index: 5;
 }
 
-.image_main:hover .image_8 {
-    opacity: ;
-}
+
 
 .image_main:hover .text_main {
     opacity: 5;
@@ -510,6 +508,13 @@ button {
     font-size: 20px;
     color: #ffffff;
     font-weight: 500;
+}
+
+.seemore_text>p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .image_main::after {
