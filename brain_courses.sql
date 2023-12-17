@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 16, 2023 at 10:24 PM
+-- Generation Time: Dec 17, 2023 at 03:46 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.0.22
 
@@ -148,9 +148,10 @@ CREATE TABLE `slider` (
 --
 
 INSERT INTO `slider` (`sl_id`, `sl_title_en`, `sl_title_ru`, `sl_title_az`, `sl_description_en`, `sl_description_ru`, `sl_description_az`, `sl_link`, `sl_img`, `sl_status`) VALUES
-(1, 'English', 'Английский язык', 'İngilis dili', '<p><span style=\"color:#ffffff\">This course is taught 3 times a week, the first month is 50 AZN, and then 60 AZN.</span></p>\r\n', '<p><span style=\"color:#ffffff\">Этот курс преподается 3 раза в неделю, первый месяц стоит 50 AZN, а затем 60 AZN.</span></p>\r\n', '<p><span style=\"color:#ffffff\">Bu kursun tədrisi həftə i&ccedil;i 3 dəfə həyata ke&ccedil;irilir, ilk ayı 50 AZN, sonra isə 60 AZN nəzərdə tutulub.</span></p>\r\n', 'https://www.youtube.com/', 'glory05-300x200.jpg', '1'),
+(1, 'English', 'Английский язык', 'İngilis dili', '<p><span style=\"color:#ffffff\">This course is taught 3 times a week, the first month is 50 AZN, and then 60 AZN.</span></p>\r\n', '<p><span style=\"color:#ffffff\">Этот курс преподается 3 раза в неделю, первый месяц стоит 50 AZN, а затем 60 AZN.</span></p>\r\n', '<p><span style=\"color:#ffffff\">Bu kursun tədrisi həftə i&ccedil;i 3 dəfə həyata ke&ccedil;irilir, ilk ayı 50 AZN, sonra isə 60 AZN nəzərdə tutulub.</span></p>\r\n', 'https://skyeng.ru/articles/anglijskij-s-nulya/', 'glory05-300x200.jpg', '1'),
 (2, 'Russian language', 'Русский язык', 'Rus dili', '<p><span style=\"color:#ffffff\">This course is taught twice a week, the first month is 60 AZN, and then 70 AZN.</span></p>\r\n', '<p><span style=\"color:#ffffff\">Этот курс преподается два раза в неделю, первый месяц стоит 60 AZN, а затем 70 AZN.</span></p>\r\n', '<p><span style=\"color:#ffffff\">Bu kursun tədrisi həftə i&ccedil;i 2 dəfə həyata ke&ccedil;irilir, ilk ayı 60 AZN, sonra isə 70 AZN nəzərdə tutulub.</span></p>\r\n', 'www.rus.com', 'rus_dili.jpg', '1'),
-(3, 'JavaScript ENG', 'JS RU', 'JavaScript Az', '<p>Learn JS</p>\r\n', '<p>JS RU</p>\r\n', '<p><span style=\"color:#ffffff\">Js &ouml;yrənin</span></p>\r\n', 'www.javascript.com', 'main-image.png', '1');
+(3, 'Chemistry', 'Химия', 'Kimya', '<p><span style=\"color:#ffffff\">This course is taught twice a week and costs AZN 70 per month.</span></p>\r\n', '<p><span style=\"color:#ffffff\">Этот курс преподается два раза в неделю и стоит 70 манатов в месяц.</span></p>\r\n', '<p><span style=\"color:#ffffff\">Bu kursun tədrisi həftə i&ccedil;i 2 dəfə həyata ke&ccedil;irilir,ayı 70AZN nəzərdə tutulub.</span></p>\r\n', 'www.javascript.com', 'examining-molecular-model_1098-19572-min.jpg', '1'),
+(4, 'Math', 'Математика', 'Riyaziyyat', '<table cellspacing=\"0\" id=\"dataTablea\">\r\n	<tbody>\r\n		<tr>\r\n			<td>\r\n			<p><span style=\"color:#ffffff\">This course is taught twice a week and costs AZN 60 per month.</span></p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n', '<table cellspacing=\"0\" id=\"dataTablea\">\r\n	<tbody>\r\n		<tr>\r\n			<td>\r\n			<p><span style=\"color:#ffffff\">Этот курс преподается два раза в неделю и стоит 60 манатов в месяц.</span></p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n', '<table cellspacing=\"0\" id=\"dataTablea\">\r\n	<tbody>\r\n		<tr>\r\n			<td>\r\n			<p><span style=\"color:#ffffff\">Bu kursun tədrisi həftə i&ccedil;i 2 dəfə həyata ke&ccedil;irilir,ayı 60AZN nəzərdə tutulub.</span></p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n', 'https://www.youtube.com/', 'riyaziyyat-hazirligi.jpg', '1');
 
 --
 -- Indexes for dumped tables
@@ -218,7 +219,7 @@ ALTER TABLE `partners`
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `sl_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `sl_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
