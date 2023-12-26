@@ -62,8 +62,8 @@
                                     <tr>
                                         <td><?= $id_courses++; ?></td>
                                         <td><?= $course_item["c_title_en"]; ?></td>
-                                        <td class="text-truncate" style="max-width:150px;">
-                                            <p><?= $course_item["c_desc_en"]; ?></p>
+                                        <td>
+                                            <p><?= substr($course_item["c_desc_en"], 0, 20 ) ; ?>...</p>
                                         </td>
                                         <td><?= $course_item["cg_name_en"]; ?></td>
                                         <td><?= $course_item["c_status"] ? "Active" : "Deactive"; ?></td>

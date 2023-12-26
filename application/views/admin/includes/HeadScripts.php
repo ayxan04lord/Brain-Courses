@@ -6,7 +6,7 @@ if(!$this->session->has_userdata('admin_id')){
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light" >
 <head>
 <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />

@@ -107,6 +107,10 @@ class Admin_controller extends CI_Controller
         $course_description_az = $this->input->post('course_description_az', TRUE);
         $course_description_ru = $this->input->post('course_description_ru', TRUE);
         $course_status = $this->input->post('course_status', TRUE);
+        $current_list_category = $this->Admin_model->category_get_all();
+        if(!(in_array($course_select_option, $current_list_category))){
+            redirect($_SERVER['HTTP_REFERER']);
+        }
         $config['upload_path'] = './uploads/courses';
         $config["allowed_types"] = "png|PNG|jpg|JPG|jpeg|JPEG";
         $this->load->library('upload', $config);
@@ -159,6 +163,10 @@ class Admin_controller extends CI_Controller
         $course_description_az = $this->input->post('course_description_az', TRUE);
         $course_description_ru = $this->input->post('course_description_ru', TRUE);
         $course_status = $this->input->post('course_status', TRUE);
+        $current_list_category = $this->Admin_model->category_get_all();
+        if(!(in_array($course_select_option, $current_list_category))){
+            redirect($_SERVER['HTTP_REFERER']);
+        }
         $config['upload_path'] = './uploads/courses';
         $config["allowed_types"] = "png|PNG|jpg|JPG|jpeg|JPEG";
         $this->load->library('upload', $config);
@@ -515,4 +523,6 @@ class Admin_controller extends CI_Controller
     }
 
     // Category CRUD End
+
+    
 }

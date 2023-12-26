@@ -42,4 +42,9 @@ class User_model extends CI_Model{
         // return $this->db->get('courses')->result_array();
         return $this->db->limit($config['per_page'], $page)->get("partners")->result_array();
     }
+
+    public function contact_insert($data){
+        $this->db->insert("contact", $data);
+    }
+    
 }

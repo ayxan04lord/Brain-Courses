@@ -71,7 +71,7 @@
 
                                 <tr>
                                     <th>Status</th>
-                                    <?php if ($course_data['c_status'] == "Active") { ?>
+                                    <?php if ($course_data['c_status']) { ?>
                                         <td><span class="success_st">Active</span></td>
                                     <?php  } else { ?>
                                         <td><span class="danger_st">Deactive</span></td>

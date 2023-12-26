@@ -23,7 +23,7 @@
             <div class="row mb-5">
                <?php foreach ($courses_data as $courses_item) : ?>
                   <?php if ($courses_item['c_status']) : ?>
-                     <div class="col-md-6">
+                     <div class="col-md-4">
                         <div class="image_main">
                            <img src="<?php echo base_url('uploads/courses/') . $courses_item['c_img']; ?>" class="image_8" style="width:100%;  height:320px; object-fit:cover">
                            <div class="text_main" style="width: 100%;">

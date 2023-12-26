@@ -61,7 +61,7 @@
 
                                 <tr>
                                     <th>Status</th>
-                                    <?php if ($partners_data['p_status'] == "Active") { ?>
+                                    <?php if ($partners_data['p_status']) { ?>
                                         <td><span class="success_st">Active</span></td>
                                     <?php  } else { ?>
                                         <td><span class="danger_st">Deactive</span></td>

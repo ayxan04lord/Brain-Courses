@@ -112,4 +112,5 @@ class Admin_model extends CI_Model
     public function category_db_edit($id, $data){
         $this->db->where('cg_id',$id)->update('category', $data);
     }
+
 }

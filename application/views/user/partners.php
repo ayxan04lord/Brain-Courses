@@ -19,15 +19,16 @@
             <div class="row">
                <?php foreach ($partners_data as $partners_item) : ?>
                   <?php if ($partners_item['p_status']) : ?>
-                     <div class="col-md-6">
-                     <a href="<?php echo $partners_item['p_link']; ?>"><div class="make_text" style="color: red; font-size:30px;"><?php echo $partners_item['p_title_' . $this->session->userdata("site_lang")]; ?></div></a>
+                     <div class="col-md-4">
                         <div class="mb-5">
                            <img src="<?php echo base_url('uploads/partners/') . $partners_item['p_img']; ?>" class="image_8" style="width:100%;  height:320px; object-fit:cover">
                            <div class="text_main" style="width: 100%;">
 
                            </div>
 
-                        </div>
+                        </div> <br>
+                        <a href="<?php echo $partners_item['p_link']; ?>"><div class="make_text" style="color: red; font-size:30px;"><?php echo $partners_item['p_title_' . $this->session->userdata("site_lang")]; ?></div></a>
+
                      </div>
                   <?php endif; ?>
                <?php endforeach; ?>

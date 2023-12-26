@@ -131,7 +131,7 @@
                                     <select name="course_select_option" class="form-select mt-3" aria-label="Default select example">
                                         <option selected="selected">Category</option>
                                         <?php foreach ($categories_list as $category) : ?>
-                                            <option value="<?php echo $category['cg_id']; ?>"><?php echo $category['cg_name']; ?></option>
+                                            <option value="<?php echo $category['cg_id']; ?>"><?php echo $category['cg_name_'.$this->session->userdata('site_lang')]; ?></option>
                                         <?php endforeach; ?>
 
                                     </select>

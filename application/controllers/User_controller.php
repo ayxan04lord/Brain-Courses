@@ -6,8 +6,6 @@ class User_controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-     
-    
         $this->lang->load('message','english');
         $this->load->model('User_model');
     }
@@ -27,12 +25,8 @@ class User_controller extends CI_Controller
         $config['base_url'] = base_url('courses');
         $config['total_rows'] = count($this->User_model->get_all_courses());
         $config['per_page'] = 6;
-        // $config['use_page_numbers'] = TRUE;
-
         $this->pagination->initialize($config);
-
         $page = $this->uri->segment(2)?$this->uri->segment(2):0;
-
         $data['links'] = $this->pagination->create_links();
         $data['courses_data'] = $this->User_model->get_pag_courses($config, $page);
         $this->load->view('user/courses', $data);
@@ -41,28 +35,18 @@ class User_controller extends CI_Controller
     public function single_course($id){
         $data['courses_target'] = $this->User_model->get_target_courses($id);
         $this->load->view('user/Single_course', $data);
-
     }
 
     public function partners()
     {
-
         $this->load->library('pagination');
-
         $config['base_url'] = base_url('partners');
         $config['total_rows'] = count($this->User_model->get_all_partners());
         $config['per_page'] = 6;
-        // $config['use_page_numbers'] = TRUE;
-
         $this->pagination->initialize($config);
-
         $page = $this->uri->segment(2)?$this->uri->segment(2):0;
-
         $data['links'] = $this->pagination->create_links();
         $data['partners_data'] = $this->User_model->get_pag_partners($config, $page);
-        // print_r('<pre>');
-        // print_r($data['partners_data']);
-        // die();
         $this->load->view('user/partners', $data);
     }
 
@@ -74,13 +58,21 @@ class User_controller extends CI_Controller
     public function contact_act()
     {
        
-        redirect($_SERVER['HTTP_REFERER']);
-    }
-
-  
-
-    public function blog()
-    {
-        $this->load->view('user/blog');
+            $fullName = $this->input->post('fullName', TRUE);
+            $phone = $this->input->post('phone', TRUE);
+            $email = $this->input->post('email', TRUE);
+            $message = $this->input->post('message', TRUE);
+    
+            $data = [
+                'ct_fullname' => $fullName,
+                'ct_phone' => $phone,
+                'ct_email' => $email,
+                'ct_message' => $message
+            ];
+           
+            $this->User_model->contact_insert($data);
+            redirect(base_url('index'));
+    
+       
     }
 }

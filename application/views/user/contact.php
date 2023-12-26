@@ -17,6 +17,8 @@
          <div class="newsletter_main">
            
             <div class="container">
+            <h1 class="news_taital"><?php echo $this->lang->line('nav_contact'); ?></h1>
+
                <div class="row">
                
                   <div class="col-md-6">
@@ -25,35 +27,33 @@
                            <div class="card-body">
                               <h5 class="card-title customStyle-card-title-form"><i class="bi bi-person"></i> Contact</h5>
 
-                              <form class="row g-3 needs-validation" onsubmit="validateForm()" name="contactForm" method="POST" action="<?php echo base_url('contact_act') ?>">
+                              <form class="row g-3 needs-validation" name="contactForm" method="POST" action="<?php echo base_url('contact_act'); ?>" enctype="application/x-www-form-urlencoded">
                               <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
-                                 <div class="col-md-3">
-                                    <label for="validationCustom01" class="form-label">Full Name</label>
+                                 <div class="col-md-12">
+                                    <label for="fullName" class="form-label">Full Name</label>
                                     <input name="fullName" type="text" id="fullNameForm" class="form-control" value="" required autocomplete="off">
                                  </div>
 
-                                 <div class="col-md-4">
-                                    <label for="validationCustom02" class="form-label">Phone</label>
+                                 <div class="col-md-12">
+                                    <label for="phone" class="form-label">Phone</label>
                                     <div class="input-group has-validation">
-                                       <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-telephone-fill"></i></span>
                                        <input name="phone" type="text" id="phoneForm" class="form-control" aria-describedby="inputGroupPrepend" required autocomplete="off">
                                     </div>
                                  </div>
 
-                                 <div class="col-md-5">
+                                 <div class="col-md-12">
                                     <label for="validationCustomUsername" class="form-label">Email</label>
                                     <div class="input-group has-validation">
-                                       <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-envelope-at-fill"></i></span>
                                        <input name="email" type="text" id="emailForm" class="form-control" aria-describedby="inputGroupPrepend" required autocomplete="off">
                                     </div>
                                  </div>
 
                                  <div class="col-md-12">
                                     <label for="validationCustom03" class="form-label">Message</label>
-                                    <textarea type="text" class="form-control" required autocomplete="off"></textarea>
+                                    <textarea name="message" type="text" class="form-control" required autocomplete="off"></textarea>
                                  </div>
 
-                                 <div class="col-12">
+                                 <div class="col-12 mt-3">
                                     <button class="btn btn-primary customStyle-btn-primary" type="submit"><i class="bi bi-send-fill"></i> Send </button>
                                  </div>
 
