@@ -108,41 +108,76 @@ class Admin_controller extends CI_Controller
         $course_description_ru = $this->input->post('course_description_ru', TRUE);
         $course_status = $this->input->post('course_status', TRUE);
         $current_list_category = $this->Admin_model->category_get_all();
-        if(!(in_array($course_select_option, $current_list_category))){
+        $cgIds = array_column($current_list_category, 'cg_id');
+      
+        if (!(in_array($course_select_option, $cgIds))) {
+            $this->session->set_flashdata('err', 'Please, fill category!');
             redirect($_SERVER['HTTP_REFERER']);
         }
         $config['upload_path'] = './uploads/courses';
         $config["allowed_types"] = "png|PNG|jpg|JPG|jpeg|JPEG";
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
+        
+    
         if ($this->upload->do_upload('file_upload')) {
-            $upload_slider_img = $this->upload->data();
-            $data = [
-                'c_title_en' => $course_title_en,
-                'c_title_az' => $course_title_az,
-                'c_title_ru' => $course_title_ru,
-                'c_desc_en' => $course_description_en,
-                'c_desc_az' => $course_description_az,
-                'c_desc_ru' => $course_description_ru,
-                'c_img' => $upload_slider_img['file_name'],
-                'c_category' => $course_select_option,
-                'c_status' => str_contains($course_status, 'on') ? TRUE : FALSE
-            ];
-            $this->Admin_model->courses_insert($data);
-            redirect(base_url('admin_course_list'));
+            if (
+                !empty($course_title_en) &&
+                !empty($course_title_az) &&
+                !empty($course_title_ru) &&
+                !empty($course_select_option) &&
+                !empty($course_description_en) &&
+                !empty($course_description_az) &&
+                !empty($course_description_ru)
+            ) {
+                $upload_slider_img = $this->upload->data();
+                $data = [
+                    'c_title_en' => $course_title_en,
+                    'c_title_az' => $course_title_az,
+                    'c_title_ru' => $course_title_ru,
+                    'c_desc_en' => $course_description_en,
+                    'c_desc_az' => $course_description_az,
+                    'c_desc_ru' => $course_description_ru,
+                    'c_img' => $upload_slider_img['file_name'],
+                    'c_category' => $course_select_option,
+                    'c_status' => str_contains($course_status, 'on') ? TRUE : FALSE
+                ];
+                $this->Admin_model->courses_insert($data);
+                redirect(base_url('admin_course_list'));
+            }
+            else{
+                
+                $this->session->set_flashdata('err', 'Please, fill in all the fields!');
+                redirect($_SERVER["HTTP_REFERER"]);
+            }
         } else {
-            $data = [
-                'c_title_en' => $course_title_en,
-                'c_title_az' => $course_title_az,
-                'c_title_ru' => $course_title_ru,
-                'c_desc_en' => $course_description_en,
-                'c_desc_az' => $course_description_az,
-                'c_desc_ru' => $course_description_ru,
-                'c_category' => $course_select_option,
-                'c_status' => str_contains($course_status, 'on') ? TRUE : FALSE
-            ];
-            $this->Admin_model->courses_insert($data);
-            redirect(base_url('admin_course_list'));
+            if (
+                !empty($course_title_en) &&
+                !empty($course_title_az) &&
+                !empty($course_title_ru) &&
+                !empty($course_select_option) &&
+                !empty($course_description_en) &&
+                !empty($course_description_az) &&
+                !empty($course_description_ru)
+            ) {
+                $data = [
+                    'c_title_en' => $course_title_en,
+                    'c_title_az' => $course_title_az,
+                    'c_title_ru' => $course_title_ru,
+                    'c_desc_en' => $course_description_en,
+                    'c_desc_az' => $course_description_az,
+                    'c_desc_ru' => $course_description_ru,
+                    'c_category' => $course_select_option,
+                    'c_status' => str_contains($course_status, 'on') ? TRUE : FALSE
+                ];
+                $this->Admin_model->courses_insert($data);
+                redirect(base_url('admin_course_list'));
+            }
+            else{
+                
+                $this->session->set_flashdata('err', 'Please, fill in all the fields!');
+                redirect($_SERVER["HTTP_REFERER"]);
+            }
         }
     }
 

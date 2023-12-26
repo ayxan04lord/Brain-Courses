@@ -57,19 +57,19 @@
                                         <div class="tab-pane container active" id="home">
                                             <div class="col-md-12">
                                                 <label for="partners_title_az">Partners Title AZE</label>
-                                                <input value="<?php echo $partners_data['p_title_az']; ?>" type="text" name="partners_title_az" class="form-control" id="partners_title_az" placeholder="Title name">
+                                                <input value="<?php echo htmlentities($partners_data['p_title_az']); ?>" type="text" name="partners_title_az" class="form-control" id="partners_title_az" placeholder="Title name">
                                             </div>
                                         </div>
                                         <div class="tab-pane container fade" id="menu1">
                                             <div class="col-md-12">
                                                 <label for="partners_title_en">Partners Title ENG</label>
-                                                <input value="<?php echo $partners_data['p_title_en']; ?>" type="text" name="partners_title_en" class="form-control" id="partners_title_en" placeholder="Title name">
+                                                <input value="<?php echo htmlentities($partners_data['p_title_en']); ?>" type="text" name="partners_title_en" class="form-control" id="partners_title_en" placeholder="Title name">
                                             </div>
                                         </div>
                                         <div class="tab-pane container fade" id="menu2">
                                             <div class="col-md-12">
                                                 <label for="partners_title_ru">Partners Title RUS</label>
-                                                <input value="<?php echo $partners_data['p_title_ru']; ?>" type="text" name="partners_title_ru" class="form-control" id="partners_title_ru" placeholder="Title name">
+                                                <input value="<?php echo htmlentities($partners_data['p_title_ru']); ?>" type="text" name="partners_title_ru" class="form-control" id="partners_title_ru" placeholder="Title name">
                                             </div>
                                         </div>
                                     </div>

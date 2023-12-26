@@ -131,13 +131,20 @@
                                     <select name="course_select_option" class="form-select mt-3" aria-label="Default select example">
                                         <option selected="selected">Category</option>
                                         <?php foreach ($categories_list as $category) : ?>
-                                            <option value="<?php echo $category['cg_id']; ?>"><?php echo $category['cg_name_'.$this->session->userdata('site_lang')]; ?></option>
+                                            <option value="<?php echo $category['cg_id']; ?>"><?php echo $category['cg_name_' . $this->session->userdata('site_lang')]; ?></option>
                                         <?php endforeach; ?>
 
                                     </select>
                                     <div class="row mt-3">
                                         <div class="form-check form-switch me-n2"><input class="form-check-input" type="checkbox" name="course_status" id="switch-dark-mode"></div>
                                     </div>
+                                  
+                                    <?php if($this->session->flashdata('err')): ?>
+                                    <div class="alert alert-danger alert-dismissible" style="margin-top: 285px;">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <?php echo $this->session->flashdata('err'); ?>
+                                    </div>
+                                    <?php endif; ?>
                                 </div>
 
                             </div>
