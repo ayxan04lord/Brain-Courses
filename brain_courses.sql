@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 17, 2023 at 08:26 PM
+-- Generation Time: Dec 27, 2023 at 10:40 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.0.22
 
@@ -61,7 +61,31 @@ INSERT INTO `category` (`cg_id`, `cg_name_en`, `cg_name_az`, `cg_name_ru`) VALUE
 (2, 'Languages', 'Dillər', 'Языки'),
 (3, 'Programming', 'Proqramlaşdırma', 'Программирование'),
 (5, 'Technical subjects', 'Texniki fənnlər', 'Технические предметы'),
-(6, 'Humanitar fənnlər', 'Humanitar fənnlər', 'Гуманитарные науки');
+(6, 'Humanitarian subjects', 'Humanitar fənnlər', 'Гуманитарные науки');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `ct_id` int NOT NULL,
+  `ct_fullname` varchar(255) NOT NULL,
+  `ct_phone` varchar(255) NOT NULL,
+  `ct_email` varchar(255) NOT NULL,
+  `ct_message` varchar(400) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`ct_id`, `ct_fullname`, `ct_phone`, `ct_email`, `ct_message`) VALUES
+(1, 'Айхан Мустафаев', '+994556772714', 'ayxan.mustafayev.2004@mail.ru', 'aaaa'),
+(2, 'Айхан Мустафаев', '+994556772714', 'ayxan.mustafayev.2004@mail.ru', 'qqqqqqq'),
+(3, 'Айхан Мустафаев', '+994556772714', 'ayxan.mustafayev.2004@mail.ru', '11'),
+(4, 'Ayxan Mustafayev', '+994556772714', 'ajhanmustafaev@gmail.com', 'aaaaaa');
 
 -- --------------------------------------------------------
 
@@ -117,8 +141,8 @@ CREATE TABLE `partners` (
 
 INSERT INTO `partners` (`p_id`, `p_title_en`, `p_title_ru`, `p_title_az`, `p_link`, `p_img`, `p_status`) VALUES
 (1, 'Courses \"Zafar\"', 'Курсы \"Зафар\"', '\"Zəfər\" Kursları', 'https://www.zefer.edu.az/', '277580918_286642190301377_913944197239725282_n.jpg', '1'),
-(2, 'Courses \"Hadaf\"', 'Курсы \"Хадаф\"', '\"Hədəf\" kursları', 'https://hedef.edu.az/', 'hedef_1441713323.jpg', '1'),
-(3, 'Courses ', 'Курсы \"Зека\"', '\"Zəka\" kursları', 'https://zeka.edu.az/az', 'logo-big.png', '1'),
+(2, 'Courses \"Hadaf\"', 'Курсы \"Хадаф\"', '\"Hədəf\" kursları', 'https://hedef.edu.az/', 'hedefloqo.jpg', '1'),
+(3, 'Courses \"Zeka\"', 'Курсы \"Зека\"', '\"Zəka\" kursları', 'https://zeka.edu.az/az', 'photo_2023-12-27_00-39-08.jpg', '1'),
 (4, 'Courses.az', 'Курсы.az', 'Kurslar.az', 'https://kurslar.az/', '255312651_4593631597367718_5504720485939602628_n.png', '1'),
 (5, 'Coursetap.az', 'Курстап.az', 'Kurstap.az', 'https://kurstap.az/', 'coverv2.jpg', '1'),
 (6, 'Courses \"№1\"', 'Курсы \"№1\"', '\"№1\" Kursları', 'https://nomre1.edu.az/', 'n1.jpg', '1'),
@@ -148,10 +172,10 @@ CREATE TABLE `slider` (
 --
 
 INSERT INTO `slider` (`sl_id`, `sl_title_en`, `sl_title_ru`, `sl_title_az`, `sl_description_en`, `sl_description_ru`, `sl_description_az`, `sl_link`, `sl_img`, `sl_status`) VALUES
-(1, 'English', 'Английский язык', 'İngilis dili', '<p><span style=\"color:#ffffff\">This course is taught 3 times a week, the first month is 50 AZN, and then 60 AZN.</span></p>\r\n', '<p><span style=\"color:#ffffff\">Этот курс преподается 3 раза в неделю, первый месяц стоит 50 AZN, а затем 60 AZN.</span></p>\r\n', '<p><span style=\"color:#ffffff\">Bu kursun tədrisi həftə i&ccedil;i 3 dəfə həyata ke&ccedil;irilir, ilk ayı 50 AZN, sonra isə 60 AZN nəzərdə tutulub.</span></p>\r\n', 'https://skyeng.ru/articles/anglijskij-s-nulya/', 'glory05-300x200.jpg', '1'),
-(2, 'Russian language', 'Русский язык', 'Rus dili', '<p><span style=\"color:#ffffff\">This course is taught twice a week, the first month is 60 AZN, and then 70 AZN.</span></p>\r\n', '<p><span style=\"color:#ffffff\">Этот курс преподается два раза в неделю, первый месяц стоит 60 AZN, а затем 70 AZN.</span></p>\r\n', '<p><span style=\"color:#ffffff\">Bu kursun tədrisi həftə i&ccedil;i 2 dəfə həyata ke&ccedil;irilir, ilk ayı 60 AZN, sonra isə 70 AZN nəzərdə tutulub.</span></p>\r\n', 'https://www.lingohut.com/az/l71/rus-dilini-öyrən', 'rus_dili.jpg', '1'),
-(3, 'Chemistry', 'Химия', 'Kimya', '<p><span style=\"color:#ffffff\">This course is taught twice a week and costs AZN 70 per month.</span></p>\r\n', '<p><span style=\"color:#ffffff\">Этот курс преподается два раза в неделю и стоит 70 манатов в месяц.</span></p>\r\n', '<p><span style=\"color:#ffffff\">Bu kursun tədrisi həftə i&ccedil;i 2 dəfə həyata ke&ccedil;irilir,ayı 70AZN nəzərdə tutulub.</span></p>\r\n', 'https://play.google.com/store/apps/details?id=com.lahcenappsinc.learn.chemistry&hl=az&gl=US&pli=1', 'examining-molecular-model_1098-19572-min.jpg', '1'),
-(4, 'Math', 'Математика', 'Riyaziyyat', '<table cellspacing=\"0\" id=\"dataTablea\">\r\n	<tbody>\r\n		<tr>\r\n			<td>\r\n			<p><span style=\"color:#ffffff\">This course is taught twice a week and costs AZN 60 per month.</span></p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n', '<table cellspacing=\"0\" id=\"dataTablea\">\r\n	<tbody>\r\n		<tr>\r\n			<td>\r\n			<p><span style=\"color:#ffffff\">Этот курс преподается два раза в неделю и стоит 60 манатов в месяц.</span></p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n', '<table cellspacing=\"0\" id=\"dataTablea\">\r\n	<tbody>\r\n		<tr>\r\n			<td>\r\n			<p><span style=\"color:#ffffff\">Bu kursun tədrisi həftə i&ccedil;i 2 dəfə həyata ke&ccedil;irilir,ayı 60AZN nəzərdə tutulub.</span></p>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n', 'https://uchis-online.ru/blog/soveti-shkolnikam/kak-viuchit-algebru', 'riyaziyyat-hazirligi.jpg', '1');
+(1, 'English', 'Английский язык', 'İngilis dili', '<p>This course is taught 3 times a week, the first month is 50 AZN, and then 60 AZN.</p>\r\n', '<p>Этот курс преподается 3 раза в неделю, первый месяц стоит 50 AZN, а затем 60 AZN.</p>\r\n', '<p>Bu kursun tədrisi həftə i&ccedil;i 3 dəfə həyata ke&ccedil;irilir, ilk ayı 50 AZN, sonra isə 60 AZN nəzərdə tutulub.</p>\r\n', 'https://skyeng.ru/articles/anglijskij-s-nulya/', 'pngtree-learn-english-transparent-png-free-download-png-image_2702150-removebg-preview1.png', '1'),
+(2, 'Russian language', 'Русский язык', 'Rus dili', '<p>Bu kursun tədrisi həftə i&ccedil;i 2 dəfə həyata ke&ccedil;irilir, ilk ayı 60 AZN, sonra isə 70 AZN nəzərdə tutulub.</p>\r\n', '<p>Этот курс преподается два раза в неделю, первый месяц стоит 60 AZN, а затем 70 AZN.</p>\r\n', '<p>Bu kursun tədrisi həftə i&ccedil;i 2 dəfə həyata ke&ccedil;irilir, ilk ayı 60 AZN, sonra isə 70 AZN nəzərdə tutulub.</p>\r\n', 'https://www.lingohut.com/az/l71/rus-dilini-öyrən', 'png-clipart-russian-learning-language-acquisition-study-skills-education-word-logo-russian-removebg-preview.png', '1'),
+(3, 'Chemistry', 'Химия', 'Kimya', '<p>This course is taught twice a week and costs AZN 70 per month.</p>\r\n', '<p>Этот курс преподается два раза в неделю и стоит 70 манатов в месяц.</p>\r\n', '<p>Bu kursun tədrisi həftə i&ccedil;i 2 dəfə həyata ke&ccedil;irilir,ayı 70AZN nəzərdə tutulub.</p>\r\n', 'https://play.google.com/store/apps/details?id=com.lahcenappsinc.learn.chemistry&hl=az&gl=US&pli=1', '532-5326768_chemistry-lab-equipment-png-transparent-png-removebg-preview.png', '1'),
+(4, 'Math', 'Математика', 'Riyaziyyat', '<p>This course is taught twice a week and costs AZN 60 per month.</p>\r\n', '<p>Этот курс преподается два раза в неделю и стоит 60 манатов в месяц.</p>\r\n', '<p>Bu kursun tədrisi həftə i&ccedil;i 2 dəfə həyata ke&ccedil;irilir,ayı 60AZN nəzərdə tutulub.</p>\r\n\r\n<p>&nbsp;\r\n<p>&nbsp;</p>\r\n</p>\r\n', 'https://uchis-online.ru/blog/soveti-shkolnikam/kak-viuchit-algebru', 'lovepik-hand-drawn-math-exercises-png-image_400495485_wh1200-removebg-preview.png', '1');
 
 --
 -- Indexes for dumped tables
@@ -168,6 +192,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`cg_id`);
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`ct_id`);
 
 --
 -- Indexes for table `courses`
@@ -204,6 +234,12 @@ ALTER TABLE `category`
   MODIFY `cg_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `ct_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
@@ -213,7 +249,7 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `partners`
 --
 ALTER TABLE `partners`
-  MODIFY `p_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `p_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `slider`
