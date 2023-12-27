@@ -35,6 +35,12 @@
                         <h5 class="mb-0">Edit</h5>
                     </div>
                     <div class="card-body">
+                    <?php if($this->session->flashdata('err')): ?>
+                                    <div class="alert alert-danger alert-dismissible mb-5">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <?php echo $this->session->flashdata('err'); ?>
+                                    </div>
+                                    <?php endif; ?>
                          <!-- Nav pills -->
                          <ul class="nav nav-pills" role="tablist">
                             <li class="nav-item">
@@ -101,6 +107,7 @@
                                             <input class="form-check-input" type="checkbox" name="partners_status" id="switch-dark-mode" <?= $partners_data['p_status'] ? 'checked' : ''; ?>>
                                         </div>
                                     </div>
+                                 
                                 </div>
                             </div>
                         </form>

@@ -1,8 +1,4 @@
 <?php $this->load->view('admin/includes/HeadScripts'); ?>
-
-<!-- Banner -->
-
-
 <!-- Dashboard -->
 <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
     <!-- Vertical Navbar -->
@@ -36,6 +32,12 @@
                         <h5 class="mb-0">Create</h5>
                     </div>
                     <div class="card-body">
+                    <?php if($this->session->flashdata('err')): ?>
+                                    <div class="alert alert-danger alert-dismissible mb-5">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <?php echo $this->session->flashdata('err'); ?>
+                                    </div>
+                                    <?php endif; ?>
 
                         <!-- Nav pills -->
                         <ul class="nav nav-pills" role="tablist">
@@ -51,13 +53,9 @@
                         </ul>
 
                         <!-- Tab panes -->
-
-
+                        
                         <form action="<?= base_url('admin_course_create_act'); ?>" method="POST" enctype="multipart/form-data" id="course_form">
                             <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
-
-
-
                             <div class="row ">
                                 <div class="col-md-6">
                                     <div class="tab-content">
@@ -73,7 +71,6 @@
                                                     <script>
                                                         CKEDITOR.replace('course_description_az');
                                                     </script>
-
                                                 </div>
 
                                             </div>
@@ -91,7 +88,6 @@
                                                         CKEDITOR.replace('course_description_en');
                                                     </script>
                                                 </div>
-
                                             </div>
                                         </div>
                                         <div id="menu2" class="container tab-pane fade">
@@ -107,13 +103,11 @@
                                                         CKEDITOR.replace('course_description_ru');
                                                     </script>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-
                                     <div class="rounded border border-2 border-dashed border-primary-hover position-relative mt-3">
                                         <div class="d-flex justify-content-center px-5 py-5">
                                             <label for="file_upload" class="position-absolute w-full h-full top-0 start-0 cursor-pointer">
@@ -131,27 +125,16 @@
                                     <select name="course_select_option" class="form-select mt-3" aria-label="Default select example">
                                         <option selected="selected">Category</option>
                                         <?php foreach ($categories_list as $category) : ?>
-                                            <option value="<?php echo $category['cg_id']; ?>"><?php echo $category['cg_name_' . $this->session->userdata('site_lang')]; ?></option>
+                                            <option value="<?php echo $category['cg_id']; ?>"><?php echo $category['cg_name_en']; ?></option>
                                         <?php endforeach; ?>
 
                                     </select>
                                     <div class="row mt-3">
                                         <div class="form-check form-switch me-n2"><input class="form-check-input" type="checkbox" name="course_status" id="switch-dark-mode"></div>
                                     </div>
-                                  
-                                    <?php if($this->session->flashdata('err')): ?>
-                                    <div class="alert alert-danger alert-dismissible" style="margin-top: 285px;">
-                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                        <?php echo $this->session->flashdata('err'); ?>
-                                    </div>
-                                    <?php endif; ?>
                                 </div>
 
                             </div>
-
-
-
-
 
                         </form>
                         <div class="card-footer border-0 py-5">

@@ -12,7 +12,7 @@ class Admin_controller extends CI_Controller
     {
         $this->load->helper('captcha');
         $vals = array(
-            
+
             'img_path'      => './uploads/captcha/',
             'img_url'       => base_url('/uploads/captcha/'),
             'font_path'     => 'system/fonts/texb.ttf',
@@ -22,67 +22,64 @@ class Admin_controller extends CI_Controller
             'word_length'   => 6,
             'font_size'     => 16,
             'pool'          => '012346789ABCDEF',
-    
+
             // White background and border, black text and red grid
             'colors'        => array(
-                    'background' => array(255, 255, 255),
-                    'border' => array(255, 255, 255),
-                    'text' => array(0, 0, 0),
-                    'grid' => array(255, 40, 40)
+                'background' => array(255, 255, 255),
+                'border' => array(255, 255, 255),
+                'text' => array(0, 0, 0),
+                'grid' => array(255, 40, 40)
             )
-    );
-    
-    $cap = create_captcha($vals);
-    $this->session->unset_userdata('adm_captcha');
-    $this->session->set_userdata('adm_captcha', $cap);
-    $this->load->view('admin/Admin_login');
+        );
+
+        $cap = create_captcha($vals);
+        $this->session->unset_userdata('adm_captcha');
+        $this->session->set_userdata('adm_captcha', $cap);
+        $this->load->view('admin/Admin_login');
     }
 
     public function login_action()
     {
-        
+
         $username = $this->input->post('username', TRUE);
         $password = $this->input->post('password', TRUE);
-        $captcha = $this->input->post('captcha',TRUE);
+        $captcha = $this->input->post('captcha', TRUE);
         $adm_captcha = $this->session->userdata('adm_captcha')['word'];
-        
+
 
         if (!empty($username) && !empty($password) && !empty($captcha)) {
 
-            if(strtolower($adm_captcha)==strtolower($captcha)){
+            if (strtolower($adm_captcha) == strtolower($captcha)) {
                 $data = [
                     'a_username' => $username,
                     'a_password' => md5($password),
                 ];
-    
+
                 $checkUser = $this->db->select('a_id')->where($data)->get('admin')->row_array();
-    
+
                 if ($checkUser) {
                     $_SESSION['admin_id'] = $checkUser['a_id'];
-    
+
                     redirect(base_url('admin_dashboard'));
                 } else {
                     $this->session->set_flashdata('err', 'Username or password is wrong!');
                     redirect($_SERVER['HTTP_REFERER']);
                 }
-            }else{
+            } else {
                 $this->session->set_flashdata('err', 'Please, enter correct captcha!');
                 redirect($_SERVER['HTTP_REFERER']);
             }
-
-
-           
         } else {
             $this->session->set_flashdata('err', 'Please, fill in all the fields!');
             redirect($_SERVER['HTTP_REFERER']);
         }
     }
-    
-    public function logOut(){
+
+    public function logOut()
+    {
         $this->session->unset_userdata('admin_id');
         $this->session->set_flashdata('success', 'We will wait you!');
         redirect(base_url('admin_login'));
-
     }
     public function dashboard()
     {
@@ -109,7 +106,7 @@ class Admin_controller extends CI_Controller
         $course_status = $this->input->post('course_status', TRUE);
         $current_list_category = $this->Admin_model->category_get_all();
         $cgIds = array_column($current_list_category, 'cg_id');
-      
+
         if (!(in_array($course_select_option, $cgIds))) {
             $this->session->set_flashdata('err', 'Please, fill category!');
             redirect($_SERVER['HTTP_REFERER']);
@@ -118,8 +115,8 @@ class Admin_controller extends CI_Controller
         $config["allowed_types"] = "png|PNG|jpg|JPG|jpeg|JPEG";
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
-        
-    
+
+
         if ($this->upload->do_upload('file_upload')) {
             if (
                 !empty($course_title_en) &&
@@ -144,9 +141,8 @@ class Admin_controller extends CI_Controller
                 ];
                 $this->Admin_model->courses_insert($data);
                 redirect(base_url('admin_course_list'));
-            }
-            else{
-                
+            } else {
+
                 $this->session->set_flashdata('err', 'Please, fill in all the fields!');
                 redirect($_SERVER["HTTP_REFERER"]);
             }
@@ -172,9 +168,8 @@ class Admin_controller extends CI_Controller
                 ];
                 $this->Admin_model->courses_insert($data);
                 redirect(base_url('admin_course_list'));
-            }
-            else{
-                
+            } else {
+
                 $this->session->set_flashdata('err', 'Please, fill in all the fields!');
                 redirect($_SERVER["HTTP_REFERER"]);
             }
@@ -199,7 +194,10 @@ class Admin_controller extends CI_Controller
         $course_description_ru = $this->input->post('course_description_ru', TRUE);
         $course_status = $this->input->post('course_status', TRUE);
         $current_list_category = $this->Admin_model->category_get_all();
-        if(!(in_array($course_select_option, $current_list_category))){
+        $cgIds = array_column($current_list_category, 'cg_id');
+
+        if (!(in_array($course_select_option, $cgIds))) {
+            $this->session->set_flashdata('err', 'Please, fill category!');
             redirect($_SERVER['HTTP_REFERER']);
         }
         $config['upload_path'] = './uploads/courses';
@@ -207,36 +205,61 @@ class Admin_controller extends CI_Controller
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
         if ($this->upload->do_upload('file_upload')) {
-            $upload_slider_img = $this->upload->data();
-            $data = [
-                'c_title_en' => $course_title_en,
-                'c_title_az' => $course_title_az,
-                'c_title_ru' => $course_title_ru,
-                'c_desc_en' => $course_description_en,
-                'c_desc_az' => $course_description_az,
-                'c_desc_ru' => $course_description_ru,
-                'c_img' => $upload_slider_img['file_name'],
-                'c_category' => $course_select_option,
-                'c_status' => str_contains($course_status, 'on') ? TRUE : FALSE
-            ];
-            $this->Admin_model->courses_db_edit($id, $data);
-            redirect(base_url('admin_course_list'));
+            if (
+                !empty($course_title_en) &&
+                !empty($course_title_az) &&
+                !empty($course_title_ru) &&
+                !empty($course_select_option) &&
+                !empty($course_description_en) &&
+                !empty($course_description_az) &&
+                !empty($course_description_ru)
+            ) {
+                $upload_slider_img = $this->upload->data();
+                $data = [
+                    'c_title_en' => $course_title_en,
+                    'c_title_az' => $course_title_az,
+                    'c_title_ru' => $course_title_ru,
+                    'c_desc_en' => $course_description_en,
+                    'c_desc_az' => $course_description_az,
+                    'c_desc_ru' => $course_description_ru,
+                    'c_img' => $upload_slider_img['file_name'],
+                    'c_category' => $course_select_option,
+                    'c_status' => str_contains($course_status, 'on') ? TRUE : FALSE
+                ];
+                $this->Admin_model->courses_db_edit($id, $data);
+                redirect(base_url('admin_course_list'));
+            } else {
+                $this->session->set_flashdata('err', 'Please, fill in all the fields!');
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         } else {
-            
-            $data = [
-                'c_title_en' => $course_title_en,
-                'c_title_az' => $course_title_az,
-                'c_title_ru' => $course_title_ru,
-                'c_desc_en' => $course_description_en,
-                'c_desc_az' => $course_description_az,
-                'c_desc_ru' => $course_description_ru,
-                'c_category' => $course_select_option,
-                'c_status' => str_contains($course_status, 'on') ? TRUE : FALSE
-            ];
-          
 
-            $this->Admin_model->courses_db_edit($id, $data);
-            redirect(base_url('admin_course_list'));
+            if (
+                !empty($course_title_en) &&
+                !empty($course_title_az) &&
+                !empty($course_title_ru) &&
+                !empty($course_select_option) &&
+                !empty($course_description_en) &&
+                !empty($course_description_az) &&
+                !empty($course_description_ru)
+            ) {
+                $data = [
+                    'c_title_en' => $course_title_en,
+                    'c_title_az' => $course_title_az,
+                    'c_title_ru' => $course_title_ru,
+                    'c_desc_en' => $course_description_en,
+                    'c_desc_az' => $course_description_az,
+                    'c_desc_ru' => $course_description_ru,
+                    'c_category' => $course_select_option,
+                    'c_status' => str_contains($course_status, 'on') ? TRUE : FALSE
+                ];
+
+                $this->Admin_model->courses_db_edit($id, $data);
+                redirect(base_url('admin_course_list'));
+            } else {
+                $this->session->set_flashdata('err', 'Please, fill in all the fields!');
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         }
     }
 
@@ -248,16 +271,15 @@ class Admin_controller extends CI_Controller
 
     public function admin_course_list()
     {
-        
+
         $data["courses_data"] = $this->Admin_model->courses_get_all();
         $this->load->view('admin/course/List', $data);
     }
 
     public function admin_course_details($id)
     {
-        $data['course_data']=$this->Admin_model->get_course_details($id);
+        $data['course_data'] = $this->Admin_model->get_course_details($id);
         $this->load->view('admin/course/Details', $data);
-
     }
 
     // Course CRUD End
@@ -279,40 +301,64 @@ class Admin_controller extends CI_Controller
         $slider_description_ru = $this->input->post('slider_description_ru', TRUE);
         $slider_link = $this->input->post("slider_link", TRUE);
         $slider_status = $this->input->post('slider_status', TRUE);
-
-
         $config['upload_path'] = './uploads/slider';
         $config["allowed_types"] = "png|PNG|jpg|JPG|jpeg|JPEG";
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
         if ($this->upload->do_upload('file_upload')) {
-            $upload_slider_img = $this->upload->data();
-            $data = [
-                'sl_title_en' => $slider_title_en,
-                'sl_title_rus' => $slider_title_ru,
-                'sl_title_az' => $slider_title_az,
-                'sl_description_en' => $slider_description_en,
-                'sl_description_az' => $slider_description_az,
-                'sl_description_ru' => $slider_description_ru,
-                'sl_img' => $upload_slider_img['file_name'],
-                'sl_link' => $slider_link,
-                'sl_status' => str_contains($slider_status, 'on') ? TRUE : FALSE
-            ];
-            $this->db->insert('slider', $data);
-            redirect(base_url('admin_slider_list'));
+            if (
+                !empty($slider_title_en) &&
+                !empty($slider_title_ru) &&
+                !empty($slider_title_az) &&
+                !empty($slider_link) &&
+                !empty($slider_description_en) &&
+                !empty($slider_description_az) &&
+                !empty($slider_description_ru)
+            ) {
+                $upload_slider_img = $this->upload->data();
+                $data = [
+                    'sl_title_en' => $slider_title_en,
+                    'sl_title_rus' => $slider_title_ru,
+                    'sl_title_az' => $slider_title_az,
+                    'sl_description_en' => $slider_description_en,
+                    'sl_description_az' => $slider_description_az,
+                    'sl_description_ru' => $slider_description_ru,
+                    'sl_img' => $upload_slider_img['file_name'],
+                    'sl_link' => $slider_link,
+                    'sl_status' => str_contains($slider_status, 'on') ? TRUE : FALSE
+                ];
+                $this->db->insert('slider', $data);
+                redirect(base_url('admin_slider_list'));
+            } else {
+                $this->session->set_flashdata('err', 'Please, fill in all the fields!');
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         } else {
-            $data = [
-                'sl_title_en' => $slider_title_en,
-                'sl_title_ru' => $slider_title_ru,
-                'sl_title_az' => $slider_title_az,
-                'sl_description_en' => $slider_description_en,
-                'sl_description_az' => $slider_description_az,
-                'sl_description_ru' => $slider_description_ru,
-                'sl_link' => $slider_link,
-                'sl_status' => str_contains($slider_status, 'on') ? TRUE : FALSE
-            ];
-            $this->db->insert('slider', $data);
-            redirect(base_url('admin_slider_list'));
+            if (
+                !empty($slider_title_en) &&
+                !empty($slider_title_ru) &&
+                !empty($slider_title_az) &&
+                !empty($slider_link) &&
+                !empty($slider_description_en) &&
+                !empty($slider_description_az) &&
+                !empty($slider_description_ru)
+            ) {
+                $data = [
+                    'sl_title_en' => $slider_title_en,
+                    'sl_title_ru' => $slider_title_ru,
+                    'sl_title_az' => $slider_title_az,
+                    'sl_description_en' => $slider_description_en,
+                    'sl_description_az' => $slider_description_az,
+                    'sl_description_ru' => $slider_description_ru,
+                    'sl_link' => $slider_link,
+                    'sl_status' => str_contains($slider_status, 'on') ? TRUE : FALSE
+                ];
+                $this->db->insert('slider', $data);
+                redirect(base_url('admin_slider_list'));
+            } else {
+                $this->session->set_flashdata('err', 'Please, fill in all the fields!');
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         }
     }
 
@@ -324,7 +370,7 @@ class Admin_controller extends CI_Controller
 
     public function admin_slider_edit_act($id)
     {
-       
+
         $slider_title_en = $this->input->post('slider_title_en', TRUE);
         $slider_title_ru = $this->input->post('slider_title_ru', TRUE);
         $slider_title_az = $this->input->post('slider_title_az', TRUE);
@@ -338,35 +384,61 @@ class Admin_controller extends CI_Controller
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
         if ($this->upload->do_upload('file_upload')) {
-            $upload_slider_img = $this->upload->data();
-            $data = [
-                'sl_title_en' => $slider_title_en,
-                'sl_title_ru' => $slider_title_ru,
-                'sl_title_az' => $slider_title_az,
-                'sl_description_en' => $slider_description_en,
-                'sl_description_az' => $slider_description_az,
-                'sl_description_ru' => $slider_description_ru,
-                'sl_link' => $slider_link,
-                'sl_img' => $upload_slider_img['file_name'],
-                'sl_status' => str_contains($slider_status, 'on') ? TRUE : FALSE
-            ];
+            if (
+                !empty($slider_title_en) &&
+                !empty($slider_title_ru) &&
+                !empty($slider_title_az) &&
+                !empty($slider_link) &&
+                !empty($slider_description_en) &&
+                !empty($slider_description_az) &&
+                !empty($slider_description_ru)
+            ) {
+                $upload_slider_img = $this->upload->data();
+                $data = [
+                    'sl_title_en' => $slider_title_en,
+                    'sl_title_ru' => $slider_title_ru,
+                    'sl_title_az' => $slider_title_az,
+                    'sl_description_en' => $slider_description_en,
+                    'sl_description_az' => $slider_description_az,
+                    'sl_description_ru' => $slider_description_ru,
+                    'sl_link' => $slider_link,
+                    'sl_img' => $upload_slider_img['file_name'],
+                    'sl_status' => str_contains($slider_status, 'on') ? TRUE : FALSE
+                ];
 
 
-            $this->Admin_model->slider_db_edit($id, $data);
-            redirect(base_url('admin_slider_list'));
+                $this->Admin_model->slider_db_edit($id, $data);
+                redirect(base_url('admin_slider_list'));
+            } else {
+                $this->session->set_flashdata('err', 'Please, fill in all the fields!');
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         } else {
-            $data = [
-                'sl_title_en' => $slider_title_en,
-                'sl_title_ru' => $slider_title_ru,
-                'sl_title_az' => $slider_title_az,
-                'sl_description_en' => $slider_description_en,
-                'sl_description_az' => $slider_description_az,
-                'sl_description_ru' => $slider_description_ru,
-                'sl_link' => $slider_link,
-                'sl_status' => str_contains($slider_status, 'on') ? TRUE : FALSE
-            ];
-            $this->Admin_model->slider_db_edit($id, $data);
-            redirect(base_url('admin_slider_list'));
+            if (
+                !empty($slider_title_en) &&
+                !empty($slider_title_ru) &&
+                !empty($slider_title_az) &&
+                !empty($slider_link) &&
+                !empty($slider_description_en) &&
+                !empty($slider_description_az) &&
+                !empty($slider_description_ru)
+            ) {
+                $data = [
+                    'sl_title_en' => $slider_title_en,
+                    'sl_title_ru' => $slider_title_ru,
+                    'sl_title_az' => $slider_title_az,
+                    'sl_description_en' => $slider_description_en,
+                    'sl_description_az' => $slider_description_az,
+                    'sl_description_ru' => $slider_description_ru,
+                    'sl_link' => $slider_link,
+                    'sl_status' => str_contains($slider_status, 'on') ? TRUE : FALSE
+                ];
+                $this->Admin_model->slider_db_edit($id, $data);
+                redirect(base_url('admin_slider_list'));
+            } else {
+                $this->session->set_flashdata('err', 'Please, fill in all the fields!');
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         }
     }
 
@@ -384,9 +456,8 @@ class Admin_controller extends CI_Controller
 
     public function admin_slider_details($id)
     {
-        $data['slider_data']=$this->Admin_model->get_slider_details($id);
+        $data['slider_data'] = $this->Admin_model->get_slider_details($id);
         $this->load->view('admin/slider/Details', $data);
-
     }
 
     // Slider CRUD End
@@ -410,27 +481,47 @@ class Admin_controller extends CI_Controller
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
         if ($this->upload->do_upload('file_upload')) {
-            $upload_partners_img = $this->upload->data();
-            $data = [
-                'p_title_az' => $partners_title_az,
-                'p_title_en' => $partners_title_en,
-                'p_title_ru' => $partners_title_ru,
-                'p_link'  => $partners_link,
-                'p_img' => $upload_partners_img['file_name'],
-                'p_status' => str_contains($partners_status, 'on') ? TRUE : FALSE
-            ];
-            $this->Admin_model->partners_insert($data);
-            redirect(base_url('admin_partners_list'));
+            if (
+                !empty($partners_title_en) &&
+                !empty($partners_title_ru) &&
+                !empty($partners_title_az) &&
+                !empty($partners_link)
+            ) {
+                $upload_partners_img = $this->upload->data();
+                $data = [
+                    'p_title_az' => $partners_title_az,
+                    'p_title_en' => $partners_title_en,
+                    'p_title_ru' => $partners_title_ru,
+                    'p_link'  => $partners_link,
+                    'p_img' => $upload_partners_img['file_name'],
+                    'p_status' => str_contains($partners_status, 'on') ? TRUE : FALSE
+                ];
+                $this->Admin_model->partners_insert($data);
+                redirect(base_url('admin_partners_list'));
+            } else {
+                $this->session->set_flashdata('err', 'Please, fill in all the fields!');
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         } else {
-            $data = [
-                'p_title_az' => $partners_title_az,
-                'p_title_en' => $partners_title_en,
-                'p_title_ru' => $partners_title_ru,
-                'p_link'  => $partners_link,
-                'p_status' => str_contains($partners_status, 'on') ? TRUE : FALSE
-            ];
-            $this->Admin_model->partners_insert($data);
-            redirect(base_url('admin_partners_list'));
+            if (
+                !empty($partners_title_en) &&
+                !empty($partners_title_ru) &&
+                !empty($partners_title_az) &&
+                !empty($partners_link)
+            ) {
+                $data = [
+                    'p_title_az' => $partners_title_az,
+                    'p_title_en' => $partners_title_en,
+                    'p_title_ru' => $partners_title_ru,
+                    'p_link'  => $partners_link,
+                    'p_status' => str_contains($partners_status, 'on') ? TRUE : FALSE
+                ];
+                $this->Admin_model->partners_insert($data);
+                redirect(base_url('admin_partners_list'));
+            } else {
+                $this->session->set_flashdata('err', 'Please, fill in all the fields!');
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         }
     }
 
@@ -452,27 +543,47 @@ class Admin_controller extends CI_Controller
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
         if ($this->upload->do_upload('file_upload')) {
-            $upload_partners_img = $this->upload->data();
-            $data = [
-                'p_title_az' => $partners_title_az,
-                'p_title_en' => $partners_title_en,
-                'p_title_ru' => $partners_title_ru,
-                'p_link'  => $partners_link,
-                'p_img' => $upload_partners_img['file_name'],
-                'p_status' => str_contains($partners_status, 'on') ? TRUE : FALSE
-            ];
-            $this->Admin_model->partners_db_edit($id, $data);
-            redirect(base_url('admin_partners_list'));
+            if (
+                !empty($partners_title_en) &&
+                !empty($partners_title_ru) &&
+                !empty($partners_title_az) &&
+                !empty($partners_link)
+            ) {
+                $upload_partners_img = $this->upload->data();
+                $data = [
+                    'p_title_az' => $partners_title_az,
+                    'p_title_en' => $partners_title_en,
+                    'p_title_ru' => $partners_title_ru,
+                    'p_link'  => $partners_link,
+                    'p_img' => $upload_partners_img['file_name'],
+                    'p_status' => str_contains($partners_status, 'on') ? TRUE : FALSE
+                ];
+                $this->Admin_model->partners_db_edit($id, $data);
+                redirect(base_url('admin_partners_list'));
+            } else {
+                $this->session->set_flashdata('err', 'Please, fill in all the fields!');
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         } else {
-            $data = [
-                'p_title_az' => $partners_title_az,
-                'p_title_en' => $partners_title_en,
-                'p_title_ru' => $partners_title_ru,
-                'p_link'  => $partners_link,
-                'p_status' => str_contains($partners_status, 'on') ? TRUE : FALSE
-            ];
-            $this->Admin_model->partners_db_edit($id, $data);
-            redirect(base_url('admin_partners_list'));
+            if (
+                !empty($partners_title_en) &&
+                !empty($partners_title_ru) &&
+                !empty($partners_title_az) &&
+                !empty($partners_link)
+            ) {
+                $data = [
+                    'p_title_az' => $partners_title_az,
+                    'p_title_en' => $partners_title_en,
+                    'p_title_ru' => $partners_title_ru,
+                    'p_link'  => $partners_link,
+                    'p_status' => str_contains($partners_status, 'on') ? TRUE : FALSE
+                ];
+                $this->Admin_model->partners_db_edit($id, $data);
+                redirect(base_url('admin_partners_list'));
+            } else {
+                $this->session->set_flashdata('err', 'Please, fill in all the fields!');
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         }
     }
 
@@ -491,9 +602,8 @@ class Admin_controller extends CI_Controller
 
     public function admin_partners_details($id)
     {
-        $data['partners_data']=$this->Admin_model->get_partners_details($id);
+        $data['partners_data'] = $this->Admin_model->get_partners_details($id);
         $this->load->view('admin/partners/Details', $data);
-
     }
 
     // Partners CRUD End
@@ -510,17 +620,25 @@ class Admin_controller extends CI_Controller
         $category_name_en = $this->input->post('course_category_en', TRUE);
         $category_name_az = $this->input->post('course_category_az', TRUE);
         $category_name_ru = $this->input->post('course_category_ru', TRUE);
+        if (
+            !empty($category_name_en) &&
+            !empty($category_name_az) &&
+            !empty($category_name_ru)
+        ) {
+            $data = [
+                'cg_name_en' => $category_name_en,
+                'cg_name_az' => $category_name_az,
+                'cg_name_ru' => $category_name_ru
 
-        $data = [
-            'cg_name_en' => $category_name_en,
-            'cg_name_az' => $category_name_az,
-            'cg_name_ru' => $category_name_ru
-
-        ];
+            ];
 
 
-        $this->Admin_model->category_insert($data);
-        redirect(base_url('admin_category_list'));
+            $this->Admin_model->category_insert($data);
+            redirect(base_url('admin_category_list'));
+        } else {
+            $this->session->set_flashdata('err', 'Please, fill in all the fields!');
+            redirect($_SERVER['HTTP_REFERER']);
+        }
     }
 
     public function admin_category_edit($id)
@@ -534,15 +652,23 @@ class Admin_controller extends CI_Controller
         $category_name_en = $this->input->post('course_category_en', TRUE);
         $category_name_az = $this->input->post('course_category_az', TRUE);
         $category_name_ru = $this->input->post('course_category_ru', TRUE);
+        if (
+            !empty($category_name_en) &&
+            !empty($category_name_az) &&
+            !empty($category_name_ru)
+        ) {
+            $data = [
+                'cg_name_en' => $category_name_en,
+                'cg_name_az' => $category_name_az,
+                'cg_name_ru' => $category_name_ru
 
-        $data = [
-            'cg_name_en' => $category_name_en,
-            'cg_name_az' => $category_name_az,
-            'cg_name_ru' => $category_name_ru
-
-        ];
-        $this->Admin_model->category_db_edit($id, $data);
-        redirect(base_url('admin_category_list'));
+            ];
+            $this->Admin_model->category_db_edit($id, $data);
+            redirect(base_url('admin_category_list'));
+        } else {
+            $this->session->set_flashdata('err', 'Please, fill in all the fields!');
+            redirect($_SERVER['HTTP_REFERER']);
+        }
     }
 
     public function admin_category_delete($id)
@@ -559,5 +685,5 @@ class Admin_controller extends CI_Controller
 
     // Category CRUD End
 
-    
+
 }

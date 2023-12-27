@@ -34,6 +34,12 @@
                         <h5 class="mb-0">Create</h5>
                     </div>
                     <div class="card-body">
+                    <?php if($this->session->flashdata('err')): ?>
+                                    <div class="alert alert-danger alert-dismissible mb-5">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <?php echo $this->session->flashdata('err'); ?>
+                                    </div>
+                                    <?php endif; ?>
                         <form action="<?= base_url('admin_category_create_act'); ?>" method="POST" enctype="multipart/form-data" id="category_form">
                             <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
                             <div class="row">
