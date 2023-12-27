@@ -148,10 +148,11 @@
    <!-- about section end -->
 
 
-   <div class="newsletter_section layout_padding">
-      <div class="container">
-
-         <h1 class="news_taital"><?php echo $this->lang->line('nav_contact'); ?></h1>
+   <div class="newsletter_section layout_padding pb-5">
+      <div class="">
+         <a href="<?php echo base_url('contact'); ?>">
+            <h1 class="news_taital"><?php echo $this->lang->line('nav_contact'); ?></h1>
+         </a>
 
          <div class="newsletter_main">
 
@@ -200,7 +201,7 @@
                      </div>
                   </div>
                   <div class="col-md-6">
-                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d115343.00538156935!2d49.68802161219034!3d40.56400867042153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1saz!2saz!4v1700650880791!5m2!1saz!2saz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2337.8181889954235!2d49.665554205421806!3d40.586695471451286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x403096dd2aeaf569%3A0x7403cd0225d4dbfb!2zMTkgU8O8bGgga8O8w6fJmXNpLCBTdW1xYXnEsXQgNTAwNg!5e0!3m2!1sru!2saz!4v1703699081084!5m2!1sru!2saz" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                   </div>
                </div>
             </div>

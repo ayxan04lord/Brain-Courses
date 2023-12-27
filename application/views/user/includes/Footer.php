@@ -13,8 +13,8 @@
             <div class="footer_section_2">
                <div class="row">
                   <div class="col-lg-4 col-md-4">
-                     <div class="information_main">
-                        <div class="footer_logo" style="padding: 0px !important;"><a href="<?php echo base_url('index'); ?>"><img src="<?php echo base_url('public/assets'); ?>/images/logobrain.jpg"></a></div>
+                     <div class="information_main p-0">
+                        <div class="footer_logo" style="padding: 0px !important; width:96px;"><a href="<?php echo base_url('index'); ?>"><img src="<?php echo base_url('public/assets'); ?>/images/logobrain.jpg"></a></div>
                      </div>
                      <div class="call_text"><a href="tel:+994556772714"><img src="<?php echo base_url('public/assets/'); ?>images/call-icon1.png"><span class="padding_left_15">İndi zəng et : +994556772714</span></a></div>
                      <div class="call_text"><a href="mailto:ayxan.mustafayev.2004@mail.ru"><img src="<?php echo base_url('public/assets/'); ?>images/mail-icon1.png"><span class="padding_left_15">Mail at : ayxan.mustafayev.2004@mail.ru</span></a></div>

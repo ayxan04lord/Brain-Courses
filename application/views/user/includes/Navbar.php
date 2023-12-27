@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-   <a class="logo" href="<?php base_url('index') ?>"><img width="64px" height="160px" src="<?php echo base_url('public/assets/images/logobrain.png') ?>"></a>
+   <a class="logo" href="<?php echo base_url('index') ?>"><img width="64px" height="160px" src="<?php echo base_url('public/assets/images/logobrain.png') ?>"></a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
    </button>

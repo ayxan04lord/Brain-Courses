@@ -30,7 +30,7 @@
                             <div style="color:red; font-weight:bold"><?php echo $courses_target['c_title_' . $this->session->userdata("site_lang")]; ?></div>
                             <div><?php echo $courses_target['c_desc_' . $this->session->userdata("site_lang")]; ?></div>
                         </div>
-                        <div class=" mt-5" style="color:black"><b><?php echo $courses_target['cg_name_' . $this->session->userdata("site_lang")]; ?></b></div>
+                        <div class=" mt-5" style="color:black"><b><?php echo $this->lang->line('category'); ?> : </b><?php echo $courses_target['cg_name_' . $this->session->userdata("site_lang")]; ?></div>
                     </div>
 
 
