@@ -1,12 +1,10 @@
 <?php
-
-
-if($this->session->has_userdata('admin_id')){
+if ($this->session->has_userdata('admin_id')) {
     redirect(base_url('admin_dashboard'));
 }
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -35,9 +33,9 @@ if($this->session->has_userdata('admin_id')){
 
                             </div>
                             <form class="user" action="<?php echo base_url('admin_login_act'); ?>" method="POST">
-                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
-                                
-                            <div class="mb-5">
+                                <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
+
+                                <div class="mb-5">
                                     <label class="form-label" for="username">Username</label>
                                     <input type="text" name="username" class="form-control" id="username" placeholder="Enter username" autocomplete="false">
                                 </div>
@@ -50,30 +48,30 @@ if($this->session->has_userdata('admin_id')){
                                 </div>
                                 <div class="row d-flex flex-row align-items-center">
                                     <div class="col-md-6">
-                                    <?php echo $this->session->userdata('adm_captcha')['image'];  ?>
+                                        <?php echo $this->session->userdata('adm_captcha')['image'];  ?>
                                     </div>
                                     <div class="col-md-6">
-                                    <input class="form-control" type="text" name="captcha">
+                                        <input class="form-control" type="text" name="captcha">
                                     </div>
-                    
+
                                 </div>
                                 <?php if ($this->session->flashdata('err')) { ?>
                                     <div class="alert alert-danger alert-dismissible mt-2">
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        
-                                    <?php echo $this->session->flashdata('err'); ?>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                                        <?php echo $this->session->flashdata('err'); ?>
                                     </div>
                                 <?php } ?>
 
                                 <?php if ($this->session->flashdata('success')) { ?>
                                     <div class="alert alert-success alert-dismissible mt-2">
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        
-                                    <?php echo $this->session->flashdata('success'); ?>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                                        <?php echo $this->session->flashdata('success'); ?>
                                     </div>
                                 <?php } ?>
                                 <div class="mt-5"><button type="submit" class="btn btn-primary btn-user w-full">Sign in</button></div>
-                                
+
 
                                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
                             </form>

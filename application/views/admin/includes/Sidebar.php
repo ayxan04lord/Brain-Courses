@@ -87,11 +87,7 @@
             <div class="mt-auto"></div>
             <!-- User (md) -->
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="bi bi-person-square"></i> Account
-                    </a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" onclick="return confirm('Are you sure to logOut?')" href="<?php echo base_url('admin_logout') ?>">
                         <i class="bi bi-box-arrow-left"></i> Logout

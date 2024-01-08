@@ -69,6 +69,7 @@
             .image_main_course {
                position: relative;
                overflow: hidden;
+               border-radius: 125px 0px / 125px 0px;
             }
 
             .image_main_course::before {
@@ -100,7 +101,7 @@
                               <img src="<?php echo base_url('uploads/courses/') . $courses_item['c_img']; ?>" style="width:100%;  height:320px; object-fit:contain;backdrop-filter: blur(3px);">
                            </div>
                            <div class="text_main" style="width: 100%;">
-                              <a href="<?php echo base_url('single_course/' . $courses_item['c_id']); ?>">
+                              <a  href="<?php echo base_url('single_course/' . $courses_item['c_id']); ?>">
                                  <div class="seemore_text"><?php echo $courses_item['c_title_' . $this->session->userdata("site_lang")]; ?></div>
                               </a>
                               <div class="seemore_text" style="word-wrap: break-word;"><?php echo $courses_item['c_desc_' . $this->session->userdata("site_lang")]; ?></div>
@@ -135,9 +136,11 @@
                         <a href="<?php echo $partners_item['p_link']; ?>">
                            <div class="make_text" style="color: red; font-size:30px;"><?php echo $partners_item['p_title_' . $this->session->userdata("site_lang")]; ?></div>
                         </a>
-                        <div class="image_main_course image_8">
-                           <img src="<?php echo base_url('uploads/partners/') . $partners_item['p_img']; ?>" style="width:100%;  height:320px; object-fit:contain;backdrop-filter: blur(3px);">
-                        </div>
+                        <a target="_blank" href="<?php echo $partners_item['p_link']; ?>">
+                           <div class="image_main_course image_8">
+                              <img src="<?php echo base_url('uploads/partners/') . $partners_item['p_img']; ?>" style="width:100%;  height:320px; object-fit:contain;backdrop-filter: blur(3px);">
+                           </div>
+                        </a>
                      </div>
                   <?php endif; ?>
                <?php endforeach; ?>
@@ -162,36 +165,36 @@
                      <div class="row mx-auto">
                         <div class="card customStyle-card-form">
                            <div class="card-body">
-                              <h5 class="card-title customStyle-card-title-form"><i class="bi bi-person"></i> Contact</h5>
+                              <h5 class="card-title customStyle-card-title-form"><i class="bi bi-person"></i> <?php echo $this->lang->line('nav_contact'); ?></h5>
 
                               <form class="row g-3 needs-validation" name="contactForm" action="<?php echo base_url('contact_act'); ?>" method="POST" enctype="application/x-www-form-urlencoded">
                                  <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
 
                                  <div class="col-md-12">
-                                    <label for="validationCustom01" class="form-label">Full Name</label>
+                                    <label for="validationCustom01" class="form-label"><?php echo $this->lang->line('full_name'); ?></label>
                                     <input name="fullName" type="text" id="fullNameForm" class="form-control" value="" required autocomplete="off">
                                  </div>
                                  <div class="col-md-12">
-                                    <label for="validationCustom02" class="form-label">Phone</label>
+                                    <label for="validationCustom02" class="form-label"><?php echo $this->lang->line('phone'); ?></label>
                                     <div class="input-group has-validation">
                                        <input name="phone" type="text" id="phoneForm" class="form-control" aria-describedby="inputGroupPrepend" required autocomplete="off">
                                     </div>
                                  </div>
 
                                  <div class="col-md-12">
-                                    <label for="validationCustomUsername" class="form-label">Email</label>
+                                    <label for="validationCustomUsername" class="form-label"><?php echo $this->lang->line('email'); ?></label>
                                     <div class="input-group has-validation">
                                        <input name="email" type="text" id="emailForm" class="form-control" aria-describedby="inputGroupPrepend" required autocomplete="off">
                                     </div>
                                  </div>
 
                                  <div class="col-md-12">
-                                    <label for="validationCustom03" class="form-label">Message</label>
+                                    <label for="validationCustom03" class="form-label"><?php echo $this->lang->line('message'); ?></label>
                                     <textarea name="message" type="text" class="form-control" required autocomplete="off"></textarea>
                                  </div>
 
                                  <div class="col-12 mt-3">
-                                    <button class="btn btn-primary customStyle-btn-primary" type="submit"><i class="bi bi-send-fill"></i> Send </button>
+                                    <button class="btn btn-primary customStyle-btn-primary" type="submit"><i class="bi bi-send-fill"></i> <?php echo $this->lang->line('send'); ?> </button>
                                  </div>
 
                               </form>

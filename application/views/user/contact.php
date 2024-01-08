@@ -25,36 +25,36 @@
                      <div class="row mx-auto">
                         <div class="card customStyle-card-form">
                            <div class="card-body">
-                              <h5 class="card-title customStyle-card-title-form"><i class="bi bi-person"></i> Contact</h5>
+                              <h5 class="card-title customStyle-card-title-form"><i class="bi bi-person"></i> <?php echo $this->lang->line('nav_contact'); ?></h5>
 
                               <form class="row g-3 needs-validation" name="contactForm" method="POST" action="<?php echo base_url('contact_act'); ?>" enctype="application/x-www-form-urlencoded">
                                  <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
                                  <div class="col-md-12">
-                                    <label for="fullName" class="form-label">Full Name</label>
+                                    <label for="fullName" class="form-label"><?php echo $this->lang->line('full_name'); ?></label>
                                     <input name="fullName" type="text" id="fullNameForm" class="form-control" value="" required autocomplete="off">
                                  </div>
 
                                  <div class="col-md-12">
-                                    <label for="phone" class="form-label">Phone</label>
+                                    <label for="phone" class="form-label"><?php echo $this->lang->line('phone'); ?></label>
                                     <div class="input-group has-validation">
                                        <input name="phone" type="text" id="phoneForm" class="form-control" aria-describedby="inputGroupPrepend" required autocomplete="off">
                                     </div>
                                  </div>
 
                                  <div class="col-md-12">
-                                    <label for="validationCustomUsername" class="form-label">Email</label>
+                                    <label for="validationCustomUsername" class="form-label"><?php echo $this->lang->line('email'); ?></label>
                                     <div class="input-group has-validation">
                                        <input name="email" type="text" id="emailForm" class="form-control" aria-describedby="inputGroupPrepend" required autocomplete="off">
                                     </div>
                                  </div>
 
                                  <div class="col-md-12">
-                                    <label for="validationCustom03" class="form-label">Message</label>
+                                    <label for="validationCustom03" class="form-label"><?php echo $this->lang->line('message'); ?></label>
                                     <textarea name="message" type="text" class="form-control" required autocomplete="off"></textarea>
                                  </div>
 
                                  <div class="col-12 mt-3">
-                                    <button class="btn btn-primary customStyle-btn-primary" type="submit"><i class="bi bi-send-fill"></i> Send </button>
+                                    <button class="btn btn-primary customStyle-btn-primary" type="submit"><i class="bi bi-send-fill"></i> <?php echo $this->lang->line('send'); ?> </button>
                                  </div>
 
                               </form>

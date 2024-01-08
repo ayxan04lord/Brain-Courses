@@ -100,7 +100,7 @@ class Admin_controller extends CI_Controller
         $course_title_az = $this->input->post('course_title_az', TRUE);
         $course_title_ru = $this->input->post('course_title_ru', TRUE);
         $course_select_option = $this->input->post("course_select_option", TRUE);
-        $course_description_en = $this->input->post('course_description', TRUE);
+        $course_description_en = $this->input->post('course_description_en', TRUE);
         $course_description_az = $this->input->post('course_description_az', TRUE);
         $course_description_ru = $this->input->post('course_description_ru', TRUE);
         $course_status = $this->input->post('course_status', TRUE);
@@ -111,6 +111,18 @@ class Admin_controller extends CI_Controller
             $this->session->set_flashdata('err', 'Please, fill category!');
             redirect($_SERVER['HTTP_REFERER']);
         }
+        $data = [
+            'c_title_en' => $course_title_en,
+            'c_title_az' => $course_title_az,
+            'c_title_ru' => $course_title_ru,
+            'c_desc_en' => $course_description_en,
+            'c_desc_az' => $course_description_az,
+            'c_desc_ru' => $course_description_ru,
+            'c_img' => NULL,
+            'c_category' => $course_select_option,
+            'c_status' => str_contains($course_status, 'on') ? TRUE : FALSE
+        ];
+       
         $config['upload_path'] = './uploads/courses';
         $config["allowed_types"] = "png|PNG|jpg|JPG|jpeg|JPEG";
         $this->load->library('upload', $config);
@@ -118,6 +130,7 @@ class Admin_controller extends CI_Controller
 
 
         if ($this->upload->do_upload('file_upload')) {
+            
             if (
                 !empty($course_title_en) &&
                 !empty($course_title_az) &&
@@ -127,6 +140,7 @@ class Admin_controller extends CI_Controller
                 !empty($course_description_az) &&
                 !empty($course_description_ru)
             ) {
+              
                 $upload_slider_img = $this->upload->data();
                 $data = [
                     'c_title_en' => $course_title_en,
@@ -180,6 +194,9 @@ class Admin_controller extends CI_Controller
     {
         $data['categories_list'] = $this->Admin_model->category_get_all();
         $data["course_data"] = $this->Admin_model->courses_get_id($id);
+        if(empty($data['course_data'])){
+            redirect(base_url('admin_course_list'));
+        }
         $this->load->view('admin/course/Edit', $data);
     }
 
@@ -365,6 +382,9 @@ class Admin_controller extends CI_Controller
     public function admin_slider_edit($id)
     {
         $data["slider_data"] = $this->Admin_model->slider_get_id($id);
+        if(empty($data['slider_data'])){
+            redirect(base_url('admin_slider_list'));
+        }
         $this->load->view('admin/slider/Edit', $data);
     }
 
@@ -528,6 +548,9 @@ class Admin_controller extends CI_Controller
     public function admin_partners_edit($id)
     {
         $data["partners_data"] = $this->Admin_model->partners_get_id($id);
+        if(empty($data['partners_data'])){
+            redirect(base_url('admin_partners_list'));
+        }
         $this->load->view('admin/partners/Edit', $data);
     }
 
@@ -644,6 +667,9 @@ class Admin_controller extends CI_Controller
     public function admin_category_edit($id)
     {
         $data["category_data"] = $this->Admin_model->category_get_id($id);
+        if(empty($data['category_data'])){
+            redirect(base_url('admin_category_list'));
+        }
         $this->load->view('admin/category/Edit', $data);
     }
 

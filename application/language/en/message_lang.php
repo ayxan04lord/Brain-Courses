@@ -8,4 +8,9 @@ $lang['courses_title'] = 'OUR COURSES';
 $lang['ft_links'] = 'LINKS';
 $lang['ft_text1'] = 'We will be glad to see you in our course. Our center is located at 6/17 Sulh street, Sumgayit city.';
 $lang['category'] = 'Category';
+$lang['full_name'] = 'Full Name';
+$lang['phone'] = 'Phone';
+$lang['email'] = 'Email';
+$lang['message'] = 'Message';
+$lang['send'] = 'Send';
 

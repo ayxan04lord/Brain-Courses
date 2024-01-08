@@ -61,13 +61,16 @@
                                 foreach ($courses_data as $course_item) : ?>
                                     <tr>
                                         <td><?= $id_courses++; ?></td>
-                                        <td><?= $course_item["c_title_en"]; ?></td>
+                                        <td>
+                                            <p class="text-truncate" style="max-width: 82px;"><?= $course_item["c_title_en"]; ?></p>
+                                        </td>
+                                        
                                         <td>
                                             <p><?= substr($course_item["c_desc_en"], 0, 20 ) ; ?>...</p>
                                         </td>
                                         <td><?= $course_item["cg_name_en"]; ?></td>
                                         <td><?= $course_item["c_status"] ? "Active" : "Deactive"; ?></td>
-                                        <td><a target="_blank" href="<?php echo base_url('uploads/courses/' . $course_item['c_img']); ?>"><img style="min-width: 150px;" src="<?php echo base_url('uploads/courses/' . $course_item['c_img']); ?>" alt="" style="object-fit: cover; object-position:top; width:150px; height:150px; aspect-ratio:initial;"></a></td>
+                                        <td style="max-width: 150px;"><a target="_blank" href="<?php echo base_url('uploads/courses/' . $course_item['c_img']); ?>"><img  src="<?php echo base_url('uploads/courses/' . $course_item['c_img']); ?>" alt="" style="object-fit: contain; object-position:top; width:100%;  aspect-ratio:initial;"></a></td>
 
 
                                         <td>
