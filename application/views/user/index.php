@@ -42,8 +42,6 @@
                      </div>
                   </div>
                <?php endforeach; ?>
-
-
             </div>
             <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
                <i class="fa fa-arrow-left" style="font-size:24px"></i>
