@@ -21,4 +21,4 @@
 
 ## Authors
 
-- [@ayxansumqayit](https://github.com/ayxansumqayit)
+- [@ayxan04lord](https://github.com/ayxan04lord)
